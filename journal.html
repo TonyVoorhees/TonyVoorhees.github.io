@@ -1,0 +1,15 @@
+---
+layout: default
+---
+  <div class="container">
+    <!-- <h2 class="display-3">A Journal <small>about interactive design</small></h2> -->
+    <ul class="journal-list">
+      {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          {{ post.excerpt }}
+        </li>
+        <hr>
+      {% endfor %}
+    </ul>
+  </div>

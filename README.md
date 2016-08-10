@@ -1,6 +1,5 @@
-# Tony Voorhees Website Hell
+# Tony Voorhees Bootstrap Website
 
-Yew!
 
 ## Setup
 
@@ -16,4 +15,5 @@ Here are a few quick steps to be up and running:
 ## References
 
 - [Using Bootstrap CSS with Jekyll](http://veithen.github.io/2015/03/26/jekyll-bootstrap.html)
-- [Thrasher](http://www.thrashermagazine.com)
+- [Bootstrap v4.0.0-alpha.2](http://v4-alpha.getbootstrap.com/)
+- [Tony Voorhees](http://www.tonyvoorhees.com)
