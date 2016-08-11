@@ -48,6 +48,11 @@ header { margin-bottom: 1em; }
   padding: 125px 0;
 }
 #tv-intro a { color: #fff; }
+@media screen and (max-width: 480px) {
+  #tv-intro {
+    padding: 50px 0;
+  }
+}
 .tv-logo {
   padding-right: 50px;
   padding-bottom: 60px;
@@ -60,9 +65,9 @@ header { margin-bottom: 1em; }
     padding: 0px 45px 20px 30px;
   }
   #tv-intro .display-3 { font-size: 2.8em; }
-  .lead { font-size: 1.1em; }
+  .lead { font-size: 1.5em; }
   .tv-intro-quote {
-    font-size: 1em;
+    font-size: 1.5em;
     padding: .5em;
   }
   .intro-cta { padding: 0; }
@@ -70,26 +75,55 @@ header { margin-bottom: 1em; }
 
 /* solutions -------------------- */
 #tv-solutions .fa { padding-bottom: .5em; }
+#tv-solutions.lead { padding: 0 50px;}
 .tv-service { padding: 50px 20px; }
+.popover {
+    font-size: 1.1em;
+    padding: 1em;
+    color: #ffb400;
+}
+
 .tv-profile-pic { margin-bottom: 2em; }
 
 /* values -------------------- */
+.tv-values-list { padding: 0 99px; }
+@media screen and (max-width: 480px) {
+  .tv-values-list {
+    padding: 0 24px;
+  }
+}
 .tv-values-list h3 { margin: 1em 0; text-shadow: 1px 1px #fff; }
 .tv-values-list p { margin-bottom: 3em; font-weight: 400; }
 
 /* experience -------------------- */
 .tv-recommendations { padding-top: 2em; }
 
-#carousel-recommendations  { padding-bottom: 80px;}
+#carousel-recommendations  { height: 420px; }
 #carousel-recommendations .carousel-indicators li { background-color: #eee; }
 #carousel-recommendations .carousel-indicators .active { background-color: #00bfff; }
+@media screen and (max-width: 480px) {
+	#carousel-recommendations  {
+    height: 450px;
+  }
+}
+.carousel-indicators {
+  position: relative;
+  padding: 0;
+  margin: auto;
+  left: 0;
+}
+
 /* work -------------------- */
 .tv-project {
   text-align: left;
   padding: 50px 0;
+  font-size: 1.2em;
 }
 .tv-project-date { margin-bottom: 50px; }
-.tv-project-details { padding-top: .5em; }
+.tv-project-details {
+  padding-top: 1em;
+  line-height: 2em;
+}
 
 //  --------------------  //
 /* JOURNAL -------------------- */
@@ -270,4 +304,34 @@ ul.icon-nav .label { display: none; }
 	-webkit-animation-duration:.5s;
 	-moz-animation-duration:.5s;
 	animation-duration:.5s;
+}
+/* down arrow bounce -------------------- */
+.bounce {
+ animation: bounce 2s infinite;
+ -webkit-animation: bounce 2s infinite;
+ -moz-animation: bounce 2s infinite;
+ -o-animation: bounce 2s infinite;
+}
+
+@-webkit-keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+ 40% {-webkit-transform: translateY(-30px);}
+ 60% {-webkit-transform: translateY(-15px);}
+}
+
+@-moz-keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+ 40% {-moz-transform: translateY(-30px);}
+ 60% {-moz-transform: translateY(-15px);}
+}
+
+@-o-keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+ 40% {-o-transform: translateY(-30px);}
+ 60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+ 40% {transform: translateY(-30px);}
+ 60% {transform: translateY(-15px);}
 }

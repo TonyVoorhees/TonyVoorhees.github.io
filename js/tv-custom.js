@@ -15,3 +15,8 @@ $(document).ready(function(){
 		$(this).toggleClass('open');
 	});
 });
+
+// popover toggle
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
