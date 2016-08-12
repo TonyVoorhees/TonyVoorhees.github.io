@@ -168,7 +168,7 @@ ul.icon-nav {
 	cursor: default;
 	list-style: none;
   padding:0;
-  margin: 1.5em 0;
+  margin-bottom: 1em;
 }
 ul.icon-nav li {
 	display: inline-block;
@@ -176,8 +176,6 @@ ul.icon-nav li {
   padding-left: .2em;
 }
 ul.icon-nav li:last-child { padding-right: 0; }
-ul.icon-nav li .icon:before { font-size: 1.5em; }
-ul.icon-nav .label { display: none; }
 
 //  --------------------  //
 /* MODALS -------------------- */
@@ -318,31 +316,9 @@ ul.icon-nav .label { display: none; }
 }
 /* down arrow bounce -------------------- */
 .bounce {
- animation: bounce 2s infinite;
- -webkit-animation: bounce 2s infinite;
- -moz-animation: bounce 2s infinite;
- -o-animation: bounce 2s infinite;
-}
-
-@-webkit-keyframes bounce {
- 0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
- 40% {-webkit-transform: translateY(-30px);}
- 60% {-webkit-transform: translateY(-15px);}
-}
-
-@-moz-keyframes bounce {
- 0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
- 40% {-moz-transform: translateY(-30px);}
- 60% {-moz-transform: translateY(-15px);}
-}
-
-@-o-keyframes bounce {
- 0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
- 40% {-o-transform: translateY(-30px);}
- 60% {-o-transform: translateY(-15px);}
-}
-@keyframes bounce {
- 0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
- 40% {transform: translateY(-30px);}
- 60% {transform: translateY(-15px);}
+  -webkit-animation-duration:.5s;
+	-moz-animation-duration:.5s;
+	animation-duration:.5s;
+  -webkit-animation-iteration-count: 10;
+  animation-iteration-count: 10;
 }
