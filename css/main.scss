@@ -30,7 +30,7 @@ header { margin-bottom: 1em; }
 .sub-header h2 { margin-bottom: .5em; }
 
 /* scrollto IDs -------------------- */
-#tv-intro, #tv-solutions, #tv-values, #tv-experience, #tv-brands, #tv-work, #tv-outro {
+#tv-intro, #tv-solutions, #tv-values, #tv-experience, #tv-brands, #tv-outro {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -39,6 +39,7 @@ header { margin-bottom: 1em; }
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
+
 /* intro -------------------- */
 #tv-intro {
   background-image: radial-gradient(circle closest-corner at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('../images/hero/lafayette_park_sf.jpg');
@@ -102,7 +103,7 @@ header { margin-bottom: 1em; }
 /* experience -------------------- */
 .tv-recommendations { padding-top: 2em; }
 
-#carousel-recommendations  { height: 300px; }
+#carousel-recommendations  { height: 380px; }
 #carousel-recommendations .carousel-indicators li { background-color: #eee; }
 #carousel-recommendations .carousel-indicators .active { background-color: #00bfff; }
 @media screen and (max-width: 480px) {
