@@ -100,7 +100,7 @@ header { }
 #carousel-recommendations .carousel-indicators .active { background-color: #00bfff; }
 @media screen and (max-width: 480px) {
 	#carousel-recommendations  {
-    height: 640px;
+    height: 600px;
   }
 }
 .carousel-indicators {
@@ -220,7 +220,7 @@ ul.icon-nav li:last-child { padding-right: 0; }
 //  --------------------  //
 /* NAVBAR MODAL NAV  -------------------- */
 #nav-logo { position: fixed; z-index: 2000; }
-.modal-nav.nav { margin: 100px 0; }
+.modal-nav.nav { margin: 50px 0; }
 .navbar-color {
   background-color: #eee;
   height: 60px;
