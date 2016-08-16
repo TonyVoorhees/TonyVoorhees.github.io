@@ -13,7 +13,7 @@ hr {
   height:1px;
 }
 
-header { margin-bottom: 1em; }
+header { }
 @media screen and (max-width: 480px) {
   header h1 {
     font-size: 1.9em;
@@ -30,15 +30,17 @@ header { margin-bottom: 1em; }
 .sub-header h2 { margin-bottom: .5em; }
 
 /* scrollto IDs -------------------- */
-#tv-intro, #tv-solutions, #tv-values, #tv-experience, #tv-brands, #tv-outro {
+#tv-intro, #tv-solutions, #tv-experience, #tv-brands, #tv-outro {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
 }
-#tv-values, #tv-brands, #tv-outro {
+#tv-brands, #tv-outro {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
+/* padding for each sub-page for header nav */
+.tv-post, .tv-values, .tv-projects, .tv-styleguide, .tv-journal { padding-top: 4.5em; }
 
 /* intro -------------------- */
 #tv-intro {
@@ -90,16 +92,6 @@ header { margin-bottom: 1em; }
 
 .tv-profile-pic { margin-bottom: 2em; }
 
-/* values -------------------- */
-.tv-values-list { padding: 0 99px; }
-@media screen and (max-width: 480px) {
-  .tv-values-list {
-    padding: 0 24px;
-  }
-}
-.tv-values-list h3 { margin: 1em 0; text-shadow: 1px 1px #fff; }
-.tv-values-list p { margin-bottom: 3em; font-weight: 400; }
-
 /* experience -------------------- */
 .tv-recommendations { padding-top: 2em; }
 
@@ -108,7 +100,7 @@ header { margin-bottom: 1em; }
 #carousel-recommendations .carousel-indicators .active { background-color: #00bfff; }
 @media screen and (max-width: 480px) {
 	#carousel-recommendations  {
-    height: 400px;
+    height: 640px;
   }
 }
 .carousel-indicators {
@@ -138,14 +130,23 @@ header { margin-bottom: 1em; }
   line-height: 2.4em;
 }
 //  --------------------  //
+/* VALUES -------------------- */
+//  --------------------  //
+.tv-values { }
+
+.tv-values-list h3 { margin: 1em 0; text-shadow: 1px 1px #fff; }
+.tv-values-list p { margin-bottom: 3em; font-weight: 400; }
+
+
+//  --------------------  //
 /* JOURNAL -------------------- */
 //  --------------------  //
-.journal-list { margin: 2em 0; font-weight: 300;}
+.journal-list { margin-bottom: 2em; font-weight: 300;}
 .journal-list li {
 	padding-bottom: 2em;
 }
 .journal-list li a {
-  font-size: 3em;
+  font-size: 3.5rem;
   display:block;
   line-height: normal;
 }
@@ -184,7 +185,7 @@ ul.icon-nav li:last-child { padding-right: 0; }
 .modal-open .modal {
   padding-left: 0px !important;
   padding-right: 0px !important;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .modal-dialog {
   width: 100%;
@@ -212,17 +213,29 @@ ul.icon-nav li:last-child { padding-right: 0; }
   background-color: transparent;
   border: none;
 }
+.modal-backdrop {
+    z-index: 1000;
+}
 
 //  --------------------  //
-/* MODAL NAVIGATION -------------------- */
-.modal-nav  { width: 34px; }
+/* NAVBAR MODAL NAV  -------------------- */
+#nav-logo { position: fixed; z-index: 2000; }
+.modal-nav.nav { margin: 100px 0; }
+.navbar-color {
+  background-color: #eee;
+  height: 60px;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
 
 /* nav modal close button animated */
-#nav-icon4 {
-  width: 30px;
+#navbar-icon, #navbar-icon-splash {
+  width: 32px;
   height: 24px;
   position: fixed;
-  margin-top: 14px;
+  margin-top: 12px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -234,14 +247,15 @@ ul.icon-nav li:last-child { padding-right: 0; }
   cursor: pointer;
   z-index: 2000;
   outline: 0;
+  right: 16px;
 }
-#nav-icon4 span {
+#navbar-icon span, #navbar-icon-splash span {
   display: block;
   position: absolute;
   height: 3px;
   width: 100%;
-  background: #ff2c7e;
-  border-radius: 4px;
+  background: #00bfff;
+  border-radius: 2px;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -253,28 +267,28 @@ ul.icon-nav li:last-child { padding-right: 0; }
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
 }
-#nav-icon4 span:nth-child(1) {
+#navbar-icon span:nth-child(1), #navbar-icon-splash span:nth-child(1) {
   top: 0px;
   -webkit-transform-origin: left center;
   -moz-transform-origin: left center;
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-#nav-icon4 span:nth-child(2) {
+#navbar-icon span:nth-child(2), #navbar-icon-splash span:nth-child(2) {
   top: 9px;
   -webkit-transform-origin: left center;
   -moz-transform-origin: left center;
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-#nav-icon4 span:nth-child(3) {
+#navbar-icon span:nth-child(3), #navbar-icon-splash span:nth-child(3) {
   top: 18px;
   -webkit-transform-origin: left center;
   -moz-transform-origin: left center;
   -o-transform-origin: left center;
   transform-origin: left center;
 }
-#nav-icon4.open span:nth-child(1) {
+#navbar-icon.open span:nth-child(1), #navbar-icon-splash.open span:nth-child(1) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
@@ -282,19 +296,18 @@ ul.icon-nav li:last-child { padding-right: 0; }
   top: -2px;
   left: 4px;
 }
-#nav-icon4.open span:nth-child(2) {
+#navbar-icon.open span:nth-child(2), #navbar-icon-splash.open span:nth-child(2) {
   width: 0%;
   opacity: 0;
 }
-#nav-icon4.open span:nth-child(3) {
+#navbar-icon.open span:nth-child(3), #navbar-icon-splash.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  top: 21px;
+  top: 20px;
   left: 4px;
 }
-
 //  --------------------  //
 /* ANIMATION -------------------- */
 /* fade-in transition -------------------- */
