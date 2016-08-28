@@ -13,7 +13,6 @@ hr {
   height:1px;
 }
 
-header { }
 @media screen and (max-width: 480px) {
   header h1 {
     font-size: 1.9em;
@@ -22,7 +21,6 @@ header { }
 }
 
 .font-weight-normal { font-weight: 300; }
-.row { margin: 0; }
 
 /* sub headers -------------------- */
 .sub-header { margin-bottom: 15px; }
@@ -35,7 +33,7 @@ header { }
   padding-top: 100px;
   padding-bottom: 100px;
 }
-#tv-brands, #tv-outro {
+#tv-footer, #tv-brands, #tv-outro {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -44,6 +42,9 @@ header { }
 
 /* intro -------------------- */
 #tv-intro {
+  background: #2c3e50; /* fallback for old browsers */
+  background: -webkit-linear-gradient(#2c3e50 , #3498db); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(#2c3e50 , #3498db); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-image: radial-gradient(circle closest-corner at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('../images/hero/lafayette_park_sf.jpg');
   background-position: center right;
   background-attachment: scroll;
@@ -55,24 +56,26 @@ header { }
   padding: 125px 0;
 }
 #tv-intro a { color: #fff; }
-@media screen and (max-width: 480px) {
-  #tv-intro {
-    padding: 50px 0;
-  }
-}
+
 .tv-logo {
-  padding-right: 50px;
-  padding-bottom: 60px;
+  padding: 10px 50px 60px 0 ;
 }
 .tv-intro-quote { font-size: 1.2em; padding: 1.4em .5em; }
 .intro-cta { padding: 1em 0; }
 
 @media screen and (max-width: 480px) {
 	.tv-logo {
-    padding: 0px 45px 20px 30px;
+    padding: 10px 45px 20px 30px;
   }
-  #tv-intro .display-3 { font-size: 2.8em; }
-  .lead { font-size: 1.5em; }
+  #tv-intro {
+    padding: 50px 0;
+  }
+  #tv-intro .display-3 {
+    font-size: 2.8em;
+  }
+  .lead {
+    font-size: 1.25em;
+  }
   .tv-intro-quote {
     font-size: 1.5em;
     padding: .5em;
@@ -83,11 +86,9 @@ header { }
 /* solutions -------------------- */
 #tv-solutions .fa { padding-bottom: .5em; }
 #tv-solutions.lead { padding: 0 50px;}
-.tv-service { padding: 50px 20px; }
-.popover {
-    font-size: 1.1em;
-    padding: 1em;
-    color: #ffb400;
+.tv-service { padding: 0 20px; }
+@media screen and (max-width: 890px) {
+  .tv-service { padding-bottom: 50px; }
 }
 
 .tv-profile-pic { margin-bottom: 2em; }
@@ -95,10 +96,15 @@ header { }
 /* experience -------------------- */
 .tv-recommendations { padding-top: 2em; }
 
-#carousel-recommendations  { height: 380px; }
+#carousel-recommendations  { height: 420px; }
 #carousel-recommendations .carousel-indicators li { background-color: #eee; }
 #carousel-recommendations .carousel-indicators .active { background-color: #00bfff; }
 @media screen and (max-width: 480px) {
+	#carousel-recommendations  {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 360px) {
 	#carousel-recommendations  {
     height: 600px;
   }
@@ -113,44 +119,60 @@ header { }
 /* work -------------------- */
 .tv-project {
   text-align: left;
-  padding: 50px 0;
+  padding: 50px 15px;
 }
 .tv-project-date { margin-bottom: 50px; }
-.tv-project-details {
-  padding-top: 1em;
-  line-height: 2em;
-}
+.tv-project-details { padding-top: 1em; }
+
 /* outro -------------------- */
 .tv-email { margin-bottom: 50px; }
+
+/* outro -------------------- */
+#tv-footer { padding: 50px 0; text-align: center; }
 .tv-footer-info {
-  max-width: 480px;
-  margin: auto;
-  padding-bottom: 10px;
+  max-width: 460px;
+  text-align: center;
   font-size: .7em;
-  line-height: 2.4em;
+  margin: auto;
+  margin-bottom: 10px;
 }
+
 //  --------------------  //
 /* VALUES -------------------- */
 //  --------------------  //
-.tv-values { }
+.tv-values { padding-bottom: 3em; }
+.tv-value-callout { padding-right: 2.5em; }
+.tv-value-callout h3 { padding: 1em 0; text-shadow: 1px 1px #fff; }
+.tv-value-callout p { margin-bottom: 3em; font-weight: 400; }
 
-.tv-values-list h3 { margin: 1em 0; text-shadow: 1px 1px #fff; }
-.tv-values-list p { margin-bottom: 3em; font-weight: 400; }
+@media screen and (max-width: 768px) {
+  .tv-value-callout { padding: 0 15px; }
+  .tv-value-callout h3 { padding: .5em 0;}
 
-
+}
 //  --------------------  //
 /* JOURNAL -------------------- */
 //  --------------------  //
+.journal-list, .tv-post-content { min-height:860px; }
+
 .journal-list { margin-bottom: 2em; font-weight: 300;}
-.journal-list li {
-	padding-bottom: 2em;
-}
+.journal-list li { padding-bottom: 2em; }
 .journal-list li a {
   font-size: 3.5rem;
   display:block;
   line-height: normal;
 }
+.author-callout { margin: 100px 0; }
+.author-callout img { padding: 10px 0; }
 
+.tv-post-content ul {
+  margin:25px 0;
+  margin-left: 50px;
+  list-style: circle;
+}
+@media screen and (max-width: 768px) {
+  .tv-post-content ul { margin-left: 25px; }
+}
 //  --------------------  //
 /* STYLE GUIDE -------------------- */
 //  --------------------  //
@@ -163,6 +185,11 @@ header { }
 .width-max-980 {
   max-width: 980px;
   margin: auto;
+}
+.popover {
+    font-size: 1.1em;
+    padding: 1em;
+    color: #ffb400;
 }
 
 // Main Nav Icons -------------------- */

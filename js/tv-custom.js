@@ -9,14 +9,21 @@ $(function() {
     });
 });
 
-// nav modal toggle
-$(document).ready(function(){
-	$('#nav-icon4').click(function(){
-		$(this).toggleClass('open');
-	});
-});
-
 // popover toggle
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+// main nav modal toggle
+$(document).ready(function(){
+	$('#navbar-icon').click(function(){
+		$(this).toggleClass('open');
+    $("nav").toggleClass("navbar-color");
+	});
+
+  // splash nav modal toggle
+  $('#navbar-icon-splash').click(function(){
+    $(this).toggleClass('open');
+  });
+
+});
