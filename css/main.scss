@@ -52,12 +52,13 @@ hr {
   -o-background-size: cover;
   color: #fff;
   padding: 125px 0;
-  height: 100vh;
 }
 #tv-intro a { color: #fff; }
 
-#tv-outro {
-  height: 100vh;
+@media screen and (min-width: 480px) {
+  #tv-outro {
+    height: 100vh;
+  }
 }
 
 .tv-logo {
@@ -145,6 +146,12 @@ hr {
 }
 .project-tout {
   padding: 15px;
+}
+
+@media screen and (max-width: 480px) {
+  .project-tout {
+    margin: 0 15px;
+  }
 }
 
 /* outro -------------------- */
@@ -306,7 +313,7 @@ hr {
   left:0;
   right:0;
   margin: auto;
-  width:80%;
+  width:50%;
   height: 30%;
 }
 .hvr-overlay a.hvr-overlay-info {
