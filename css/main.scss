@@ -28,7 +28,7 @@ hr {
 .sub-header h2 { margin-bottom: .5em; }
 
 /* scrollto IDs -------------------- */
-#tv-intro, #tv-solutions, #tv-experience, #tv-brands, #tv-outro {
+#tv-intro, #tv-solutions, #tv-experience, #tv-brands, #tv-outro, {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -38,7 +38,7 @@ hr {
   border-bottom: 1px solid #ddd;
 }
 /* padding for each sub-page for header nav */
-.tv-post, .tv-values, .tv-styleguide, .tv-journal { padding-top: 4.5em; }
+.tv-post, .tv-values, .tv-styleguide, .tv-journal, .tv-project-study { padding-top: 5em; }
 
 /* intro -------------------- */
 #tv-intro {
@@ -73,7 +73,7 @@ hr {
 
 @media screen and (max-width: 480px) {
 	.tv-logo {
-    padding: 10px 45px 20px 30px;
+    padding: 0 45px 20px 30px;
   }
   #tv-intro {
     padding: 50px 0;
