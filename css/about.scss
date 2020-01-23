@@ -7,33 +7,12 @@
 
 
 /* TV BS OVR  -------------------- */
-html,
-body {
-  height: 100%;
-  background-color: #000;
-}
-
-body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-}
-
 p { font-weight: 300; letter-spacing: .03em; }
 ul { list-style-type: none; margin: 0; padding: 0 !important; }
 hr {
   border:none;
   border-top:1px dotted #31c9fc;
   height:1px;
-}
-.cover, .mastfoot {
-  padding: 0 15%;
 }
 
 @media screen and (max-width: 480px) {
@@ -52,6 +31,7 @@ hr {
 
 /* scrollto IDs -------------------- */
 #tv-intro, #tv-solutions, #tv-experience, #tv-brands, #tv-outro, {
+  text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -64,35 +44,22 @@ hr {
 
 /* intro -------------------- */
 #tv-intro {
-  background: #000; /* fallback for old browsers */
-  background-image: radial-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, 1)), url('../images/tv/tv_profile_beton.jpg');
-  background-position: 50% 50%;
+  background: #2c3e50; /* fallback for old browsers */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('../images/hero/lafayette_park_sf.jpg');
+  background-position: center right;
   background-attachment: scroll;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  padding: 120px 0;
+  color: #fff;
+  padding: 125px 0;
 }
-#tv-intro a { color: #31c9fc; }
+#tv-intro a { color: #fff; }
 
-#tv-intro h1.display-1 {
-  font-size: 4.2em;
-  font-family: nobel, sans-serif;
-  font-weight: 800;
-  font-style: normal;
-  text-transform: uppercase;
-  margin-bottom: 26px;
-}
-@media screen and (max-width: 980px) {
-  .cover, .mastfoot {
-    padding: 0 11%;
-  }
-
-}
 @media screen and (min-width: 480px) {
   #tv-outro {
-    text-align: center;
+    height: 100vh;
   }
 }
 
@@ -393,10 +360,12 @@ hr {
 ul.icon-nav {
 	cursor: default;
 	list-style: none;
-  padding:0;
+  padding: 0;
   margin: 1.5em 0;
 }
-ul.icon-nav li { display: inline-block; }
+ul.icon-nav li {
+  display: inline-block;
+}
 ul.icon-nav li:last-child { padding-right: 0; }
 
 //  --------------------  //
@@ -555,26 +524,4 @@ ul.icon-nav li:last-child { padding-right: 0; }
 	animation-duration:.5s;
   -webkit-animation-iteration-count: 10;
   animation-iteration-count: 10;
-}
-
-/* COVER */
-/*
- * Globals
- */
-
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
 }
