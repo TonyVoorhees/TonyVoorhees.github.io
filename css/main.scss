@@ -77,11 +77,9 @@ hr {
 #tv-intro a { color: #31c9fc; }
 
 #tv-intro h1.display-1 {
-  font-size: 4.2em;
-  font-family: nobel, sans-serif;
-  font-weight: 800;
+  font-family: oswald, sans-serif;
   font-style: normal;
-  text-transform: uppercase;
+  font-weight: 700;
   margin-bottom: 26px;
 }
 @media screen and (max-width: 980px) {
@@ -259,11 +257,6 @@ hr {
 .pad-tb-100 {
   padding-top: 100px;
   padding-bottom: 100px;
-}
-.nobel-txt {
-  font-family: nobel, sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 .photo-cred {
   text-align: right;
