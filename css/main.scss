@@ -244,6 +244,7 @@ hr {
 /* HELPERS -------------------- */
 .light-gray-bg { background-color: #eee; }
 .width-50pc { width: 50%; }
+
 .width-max-980 {
   max-width: 980px;
   margin: auto;
@@ -266,6 +267,8 @@ hr {
     padding: 1em;
     color: #ffb400;
 }
+.cover button { margin: 0 .5em .5em 0; }
+
 .drop-shadow-right-1 {
   box-shadow: 16px 8px 40px #B6B6B9;
 }
