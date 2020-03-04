@@ -64,7 +64,7 @@ hr {
 /* intro -------------------- */
 #tv-intro {
   background: #000; /* fallback for old browsers */
-  background-image: radial-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, 1)), url('../images/tv/tv_profile_beton.jpg');
+  background-image: radial-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 1)), url('../images/tv/tv_profile_beton.jpg');
   background-position: 50% 50%;
   background-attachment: scroll;
   background-size: cover;
@@ -83,7 +83,7 @@ hr {
 }
 @media screen and (max-width: 980px) {
   .cover, .mastfoot {
-    padding: 0 11%;
+    padding: 0 4%;
   }
 
 }
@@ -242,6 +242,11 @@ hr {
 
 //  --------------------  //
 /* HELPERS -------------------- */
+.oswald-font {
+  font-family: oswald, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
 .light-gray-bg { background-color: #eee; }
 .width-50pc { width: 50%; }
 
@@ -267,7 +272,7 @@ hr {
     padding: 1em;
     color: #ffb400;
 }
-.cover button { margin: 0 .5em .5em 0; }
+.cover button { margin: .5em .5em .5em 0; }
 
 .drop-shadow-right-1 {
   box-shadow: 16px 8px 40px #B6B6B9;
