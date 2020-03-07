@@ -3,20 +3,20 @@ layout: about
 ---
 
 	<div id="tv-intro" class="container-fluid light-gray-bg">
+		<span class="home-btn"><a class="btn btn-lg" href="/"><i class="fas fa-home"></i></a></span>
     <img class="img-fluid m-x-auto d-block tv-logo" src="images/tv/tv_logo_dark_bg.svg" alt="Tony Voorhees" width="400">
 		<h1 class="display-3">Tony Voorhees</h1>
-
 		<p class="lead font-weight-bold">Designer • Director • Developer</p>
-  	<p class="text-success">Currently available for new projects.</p>
+  	<p class="text-success">Currently pursuing full-time opportunities</p>
 		<a class="btn btn-lg page-scroll intro-cta wow bounce" href="#tv-solutions"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 	</div><!-- /#tv-intro-->
 
   <div id="tv-solutions" class="container">
     <div class="sub-header">
-			<img class="img-circle img-fluid m-x-auto d-block tv-profile-pic wow zoomIn" src="/images/tv/tv02.png" alt="Tony Voorhees" width="250">
+			<img class="img-circle img-fluid m-x-auto d-block tv-profile-pic wow zoomIn" src="/images/tv/tv03.png" alt="Tony Voorhees" width="250">
 			<h2 class="display-4">Welcome</h2>
-			<p class="lead">I'm a designer who has worn many hats in the past –product designer, creative director, front-end developer– but my passion lies in motivating and inspiring others.</p>
-			<p class="lead">My expertise focuses on three main disciplines.</p>
+			<p class="lead">I'm a designer who can wear many hats, like graphic designer, product designer, creative director, front-end developer, even recently bakery manager. Having worked in various roles has shaped my knowledge as well as my character in viewing situations from multiple perspectives. It has taught me empathy in how one position influences another and the nuances that can arise. It's these subtleties that led me into so many related fields of practice and is the primary reason why I love being a designer. Plus, collaborating across disciplines is pretty enjoyable.</p>
+			<p class="lead">My expertise focuses on three main spheres.</p>
 		</div>
     <div class="row">
 			<div class="col-lg-4 tv-service">
@@ -24,18 +24,21 @@ layout: about
         <h3>Creative Direction</h3>
 				<hr class="width-50pc">
         <p>Leading by example, I seek to find balance within a team by establishing guidelines and principles that are straightforward to understand.</p>
+				<!-- <a href="" class="btn btn-outline-primary disabled">Thoughtful leadership</a> -->
 			</div>
       <div class="col-lg-4 tv-service">
         <i class="fa fa-sitemap fa-5x text-success" aria-hidden="true"></i>
         <h3>Interactive Design</h3>
 				<hr class="width-50pc">
         <p>To create a more enjoyable user experience, I believe in promoting a unified design system that allows teams to collaborate effectively.</p>
+				<!-- <a href="" class="btn btn-outline-primary disabled">Why a design system</a> -->
       </div>
       <div class="col-lg-4 tv-service">
         <i class="fa fa-fingerprint fa-5x text-success" aria-hidden="true"></i>
         <h3>UX/UI Design</h3>
 				<hr class="width-50pc">
         <p>Building consistency across touchpoints is imperative. I consider quantitative and qualitative data in equal parts for better user experiences.</p>
+				<!-- <a href="" class="btn btn-outline-primary disabled">My process</a> -->
       </div>
     </div>
   </div><!-- /#tv-solutions -->
@@ -65,18 +68,13 @@ layout: about
     </div><!-- /.row -->
   </div><!-- /#tv-brands -->
 
-  <div id="tv-experience" class="container">
+  <div id="tv-experience" class="container-fluid">
     <div class="sub-header width-max-980">
-      <h2 class="display-4">Experience</h2>
-      <p>Working in agencies, as well as startups, has given me an extensive background in designing and developing user-centered products at scale. It's my experience coupled with advancing technology that has fueled my enthusiasm for design work.</p>
+      <h2 class="display-4">Projects</h2>
+      <p>Working in agencies, as well as startups, has given me an extensive background in delivering user-centered designs at scale.</p>
     </div>
 
-		<div id="tv-work" class="tv-project-touts">
-			<div class="row">
-				<div class="tv-project-date text-xs-center">
-					<h3 class="text-success"><i><small>Select Projects</small></i></h3>
-				</div>
-			</div>
+		<div id="tv-projects" class="tv-project-touts">
 			<div class="row">
 				<div class="col-lg-4 project-tout">
 					<div class="hvr-grow-shadow">
@@ -141,11 +139,17 @@ layout: about
 		    	</div>
 	      </div><!-- /.project-tout -->
 			</div>
+			<br>
+			<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href = 'https://tonyvoorhees.myportfolio.com/work';">View portfolio</button>
 	  </div><!-- /.tv-project-touts -->
-
-    <div class="row">
+	</div><!-- /#tv-experience -->
+	<div id="tv-testimonials" class="container-fluid light-gray-bg ">
+		<div class="sub-header width-max-980">
+      <h2 class="display-4">References</h2>
+    </div>
+    <div class="row width-max-980">
 			<div class="col-md-1"></div>
-			<div class="col-md-10 tv-recommendations">
+			<div class="col-md-10">
 				<div id="carousel-recommendations" class="carousel slide" data-ride="carousel" wrap="true" data-interval="6000">
 				  <div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
@@ -184,19 +188,13 @@ layout: about
 			</div><!-- /.tv-recommendations -->
 			<div class="col-md-1"></div>
     </div><!-- /.row -->
+	</div><!-- /#tv-recommendations -->
 
-		<div class="row">
-			<div class="col-lg-4"></div>
-			<div class="col-lg-4">
-				<h3>Work History</h3>
-				<hr class="width-50pc">
-			</div>
-			<div class="col-lg-4"></div>
-		</div><!-- /.row -->
-		<div class="row width-max-980">
-			<p>Having collaborated with so many talented people in a wide range of cross-functional teams over the years has allowed me to look at the bigger picture of how I contribute. Understanding my previous roles plays a vital part in my future successes and enables me to undertake more complex projects. I welcome new opportunities to learn and improve as a designer.</p>
-		</div><!-- /.row -->
-
+	<div id="tv-history" class="container">
+		<div class="sub-header width-max-980">
+      <h2 class="display-4">History</h2>
+      <p>Having collaborated in a wide range of cross-functional teams over the years has taught me to seek the bigger picture. I recognize how vital my previous roles play in my future successes and enable me to undertake more complex projects.</p>
+    </div>
 		<div class="row tv-project">
 			<div class="tv-project-date text-xs-center">
 				<h3 class="text-success"><i><small>September 2017 - September 2019</small></i></h3>
@@ -295,19 +293,17 @@ layout: about
 			</div>
 			<div class="col-lg-4"></div>
 		</div><!-- /.row -->
-  </div><!-- /#tv-experience -->
+  </div><!-- /#tv-history -->
 
   <div id="tv-outro" class="container-fluid light-gray-bg">
     <div class="sub-header width-max-980">
-      <h2 class="display-4">Let's Work Together</h2>
-      <p>I can provide hands-on assistance and direction at any phase of production - work in progress, revamp existing systems or establishing a new team. Let's create something great together.</p>
-
+      <h2 class="display-4">Onward</h2>
+      <p>Looking forward, I strive to continue collaborating with teams and working across disciplines to produce great experiences. I can provide direction or hands-on assistance at any phase of production. If you're looking for a mindful team player, let's connect.</p>
     </div>
 		<div class="width-max-980">
-			<h5>Currently available for new projects.</h5>
 			<p><a class="btn tv-email" href="mailto:voorheestony@gmail.com"><i class="fa fa-paper-plane fa-1x"></i><br>email me</a></p>
 			<hr class="width-50pc">
-			<p class="tv-footer-info">Connect with me on social media</p>
+			<p class="tv-footer-info">Connect with me on social media.</p>
 			<ul class="icon-nav">
 				<li><a href="https://www.behance.net/tonyvoorhees" class="btn"><i class="fab fa-behance"></i></a></li>
 				<li><a href="https://www.linkedin.com/in/tonyvoorhees" class="btn"><i class="fab fa-linkedin-in"></i></a></li>

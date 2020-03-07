@@ -13,7 +13,10 @@ $(function() {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
-
+// tooltip toggle
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 // main nav modal toggle
 $(document).ready(function(){
 	$('#navbar-icon').click(function(){
