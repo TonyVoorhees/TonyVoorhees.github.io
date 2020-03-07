@@ -30,7 +30,7 @@ hr {
 .sub-header h2 { margin-bottom: .5em; }
 
 /* scrollto IDs -------------------- */
-#tv-intro, #tv-solutions, #tv-brands, #tv-experience, #tv-testimonials, #tv-history, #tv-outro {
+#tv-intro, #tv-brands, #tv-experience, #tv-testimonials, #tv-history, #tv-outro {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -38,6 +38,17 @@ hr {
 #tv-footer, #tv-brands, #tv-testimonials, #tv-outro {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+#tv-solutions {
+  text-align: center;
+  padding-top: 100px;
+}
+#tv-services {
+  text-align: center;
+  padding-bottom: 100px;
+}
+#tv-services h3 {
+  padding-top: 30px;
 }
 /* padding for each sub-page for header nav */
 .tv-post, .tv-values, .tv-styleguide, .tv-journal, .tv-project-study { padding-top: 5em; }
@@ -87,9 +98,8 @@ hr {
 }
 
 /* solutions -------------------- */
-#tv-solutions .fa { padding-bottom: .5em; }
 #tv-solutions.lead { padding: 0 50px;}
-.tv-service { padding: 0 40px; }
+.tv-service { padding: 40px; }
 @media screen and (max-width: 890px) {
   .tv-service { padding-bottom: 50px; }
 }
@@ -129,7 +139,7 @@ hr {
 }
 .tv-project-date { margin-bottom: 50px; }
 .tv-project-details {
-  padding-top: .5em;
+  padding-top: 1em;
   -webkit-animation-delay: .5s;
   animation-delay: .5s;
 }
@@ -143,6 +153,9 @@ hr {
 @media screen and (max-width: 480px) {
   .project-tout {
     margin: 0 15px;
+  }
+  .tv-project-details {
+    padding-top: 1.2em;
   }
 }
 
