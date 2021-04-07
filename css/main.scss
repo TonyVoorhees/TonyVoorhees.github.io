@@ -242,11 +242,22 @@ hr {
 
 //  --------------------  //
 /* HELPERS -------------------- */
-.oswald-font {
+
+/* Fonts */
+.oswald-font-bold {
+  font-family: oswald, sans-serif;
+  font-style: normal;
+}
+.oswald-font-bold {
   font-family: oswald, sans-serif;
   font-style: normal;
   font-weight: 700;
 }
+.filson-font {
+  font-family: filson-pro,sans-serif;
+  font-style: normal;
+}
+
 .light-gray-bg { background-color: #eee; }
 .width-50pc { width: 50%; }
 

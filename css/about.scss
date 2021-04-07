@@ -36,7 +36,6 @@ hr {
 
 /* scrollto IDs -------------------- */
 #tv-intro, #tv-brands, #tv-experience, #tv-testimonials, #tv-history, #tv-outro {
-  text-align: center;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -45,11 +44,9 @@ hr {
   border-bottom: 1px solid #ddd;
 }
 #tv-solutions {
-  text-align: center;
   padding-top: 100px;
 }
 #tv-services {
-  text-align: center;
   padding-bottom: 100px;
 }
 #tv-services h3 {
@@ -60,6 +57,7 @@ hr {
 
 /* intro -------------------- */
 #tv-intro {
+  text-align: center;
   background: #2c3e50; /* fallback for old browsers */
   background-image: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('../images/hero/lafayette_park_sf.jpg');
   background-position: center right;
@@ -103,8 +101,7 @@ hr {
 }
 
 /* solutions -------------------- */
-#tv-solutions.lead { padding: 0 50px;}
-.tv-service { padding: 40px; }
+.tv-service { padding-top: 40px; }
 @media screen and (max-width: 890px) {
   .tv-service { padding-bottom: 50px; }
 }
@@ -170,8 +167,6 @@ hr {
 /* outro -------------------- */
 #tv-footer { padding: 50px 0; text-align: center; }
 .tv-footer-info {
-  max-width: 460px;
-  text-align: center;
   font-size: .7em;
   margin: auto;
   margin-bottom: 10px;
