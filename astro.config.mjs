@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // Canonical origin used by canonical URLs, OG tags, RSS, and the sitemap.
   // Update this when you point a real domain at the site.
-  site: 'https://lambda-minimal.netlify.app',
+  site: 'https://tonyvoorhees.github.io',
   integrations: [
     alpinejs(),
     mdx(),
