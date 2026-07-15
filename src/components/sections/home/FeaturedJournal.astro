@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import Placeholder from "../../Placeholder.astro";
+import SectionTag from "../../SectionTag.astro";
+import HeroCta from "../../HeroCta.astro";
+import { featuredJournal, featuredJournalSlugs } from "../../../data/home";
+
+const all = await getCollection("journal");
+const map = new Map(all.map((entry) => [entry.id, entry]));
+const items = featuredJournalSlugs.map((slug) => map.get(slug)).filter(Boolean) as NonNullable<ReturnType<typeof map.get>>[];
+const [featured, ...rest] = items;
+const stacked = rest.slice(0, 2);
+---
+<section class="pt-24 md:pt-36 xl:pt-40 pb-16 md:pb-18 xl:pb-20 px-5 sm:px-6 md:px-8">
+  <div class="mx-auto max-w-(--container)">
+    <div class="flex justify-between items-end mb-10 md:mb-16 gap-6 flex-wrap">
+      <div>
+        <SectionTag num={featuredJournal.sectionTag.num} label={featuredJournal.sectionTag.label} />
+        <h2 class="font-serif font-350 m-0 mt-5 md:mt-6 leading-none tracking-display-lg text-section">
+          {featuredJournal.title.lead} <span class="italic">{featuredJournal.title.accent}</span>.
+        </h2>
+      </div>
+      <HeroCta href="/journal" label={featuredJournal.allEntriesLabel} class="pb-1.5" />
+    </div>
+
+    <div class="fj-grid" data-animate>
+      {featured && (
+        <a href={`/journal/${featured.id}`} class="fj-card" aria-label={`${featured.data.title} — by ${featured.data.author}`}>
+          <div class="fj-media fj-media--featured">
+            <Placeholder
+              image={featured.data.homeImage}
+              ratio="3 / 2"
+              label={featured.data.img}
+              alt={`${featured.data.title} — by ${featured.data.author}`}
+              sizes="(min-width: 768px) 60vw, 100vw"
+              w={600}
+              h={400}
+            />
+          </div>
+          <p class="fj-meta mt-6 font-mono uppercase text-xs text-text-muted tracking-mono">{featured.data.dateLabel} · {featured.data.read}</p>
+          <h3 class="fj-title mt-4" style="font-size: clamp(1.7rem, 2.4vw, 2.4rem); line-height: 1.15;">{featured.data.title}</h3>
+          <p class="font-serif italic font-light text-text-muted mt-3 m-0 text-body">By {featured.data.author}</p>
+        </a>
+      )}
+
+      <div class="fj-stack">
+        {stacked.map((j) => (
+          <a href={`/journal/${j.id}`} class="fj-card" aria-label={`${j.data.title} — by ${j.data.author}`}>
+            <div class="fj-media fj-media--stack">
+              <Placeholder
+                image={j.data.homeImage}
+                ratio="3 / 2"
+                label={j.data.img}
+                alt={`${j.data.title} — by ${j.data.author}`}
+                sizes="(min-width: 768px) 26vw, 100vw"
+                w={500}
+                h={280}
+              />
+            </div>
+            <p class="fj-meta mt-4 font-mono uppercase text-label text-text-muted tracking-mono">{j.data.dateLabel} · {j.data.read}</p>
+            <h3 class="fj-title mt-3" style="font-size: clamp(1.25rem, 1.5vw, 1.6rem); line-height: 1.2;">{j.data.title}</h3>
+            <p class="font-serif italic font-light text-text-muted mt-2 m-0 text-sm">By {j.data.author}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

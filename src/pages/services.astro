@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/services/Hero.astro";
+import Blocks from "../components/sections/services/Blocks.astro";
+import Process from "../components/sections/services/Process.astro";
+import Tiers from "../components/sections/services/Tiers.astro";
+import Faq from "../components/sections/services/Faq.astro";
+import { meta } from "../data/services";
+---
+<Layout active="services" title={meta.title} description={meta.description}>
+  <Hero />
+  <Blocks />
+  <Process />
+  <Tiers />
+  <Faq />
+</Layout>

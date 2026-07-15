@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Placeholder from "../../Placeholder.astro";
+
+interface Props {
+  entry: CollectionEntry<"journal">;
+}
+const { entry } = Astro.props;
+---
+<section class="px-5 sm:px-6 md:px-8 pt-6 md:pt-10 pb-12 md:pb-20">
+  <div class="mx-auto max-w-(--container-wide)">
+    <Placeholder
+      image={entry.data.coverImage}
+      ratio="16 / 9"
+      label={entry.data.img}
+      alt={entry.data.title}
+      w={1440}
+      h={810}
+      eager
+    />
+  </div>
+</section>

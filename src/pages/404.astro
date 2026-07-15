@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { display, sitemap, colophon } from "../data/notfound";
+---
+<Layout title="Page not found — Studio Nord" description="The page you're looking for can't be found." noindex>
+  {/* Display section — full viewport, editorial concept */}
+  <section
+    class="px-5 sm:px-6 md:px-8 pt-24 md:pt-32 pb-20 md:pb-24 flex flex-col justify-center items-center text-center relative"
+    style="min-height: 100vh;"
+  >
+    {/* Editorial running header */}
+    <div
+      class="absolute top-20 md:top-28 left-5 sm:left-6 md:left-8 font-mono uppercase text-micro md:text-label text-text-muted flex gap-2 md:gap-3.5 items-baseline tracking-mono-loose"
+    >
+      <span>{display.eyebrowLeft.name}</span>
+      <span class="opacity-50">—</span>
+      <span class="hidden sm:inline italic font-serif text-meta text-text-muted normal-case tracking-body">
+        {display.eyebrowLeft.italic}
+      </span>
+    </div>
+    <div
+      class="absolute top-20 md:top-28 right-5 sm:right-6 md:right-8 font-mono uppercase text-micro md:text-label text-text-muted tracking-mono-loose"
+    >
+      Page <span class="mx-1 opacity-50">—</span> {display.eyebrowRight}
+    </div>
+
+    <div class="w-full max-w-(--container-narrow)">
+      <div
+        class="font-mono uppercase text-label text-text-muted inline-flex items-baseline gap-2.5 mb-10 md:mb-14 tracking-mono-x"
+      >
+        <span aria-hidden="true">↳</span>
+        <span>{display.error.kind}</span>
+        <span class="opacity-50">·</span>
+        <span>{display.error.message}</span>
+      </div>
+
+      <h1
+        class="font-serif font-350 m-0 leading-[0.98] tracking-hero text-balance opsz-display"
+        style="font-size: clamp(3rem, 8.4vw, 8.5rem);"
+      >
+        {display.title.line1}<br />
+        <span class="italic font-light">{display.title.accent}</span>
+      </h1>
+
+      <p
+        class="font-sans mx-auto mt-8 md:mt-12 leading-[1.6] text-pretty max-w-(--container-note)"
+        style="font-size: clamp(1rem, 1.25vw, 1.15rem);"
+      >
+        {display.body}
+      </p>
+
+      <div class="mt-10 md:mt-14 inline-flex items-center gap-4 sm:gap-8 flex-col sm:flex-row justify-center w-full sm:w-auto">
+        <a href={display.primaryCta.href} class="nf-cta-primary w-full sm:w-auto justify-center" aria-label="Return to the cover page">
+          <span>{display.primaryCta.label}</span>
+          <span class="nf-cta-primary__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href={display.secondaryCta.href} class="hero-cta text-text-muted">
+          <span>{display.secondaryCta.label}</span>
+          <span class="hero-cta__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="absolute left-5 right-5 sm:left-6 sm:right-6 md:left-8 md:right-8 bottom-8 md:bottom-12 flex justify-between items-baseline gap-4 font-mono text-micro md:text-label text-text-muted uppercase tracking-mono-loose"
+    >
+      <span>
+        <span class="pulse-dot inline-block rounded-full bg-accent align-middle mr-2 size-1.5" aria-hidden="true"></span>
+        {display.footnoteLeft}
+      </span>
+      <span class="text-right">{display.footnoteRight}</span>
+    </div>
+  </section>
+
+  {/* Index — the mini sitemap as a publication "Index" */}
+  <section class="px-5 sm:px-6 md:px-8 pb-24 md:pb-40">
+    <div class="mx-auto max-w-(--container-narrow)">
+      <div
+        class="font-mono uppercase text-label text-text-muted inline-flex items-baseline gap-2.5 mb-8 md:mb-12 tracking-mono-x"
+      >
+        <span aria-hidden="true">↳</span>
+        <span>Index</span>
+      </div>
+
+      <ul class="list-none p-0 m-0">
+        {sitemap.map((s) => (
+          <li class="border-t border-hairline">
+            <a
+              href={s.path}
+              class="grid items-baseline gap-4 md:gap-8 py-5 md:py-7 cursor-pointer relative overflow-hidden group
+                     [grid-template-columns:auto_1fr_auto]
+                     md:[grid-template-columns:64px_1fr_2fr_auto]"
+            >
+              <span class="font-mono text-xs text-text-muted tracking-mono">
+                {s.n}
+              </span>
+              <span
+                class="font-serif font-normal group-hover:italic transition-all md:col-start-3 md:row-start-auto tracking-snug"
+                style="font-size: clamp(1.05rem, 1.6vw, 1.5rem);"
+              >
+                {s.label}
+              </span>
+              <span class="hidden md:inline font-mono text-sm text-text-muted group-hover:text-text transition-colors md:col-start-2 md:row-start-auto" style="letter-spacing: 0.02em;">
+                {s.path}
+              </span>
+              <span class="text-text-muted inline-flex transition-transform group-hover:translate-x-1.5 justify-self-end">
+                <svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M1 6h20M15 1l6 5-6 5" />
+                </svg>
+              </span>
+              <div class="absolute left-0 bottom-0 h-px bg-accent w-0 group-hover:w-full transition-[width] duration-[550ms]"></div>
+            </a>
+          </li>
+        ))}
+        <li class="border-t border-hairline"></li>
+      </ul>
+
+      <p
+        class="text-center mt-12 md:mt-20 font-serif italic font-light text-base md:text-lg text-text-muted tracking-body text-balance"
+      >
+        {colophon}
+      </p>
+    </div>
+  </section>
+</Layout>

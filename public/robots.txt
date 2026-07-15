@@ -1,0 +1,5 @@
+# Replace the Sitemap domain below with your production URL when you deploy.
+User-agent: *
+Allow: /
+
+Sitemap: https://lambda-minimal.netlify.app/sitemap-index.xml

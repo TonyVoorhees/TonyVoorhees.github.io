@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import { hero } from "../../../data/home";
+import heroPortrait from "../../../assets/home/hero-portrait.png";
+---
+{/*
+  Split hero. Desktop (md+): text panel left + full-bleed B&W portrait right,
+  dark text on the page background. Mobile (<md): the portrait becomes a darkened
+  full-screen backdrop and the text overlays it in white — the colour flip is done
+  by overriding --color-text / -muted / -hairline with `max-md:` only, so every
+  child (headline, eyebrows, CTA, footnote, rules) turns light automatically and
+  desktop + dark-mode are untouched. Mono is the hero's deliberate moment; Work
+  imagery stays in colour.
+*/}
+<section class="relative flex flex-col md:grid md:[grid-template-columns:1.5fr_1fr] md:items-stretch min-h-[88vh]">
+  {/* TEXT — overlays the image on mobile (z-10, white via token override) */}
+  <div
+    class="relative z-10 flex flex-col flex-1 text-text
+           pl-5 sm:pl-6 md:pl-8 lg:pl-14 pr-5 sm:pr-6 md:pr-10 lg:pr-16 pt-24 md:pt-32 pb-12 md:pb-10
+           max-md:[--color-text:#fff] max-md:[--color-text-muted:rgba(255,255,255,0.74)] max-md:[--color-hairline:rgba(255,255,255,0.3)]"
+  >
+    {/* Eyebrows (left) + section tag (right) */}
+    <div class="flex justify-between items-start flex-wrap gap-4">
+      <div class="font-mono uppercase text-label text-text-muted flex gap-3 md:gap-[18px] flex-wrap tracking-mono">
+        {hero.eyebrows.map((label, i) => (
+          <>
+            <span>{label}</span>
+            {i < hero.eyebrows.length - 1 && <span>·</span>}
+          </>
+        ))}
+      </div>
+      <div class="font-mono uppercase text-label text-text-muted tracking-mono-loose shrink-0">
+        ({hero.sectionTag.num}) <span class="mx-1.5">—</span> {hero.sectionTag.label}
+      </div>
+    </div>
+
+    {/* Headline + CTA — vertically centred in the panel */}
+    <div class="my-auto py-12 md:py-10" data-animate="fade">
+      <h1
+        class="font-serif font-350 m-0 leading-display tracking-hero opsz-display"
+        style="font-size: clamp(5rem, 6.6vw, 8rem);"
+      >
+        {hero.title.line1}<br />
+        <span class="italic font-light inline-block pl-4 sm:pl-8 pr-2">{hero.title.accent}</span> {hero.title.connector}<br />
+        {hero.title.line3}
+      </h1>
+      <div class="hero-cta-row">
+        <a href={hero.cta.href} class="hero-cta">
+          <span>{hero.cta.label}</span>
+          <span class="hero-cta__arrow" aria-hidden="true">→</span>
+        </a>
+        <span class="hero-cta-row__divider" aria-hidden="true"></span>
+        <span class="hero-cta-status">
+          {hero.status}
+        </span>
+      </div>
+    </div>
+
+    {/* Footnote strip */}
+    <div class="mt-auto pt-8 flex justify-between items-center gap-4 border-t border-hairline">
+      <div class="font-mono uppercase text-label text-text-muted flex items-center gap-3 tracking-mono">
+        <span class="pulse-dot inline-block rounded-full bg-accent shrink-0 size-1.5" aria-hidden="true"></span>
+        <span>{hero.footnote}</span>
+      </div>
+      <div class="hidden sm:flex font-mono uppercase text-label text-text-muted items-center gap-2.5 tracking-mono">
+        Scroll
+        <svg width="20" height="12" viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1"><path d="M1 1 L10 11 L19 1" /></svg>
+      </div>
+    </div>
+  </div>
+
+  {/* IMAGE — mobile: darkened full-bleed backdrop behind the text;
+      desktop: full-bleed B&W portrait in the right grid cell */}
+  <div class="absolute inset-0 max-md:-top-[72px] md:relative md:inset-auto bg-surface-2 grayscale max-md:brightness-[0.55]">
+    <Image
+      src={heroPortrait}
+      alt="Studio Nord principal portrait — Copenhagen, March 2026"
+      widths={[640, 960, 1122]}
+      sizes="(min-width: 768px) 50vw, 100vw"
+      loading="eager"
+      decoding="sync"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    {/* Mobile scrim — keeps the white text legible over the photo */}
+    <div class="md:hidden absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" aria-hidden="true"></div>
+    {/* Caption (desktop only) — overlaid bottom-left over a subtle scrim */}
+    <div class="hidden md:block absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+    <p class="hidden md:block absolute left-6 bottom-6 font-mono uppercase text-micro tracking-mono text-white">
+      {hero.portrait.caption}
+    </p>
+  </div>
+</section>

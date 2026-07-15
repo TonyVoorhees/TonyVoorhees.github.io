@@ -1,0 +1,20 @@
+---
+import Placeholder from "../../Placeholder.astro";
+import { studioImage } from "../../../data/studio";
+import studioHero from "../../../assets/studio/hero.png";
+---
+<section class="px-5 sm:px-6 md:px-8">
+  <div class="mx-auto max-w-(--container-feature)">
+    <Placeholder
+      image={studioHero}
+      ratio="12 / 5"
+      label={studioImage.label}
+      alt="Studio Nord — the studio at Sankt Peders Stræde, Copenhagen"
+      w={1440}
+      h={600}
+    />
+    <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">
+      {studioImage.caption}
+    </p>
+  </div>
+</section>

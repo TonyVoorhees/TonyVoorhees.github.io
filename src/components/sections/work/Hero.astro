@@ -1,0 +1,59 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { indexCopy, FILTERS } from "../../../data/work";
+
+interface Props {
+  total: number;
+}
+const { total } = Astro.props;
+---
+<section class="px-5 sm:px-6 md:px-8 pt-6 md:pt-10 pb-12 md:pb-20">
+  <div class="mx-auto max-w-(--container-wide)">
+    <SectionTag num={indexCopy.sectionTag.num} label={indexCopy.sectionTag.label} />
+
+    <div class="flex justify-between items-end mt-6 md:mt-8 flex-wrap gap-4 md:gap-8">
+      <h1 class="font-serif font-350 m-0 leading-display tracking-hero text-page-title">
+        {indexCopy.title.lead}<br />
+        <span class="italic text-text-muted">{indexCopy.title.accent}</span>
+      </h1>
+      <span
+        x-text="`${String(filteredCount).padStart(2,'0')} of ${String(total).padStart(2,'0')} projects`"
+        class="font-mono uppercase text-label text-text-muted tracking-mono"
+      >
+        {String(total).padStart(2, "0")} of {String(total).padStart(2, "0")} projects
+      </span>
+    </div>
+
+    {/* Filter tabs — drive the Alpine state held in the parent <main x-data>.
+        Outer wrapper carries the hairline border-t/border-b. The inner div
+        scrolls horizontally on mobile and wraps normally on md+. Structure
+        mirrors the journal filter so the two pages read as one component.
+
+        Accent indicator sits at `bottom-0` (inside the button, last 1px)
+        rather than `-bottom-px` (1px below). The previous offset was being
+        clipped by `overflow-x: auto` — per spec, when overflow-x is non-
+        visible, overflow-y is coerced to auto, so any descendant pixel
+        that escapes the padding-box on either axis disappears. Pinning
+        the indicator inside the button keeps it visible regardless of the
+        scroll-container's clipping rules. */}
+    <div class="filterbar mt-10 md:mt-14 border-t border-b border-hairline flex items-stretch">
+      <div class="flex flex-1 overflow-x-auto whitespace-nowrap scrollbar-hide md:flex-wrap md:overflow-visible md:whitespace-normal">
+        {FILTERS.map((f) => (
+          <button
+            type="button"
+            x-on:click={`filter = '${f}'`}
+            x-bind:class={`filter === '${f}' ? 'text-text' : 'text-text-muted'`}
+            class="bg-transparent border-none px-4 md:px-6 py-4 md:py-5 font-mono text-xs uppercase relative cursor-pointer transition-colors shrink-0 tracking-mono"
+          >
+            {f}
+            <span
+              x-show={`filter === '${f}'`}
+              x-cloak
+              class="absolute left-4 right-4 md:left-6 md:right-6 bottom-0 h-px bg-accent"
+            ></span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

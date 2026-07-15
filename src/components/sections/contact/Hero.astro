@@ -1,0 +1,18 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { hero } from "../../../data/contact";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-6 md:pt-10 pb-12 md:pb-20">
+  <div class="mx-auto max-w-(--container-wide)">
+    <SectionTag num={hero.sectionTag.num} label={hero.sectionTag.label} />
+    <h1
+      class="font-serif font-350 m-0 mt-6 md:mt-8 leading-[0.92] tracking-hero-xl"
+      style="font-size: clamp(3rem, 12vw, 13rem);"
+    >
+      {hero.title.lead} <span class="italic">{hero.title.accent}</span>.
+    </h1>
+    <p class="mt-6 md:mt-10 text-base md:text-lg text-text-muted leading-body max-w-(--container-note)">
+      {hero.body}
+    </p>
+  </div>
+</section>

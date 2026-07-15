@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/studio/Hero.astro";
+import StudioImage from "../components/sections/studio/StudioImage.astro";
+import Philosophy from "../components/sections/studio/Philosophy.astro";
+import Team from "../components/sections/studio/Team.astro";
+import Press from "../components/sections/studio/Press.astro";
+import Availability from "../components/sections/studio/Availability.astro";
+import { meta } from "../data/studio";
+---
+<Layout active="studio" title={meta.title} description={meta.description}>
+  <Hero />
+  <StudioImage />
+  <Philosophy />
+  <Team />
+  <Press />
+  <Availability />
+</Layout>

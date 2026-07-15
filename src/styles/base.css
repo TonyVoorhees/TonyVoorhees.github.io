@@ -1,0 +1,214 @@
+/* Base — global element resets, typographic defaults, the scroll-reveal
+   system, and shared keyframes. Rarely edited; the design knobs live in
+   theme.css. */
+
+/* Registered colour custom property used by the Process scroll-fade gradient.
+   A gradient (background-image) is NOT animatable, so on theme toggle its
+   colour would snap while the body's background eased over --theme-transition.
+   Registering --fade-bg as a <color> makes it interpolable: the fade sets
+   --fade-bg: var(--color-bg) and transitions --fade-bg, so the gradient is
+   recomputed each frame and matches the body's swap timing. */
+@property --fade-bg {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    /* Anchor jumps account for the fixed header — leaves breathing room
+       so deep-linked sections don't tuck under the nav. */
+    scroll-padding-top: 96px;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    /* `clip` (not `hidden`) avoids creating a scroll container, so
+       position:sticky and position:fixed descendants behave normally. */
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: var(--tracking-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transition:
+      background var(--theme-transition) ease,
+      color var(--theme-transition) ease;
+  }
+
+  /* Sections that paint an explicit themed background ease on the light/dark
+     swap in sync with the body above. Only <body> transitions by default, so
+     any block with its own `bg-*` token (a `bg-surface` tint, a `bg-bg`
+     footer/sticky bar, the alternating Services blocks) would otherwise snap
+     to the new theme while the surrounding page eased — most visible where a
+     tinted section meets a transparent one. Keyed on the utility classes so
+     every current and future use is covered without per-element wiring.
+     `background-color` (not the `background` shorthand) leaves striped
+     placeholders and image wrappers free to keep their own background-image.
+     Lives in @layer base so an explicit `transition-*` utility still wins. */
+  .bg-bg,
+  .bg-surface,
+  .bg-surface-2 {
+    transition: background-color var(--theme-transition) ease;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  /* Hide elements bound by Alpine.js until it has hydrated. */
+  [x-cloak] { display: none !important; }
+
+  /* Reveal-on-scroll. Elements opt in via [data-animate]; the global
+     IntersectionObserver in Layout.astro adds .is-in once. Entry-only.
+     Honors prefers-reduced-motion.
+
+     Travel distances:
+       - Default text/grid items: 16px Y (14px on <lg)
+       - Image-bearing cards (`[data-animate]:has(img)`): 8px Y (6px on
+         <lg). Big media reads as already-large, so a long travel feels
+         disruptive; a short rise lets the image settle without
+         dominating the choreography.
+       - Press / award rows (lateral pattern): 32px X (29px on <lg)
+
+     Every override is scoped with `:not(.is-in)` because the per-class
+     rules share specificity with `[data-animate].is-in` and would
+     otherwise keep the element pre-translated permanently. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-animate] {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+      transition:
+        opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    [data-animate="fade"] { transform: none; }
+    [data-animate]:has(img):not(.is-in) {
+      transform: translate3d(0, 8px, 0);
+    }
+    [data-animate].is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1023.98px) {
+      [data-animate]:not(.is-in) {
+        transform: translate3d(0, 14px, 0);
+      }
+      [data-animate]:has(img):not(.is-in) {
+        transform: translate3d(0, 6px, 0);
+      }
+      .press-row[data-animate]:not(.is-in),
+      .award-row[data-animate]:not(.is-in) {
+        transform: translate3d(29px, 0, 0);
+      }
+    }
+
+    /* Word-by-word mask reveal. Each word lives in a [data-word-mask]
+       wrapper with overflow:hidden, around a [data-word] inner span that
+       starts translated 110% down (out of view, below the mask) and
+       slides up to 0 when the parent receives .is-in. Pure transform —
+       no opacity fade. Used for editorial paragraph reveals where each
+       word should rise into the line on its own beat.
+
+       The container override uses :not(.is-in) at (0,2,0) specificity to
+       match the mobile [data-animate]:not(.is-in) rule above and come
+       after it in source order — so the paragraph itself never
+       pre-translates; only the inner spans do.
+
+       Both wrapper and inner are display:inline-block so transform
+       applies to inline text. The trailing space between words lives
+       outside the wrapper in the template so word-wrap still breaks at
+       natural points. vertical-align:bottom is explicit because
+       overflow:hidden on inline-block changes the default baseline
+       behavior per spec, and "bottom" keeps descenders visible inside
+       the mask. */
+    [data-animate="words"]:not(.is-in) {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      will-change: auto;
+    }
+    [data-animate="words"] [data-word-mask] {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
+    [data-animate="words"] [data-word] {
+      display: inline-block;
+      transform: translate3d(0, 110%, 0);
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    [data-animate="words"].is-in [data-word] {
+      transform: none;
+    }
+
+    /* Rise reveal — slower, more deliberate variant of the default
+       [data-animate] that supports per-element delay via --reveal-delay.
+       Used for title + intro pairs where the timing between siblings is
+       its own choreography (title leads, paragraph follows ~200ms behind).
+       The 1000ms duration and the cubic-bezier(0.2, 0.7, 0.2, 1) easing
+       match the ServicesPreview hover transitions so reveal and
+       interaction share the same motion vocabulary across the home.
+
+       The :not(.is-in) override on the transform is at (0,2,0) specificity
+       and comes after the mobile [data-animate]:not(.is-in) override
+       above, so the 20px travel survives every viewport without getting
+       clobbered by the mobile shrink to 14px. Pass --reveal-delay inline
+       as `style="--reveal-delay: 200ms"`. */
+    [data-animate="rise"] {
+      opacity: 0;
+      transition:
+        opacity 1000ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 1000ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    [data-animate="rise"]:not(.is-in) {
+      transform: translate3d(0, 20px, 0);
+    }
+    [data-animate="rise"].is-in {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Tame the default scrollbar to match the editorial mood. */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-hairline);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track { background: transparent; }
+}
+
+/* Shared keyframes. */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes hero-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.4; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

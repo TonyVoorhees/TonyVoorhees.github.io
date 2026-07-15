@@ -1,0 +1,53 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { servicesPreview } from "../../../data/home";
+---
+<section class="pt-24 md:pt-36 xl:pt-40 pb-16 md:pb-18 xl:pb-20 px-5 sm:px-6 md:px-8">
+  <div class="mx-auto max-w-(--container)">
+    <div class="flex justify-between items-end mb-10 md:mb-12 gap-4">
+      <SectionTag num={servicesPreview.sectionTag.num} label={servicesPreview.sectionTag.label} />
+      <a href="/services" class="hover-line font-mono uppercase text-xs tracking-mono">
+        {servicesPreview.allServicesLabel}
+      </a>
+    </div>
+
+    <div>
+      {/* Rows are intentionally NOT overflow-hidden: the hover arrow nudges
+          right (translate-x-1) and its tip would be clipped. The accent
+          underline (w-0 → w-full) and the big number both stay within the row,
+          so there's nothing to clip. */}
+      {servicesPreview.items.map((s) => (
+        <a
+          href="/services"
+          class="services-row group grid items-center gap-x-6 md:gap-x-8 gap-y-3 py-6 md:py-8 border-t border-hairline relative cursor-pointer
+                 [grid-template-columns:auto_1fr_auto]
+                 md:[grid-template-columns:1.1fr_2fr_2fr_auto]"
+          data-animate
+        >
+          <span class="font-serif font-350 italic text-text group-hover:text-accent transition-colors duration-300 md:row-span-1 tracking-display-xl" style="font-size: clamp(2.5rem, 7vw, 6.5rem); line-height: 0.9;">
+            {s.n}
+          </span>
+          <h4
+            class="font-sans font-normal m-0 tracking-display md:translate-x-4 md:group-hover:translate-x-0 motion-reduce:translate-x-0"
+            style="font-size: clamp(1.25rem, 2.4vw, 2.2rem); transition: translate 600ms cubic-bezier(0.2, 0.7, 0.2, 1);"
+          >
+            {s.name}
+          </h4>
+          <p
+            class="text-body md:text-base text-text-muted m-0 leading-[1.5] col-span-3 md:col-span-1 md:max-w-[480px] md:translate-x-10 md:opacity-0 md:group-hover:translate-x-0 md:group-hover:opacity-100 motion-reduce:translate-x-0 motion-reduce:opacity-100"
+            style="transition: opacity 500ms, translate 600ms cubic-bezier(0.2, 0.7, 0.2, 1);"
+          >
+            {s.desc}
+          </p>
+          <span class="text-text-muted transition-transform duration-300 group-hover:translate-x-1 row-start-1 col-start-3 md:col-start-auto md:row-start-auto justify-self-end">
+            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M1 7h20M15 1l6 6-6 6" />
+            </svg>
+          </span>
+          <div class="absolute left-0 bottom-0 h-px bg-accent w-0 group-hover:w-full transition-[width] duration-[550ms]" style="transition-timing-function: cubic-bezier(.2,.6,.2,1);"></div>
+        </a>
+      ))}
+      <div class="border-t border-hairline"></div>
+    </div>
+  </div>
+</section>

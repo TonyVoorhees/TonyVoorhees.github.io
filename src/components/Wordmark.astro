@@ -1,0 +1,32 @@
+---
+/**
+ * Studio Nord wordmark — "Studio Nord" with the first word in italic and
+ * an accent pulse dot. Used in the Header (small) and Footer (giant).
+ *
+ * Size is a number (px) controlling the font-size; the dot scales loosely
+ * with it but stays small to keep the editorial register.
+ */
+interface Props {
+  size?: number;
+  /** When true, renders as a span (header link wraps it); false → as a div. */
+  inline?: boolean;
+  /** Show the accent pulse dot after the wordmark. Off in the header. */
+  dot?: boolean;
+}
+
+const { size = 18, inline = true, dot = true } = Astro.props;
+const Tag = inline ? "span" : "div";
+---
+<Tag
+  class="inline-flex items-baseline gap-2 font-serif font-medium leading-none opsz-display"
+  style={`font-size: ${size}px; letter-spacing: -0.01em;`}
+>
+  <span class="italic">Studio</span>
+  <span>Nord</span>
+  {dot && (
+    <span
+      class="pulse-dot inline-block self-center rounded-full bg-accent size-1.5 ml-0.5"
+      aria-hidden="true"
+    ></span>
+  )}
+</Tag>

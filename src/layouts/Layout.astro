@@ -1,0 +1,334 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+import type { NavId } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: NavId | null;
+  /** Home only: dark full-bleed mobile hero → header controls go white at top. */
+  heroOverlay?: boolean;
+  /** Preload the Fraunces hero cuts (upright + italic). Set only on the home
+   *  page, where the serif is the above-the-fold LCP text; other pages don't
+   *  paint these cuts immediately, so preloading them there warns "unused". */
+  preloadSerif?: boolean;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  /** Path or absolute URL to the social/OG image. Defaults to /og-default.png. */
+  image?: string;
+  /** OG type. "website" for marketing pages, "article" for journal entries. */
+  ogType?: "website" | "article";
+  /** Tell crawlers not to index this page (e.g. /styleguide). */
+  noindex?: boolean;
+  /** ISO date string for article pages (journal entries). */
+  publishedTime?: string;
+  /** Author name for article pages. */
+  author?: string;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  active = null,
+  heroOverlay = false,
+  preloadSerif = false,
+  showHeader = true,
+  showFooter = true,
+  image = "/og-default.png",
+  ogType = "website",
+  noindex = false,
+  publishedTime,
+  author,
+} = Astro.props;
+
+// Canonical URL: `Astro.site` is set in astro.config.mjs.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+// OG image must be absolute — resolve relative paths against the site origin.
+const ogImage = image.startsWith("http")
+  ? image
+  : new URL(image, Astro.site).toString();
+const siteOrigin = Astro.site?.toString().replace(/\/$/, "") ?? "";
+
+// JSON-LD: emit Organization on every page; add WebSite on home; add Article on journal entries.
+const isHome = Astro.url.pathname === "/";
+const isArticle = ogType === "article";
+const socialUrls = (Object.values(site.social) as string[]).filter(
+  (s) => s && !s.startsWith("#"),
+);
+
+const orgSchema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: siteOrigin || undefined,
+  logo: ogImage,
+  address: site.address,
+  ...(socialUrls.length ? { sameAs: socialUrls } : {}),
+};
+
+const websiteSchema = isHome
+  ? {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: site.title,
+      url: siteOrigin || undefined,
+      description: site.description,
+    }
+  : null;
+
+const articleSchema =
+  isArticle && publishedTime
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description,
+        image: ogImage,
+        datePublished: publishedTime,
+        ...(author ? { author: { "@type": "Person", name: author } } : {}),
+        publisher: {
+          "@type": "Organization",
+          name: site.name,
+          logo: { "@type": "ImageObject", url: ogImage },
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": canonicalURL },
+      }
+    : null;
+---
+<!doctype html>
+<html lang={site.locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    {/* theme-color responds to the user's current theme via media queries. */}
+    <meta name="theme-color" content={site.themeColor} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={site.themeColorDark} media="(prefers-color-scheme: dark)" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {/* .ico fallback for browsers that don't support SVG favicons. */}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    {/* Open Graph */}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={site.locale} />
+    {ogType === "article" && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {ogType === "article" && author && (
+      <meta property="article:author" content={author} />
+    )}
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    {websiteSchema && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    )}
+    {articleSchema && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    )}
+
+    {/* Theme boot — runs before paint to set the saved theme from
+        localStorage. Without this, the page would flash in the default
+        light theme before Alpine hydrated and switched it. */}
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem("theme");
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme = saved || (prefersDark ? "dark" : "light");
+          document.documentElement.dataset.theme = theme;
+        } catch (_) {
+          /* localStorage unavailable (privacy mode) — fall back to default. */
+        }
+      })();
+    </script>
+
+    {/* Fonts — all self-hosted, so no third-party request and works offline.
+        Geist + Geist Mono come from Astro's <Font /> (metric-adjusted, CLS-safe
+        fallbacks). Fraunces is self-hosted by hand (woff2 in
+        public/fonts/fraunces/, @font-face in theme.css) because Astro's
+        integration can't pass through its `opsz` axis (driven to 144 on the
+        display hierarchy). latin-ext loads on demand.
+
+        The latin cuts are preloaded ONLY when `preloadSerif` is set (the home
+        page), where the serif is the above-the-fold LCP text. Other pages don't
+        paint these cuts immediately, so preloading them everywhere warned
+        "preloaded but not used". `crossorigin` is required even same-origin,
+        since font fetches are always CORS. */}
+    {preloadSerif && (
+      <>
+        <link rel="preload" href="/fonts/fraunces/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/fraunces/fraunces-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
+      </>
+    )}
+    {/* Geist is NOT preloaded: body text renders in its metric-matched fallback
+        (font-display: swap, no CLS), so preloading it only crowds the critical
+        path against the render-blocking CSS without improving FCP/LCP. */}
+    <Font cssVariable="--font-geist" />
+    <Font cssVariable="--font-geist-mono" />
+
+    <ClientRouter />
+  </head>
+  <body>
+    {showHeader && <Header active={active} heroOverlay={heroOverlay} />}
+    <main>
+      <slot />
+    </main>
+    {showFooter && <Footer />}
+
+    {/* Theme + Alpine continuity across ClientRouter swaps.
+
+        The server renders every page with a bare <html lang="en"> (no
+        data-theme attribute — only the inline boot script in <head> adds
+        it at runtime). Without intervention, a navigation from a dark
+        page would drop the data-theme attribute the moment the swap
+        completes, producing a one-frame flicker to light before the next
+        boot script run re-applied dark.
+
+        `astro:before-swap` fires with `e.newDocument` — the to-be-mounted
+        document — still in our hands. Copying the current
+        documentElement's data-theme onto that new document means the
+        swap brings dark mode in from frame zero, no flicker. The Header
+        (and every other utility built on var(--color-*)) renders
+        correctly on first paint of the new page.
+
+        `astro:after-swap` then handles Alpine — every x-data on the new
+        page needs initTree to bind its bindings. The theme is already
+        right by this point. */}
+    <script is:inline>
+      document.addEventListener("astro:before-swap", (e) => {
+        const theme = document.documentElement.dataset.theme;
+        if (theme && e.newDocument && e.newDocument.documentElement) {
+          e.newDocument.documentElement.dataset.theme = theme;
+        }
+      });
+      document.addEventListener("astro:after-swap", () => {
+        if (window.Alpine) window.Alpine.initTree(document.body);
+      });
+    </script>
+
+    {/* Silence the InvalidStateError thrown by the ViewTransitions API when a
+        navigation is interrupted by a faster one — harmless but pollutes the
+        buyer's DevTools console. */}
+    <script is:inline>
+      window.addEventListener("unhandledrejection", (e) => {
+        const r = e.reason;
+        if (
+          r &&
+          r.name === "InvalidStateError" &&
+          typeof r.message === "string" &&
+          /transition was aborted/i.test(r.message)
+        ) {
+          e.preventDefault();
+        }
+      });
+    </script>
+
+    {/* Reveal-on-scroll: elements with [data-animate] get .is-in once they
+        intersect. Runs on astro:page-load (first paint) and astro:after-swap
+        (post view-transition). No-ops under prefers-reduced-motion.
+
+        Robustness model (the dev-mode race fixed here): the previous IO-only
+        approach left above-the-fold elements stuck at opacity 0 in dev
+        because Vite HMR + ClientRouter can fire astro:after-swap before the
+        IntersectionObserver's initial callback delivers for elements
+        already on screen, and sometimes before the [data-animate] nodes
+        are even in the DOM. The new approach:
+
+          1. On every page-load / after-swap, run a SYNCHRONOUS sweep.
+             For each [data-animate]:not(.is-in) we measure
+             getBoundingClientRect() — if it's already in the viewport,
+             add .is-in directly (no IO involvement, no race). Off-screen
+             elements get attached to the IO instead.
+          2. Re-sweep at 100, 400, 1000 ms to catch elements that arrive
+             late (HMR re-injecting a component, a slow swap settle).
+             observe() is idempotent so re-running it on the same element
+             is free; the synchronous viewport check also no-ops on
+             already-in elements via `:not(.is-in)`.
+          3. The IO instance is disconnected and rebuilt on every nav so
+             we don't accumulate observers across ClientRouter swaps. */}
+    <script is:inline>
+      (() => {
+        let activeIO = null;
+        function sweep() {
+          const els = document.querySelectorAll("[data-animate]:not(.is-in)");
+          if (!els.length) return;
+          const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduce || !("IntersectionObserver" in window)) {
+            els.forEach((el) => el.classList.add("is-in"));
+            return;
+          }
+          if (!activeIO) {
+            activeIO = new IntersectionObserver(
+              (entries) => {
+                for (const e of entries) {
+                  if (e.isIntersecting) {
+                    e.target.classList.add("is-in");
+                    activeIO.unobserve(e.target);
+                  }
+                }
+              },
+              // Bigger bottom offset so elements don't trigger the
+              // moment they peek into view — they have to be ~15% inside
+              // the viewport's bottom edge before the IO fires. Pair
+              // the same threshold so very tall elements still resolve.
+              { rootMargin: "0px 0px -15% 0px", threshold: 0.15 }
+            );
+          }
+          const vh = window.innerHeight;
+          for (const el of els) {
+            const r = el.getBoundingClientRect();
+            // Synchronous viewport check — anything already on screen
+            // gets revealed now, bypassing the IO's initial-callback
+            // race entirely.
+            if (r.top < vh && r.bottom > 0) {
+              el.classList.add("is-in");
+            } else {
+              activeIO.observe(el);
+            }
+          }
+        }
+        function init() {
+          if (activeIO) {
+            activeIO.disconnect();
+            activeIO = null;
+          }
+          sweep();
+          setTimeout(sweep, 100);
+          setTimeout(sweep, 400);
+          setTimeout(sweep, 1000);
+        }
+        document.addEventListener("astro:page-load", init);
+        document.addEventListener("astro:after-swap", init);
+      })();
+    </script>
+  </body>
+</html>

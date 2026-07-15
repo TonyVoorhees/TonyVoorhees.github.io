@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+import Placeholder from "../../Placeholder.astro";
+import SectionTag from "../../SectionTag.astro";
+import HeroCta from "../../HeroCta.astro";
+import { featuredWork, featuredWorkSlugs } from "../../../data/home";
+
+// Asymmetric editorial spread: 2 rows, alternating "large left" / "large right".
+// We grab the 4 featured slugs in order and pair them as (lr → [big, small]),
+// (rl → [small, big]) so the eye crosses the spread diagonally.
+const all = await getCollection("work");
+const map = new Map(all.map((entry) => [entry.id, entry]));
+const featured = featuredWorkSlugs.map((slug) => map.get(slug)).filter(Boolean) as NonNullable<ReturnType<typeof map.get>>[];
+
+const rows = [
+  { direction: "lr" as const, items: [featured[0], featured[1]], ratios: ["16 / 10", "4 / 5"] },
+  { direction: "rl" as const, items: [featured[2], featured[3]], ratios: ["4 / 5", "16 / 10"] },
+];
+---
+<section class="pt-24 md:pt-36 xl:pt-40 pb-16 md:pb-18 xl:pb-20">
+  <div class="mx-auto px-5 sm:px-6 md:px-8 max-w-(--container)">
+    <div class="mb-12 md:mb-[72px]">
+      <SectionTag num={featuredWork.sectionTag.num} label={featuredWork.sectionTag.label} />
+      <h2
+        class="font-serif font-350 m-0 mt-5 md:mt-6 leading-none tracking-display-lg text-section"
+      >
+        {featuredWork.title.lead} <span class="italic">{featuredWork.title.accent}</span>.
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-14 md:gap-20">
+      {rows.map((row) => (
+        <div class={`fw-row fw-row--${row.direction}`}>
+          {row.items.map((c, i) => (
+            c && (
+              <a href={`/work/${c.id}`} class="fw-block" data-animate aria-label={`${c.data.name} — ${c.data.client}, ${c.data.type}, ${c.data.year}`}>
+                <div class="fw-block__media">
+                  <Placeholder
+                    image={c.data.homeImage}
+                    ratio={row.ratios[i]}
+                    label={c.data.img}
+                    alt={`${c.data.name} — ${c.data.client}, ${c.data.type}, ${c.data.year}`}
+                    sizes={i === 0 && row.direction === "lr" || i === 1 && row.direction === "rl" ? "(min-width: 768px) 62vw, 100vw" : "(min-width: 768px) 32vw, 100vw"}
+                    w={i === 0 && row.direction === "lr" || i === 1 && row.direction === "rl" ? 800 : 400}
+                    h={500}
+                  />
+                </div>
+                <div class="mt-4 flex justify-between items-baseline gap-4">
+                  <div>
+                    <h3 class="fw-block__title">{c.data.name}</h3>
+                  </div>
+                  <span class="font-mono text-xs text-text-muted uppercase whitespace-nowrap tracking-mono-loose">—{c.data.year}</span>
+                </div>
+                <p class="mt-1 font-mono text-label text-text-muted uppercase tracking-mono">{c.data.client} · {c.data.type}</p>
+              </a>
+            )
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 md:mt-28 xl:mt-32 flex justify-end">
+      <HeroCta href="/work" label={featuredWork.allWorkLabel} />
+    </div>
+  </div>
+</section>

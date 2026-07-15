@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/sections/journal/Hero.astro";
+import Featured from "../../components/sections/journal/Featured.astro";
+import IndexGrid from "../../components/sections/journal/IndexGrid.astro";
+import { meta } from "../../data/journal";
+
+const items = (await getCollection("journal")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const featured = items.find((i) => i.data.featured) ?? items[0];
+const rest = items.filter((i) => i.id !== featured?.id);
+---
+<Layout active="journal" title={meta.title} description={meta.description}>
+  <main x-data="{ tag: 'All' }">
+    <Hero />
+    {featured && <Featured entry={featured} />}
+    <IndexGrid items={rest} />
+  </main>
+</Layout>

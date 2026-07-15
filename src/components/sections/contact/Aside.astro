@@ -1,0 +1,44 @@
+---
+// `Placeholder` is only used by the studio map below, which ships disabled.
+// Re-enable this import together with the map block in the template.
+// import Placeholder from "../../Placeholder.astro";
+import SectionTag from "../../SectionTag.astro";
+import { studio } from "../../../data/contact";
+---
+<aside>
+  <SectionTag num={studio.sectionTag.num} label={studio.sectionTag.label} />
+  <div class="mt-8">
+    {studio.info.map((c) => (
+      <div class="py-5 border-t border-hairline">
+        <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">{c.k}</p>
+        <p
+          class="font-serif text-lg md:text-xl m-0 mt-2 whitespace-pre-line tracking-tight"
+          style={`color: ${c.link ? "var(--color-accent)" : "var(--color-text)"};`}
+        >
+          {c.v}
+        </p>
+      </div>
+    ))}
+    <div class="py-5 border-t border-b border-hairline">
+      <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">
+        {studio.availabilityLabel}
+      </p>
+      <p class="font-serif text-lg md:text-xl m-0 mt-2 flex items-center gap-3 tracking-tight">
+        <span class="pulse-dot inline-block rounded-full bg-accent size-2" aria-hidden="true"></span>
+        {studio.availabilityValue}
+      </p>
+    </div>
+  </div>
+
+  {/* Studio map — disabled by default. A static placeholder map used to render
+      here. To enable a map, either restore the block below (and uncomment the
+      `Placeholder` import in the frontmatter), or drop in a real Google Maps
+      embed: paste the <iframe> from Google Maps → Share → "Embed a map" and
+      style it to taste. The location copy lives in `studio.map`
+      (src/data/contact.ts). */}
+  {/*
+  <div class="mt-8">
+    <Placeholder ratio="2 / 1" label={studio.map.label} w={800} h={400} />
+  </div>
+  */}
+</aside>

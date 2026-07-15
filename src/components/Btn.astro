@@ -1,0 +1,39 @@
+---
+/**
+ * Pill-shaped button — primary (accent), dark (near-black), or ghost (outline).
+ * Polymorphic: renders <a> if href is provided, <button> otherwise.
+ *
+ * Used as the "Start a project" / "Enquire" / "Start a conversation" CTA
+ * across services, studio, and the home ContactCta block.
+ */
+interface Props {
+  href?: string;
+  variant?: "primary" | "dark" | "ghost";
+  type?: "button" | "submit";
+  class?: string;
+}
+
+const { href, variant = "primary", type = "button", class: className = "" } = Astro.props;
+
+const base =
+  "inline-flex items-center gap-2.5 font-sans text-sm px-5.5 py-3.5 rounded-full border transition-colors whitespace-nowrap tracking-body";
+
+const variants: Record<string, string> = {
+  primary:
+    "bg-accent text-on-accent border-accent hover:bg-[color-mix(in_oklab,var(--color-accent)_88%,white)]",
+  dark:
+    "bg-text text-bg border-text hover:bg-[color-mix(in_oklab,var(--color-text)_85%,white)]",
+  ghost:
+    "bg-transparent text-text border-hairline hover:border-text-muted hover:bg-[color-mix(in_oklab,var(--color-text)_4%,transparent)]",
+};
+
+const cls = [base, variants[variant], className].join(" ");
+const Tag = href ? "a" : "button";
+---
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class={cls}
+>
+  <slot />
+</Tag>

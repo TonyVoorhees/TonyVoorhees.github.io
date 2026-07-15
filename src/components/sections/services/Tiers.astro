@@ -1,0 +1,78 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { tiers } from "../../../data/services";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-16 md:pb-20">
+  <div class="mx-auto max-w-(--container)">
+    <div class="flex justify-between items-end mb-10 md:mb-14 flex-wrap gap-4 md:gap-6">
+      <div>
+        <SectionTag num={tiers.sectionTag.num} label={tiers.sectionTag.label} />
+        <h2
+          class="font-serif font-350 m-0 mt-5 md:mt-6 leading-none tracking-display-lg text-section"
+        >
+          {tiers.title.lead} <span class="italic">{tiers.title.accent}</span>.
+        </h2>
+      </div>
+      <p class="font-mono uppercase text-label text-text-muted tracking-mono-loose">
+        {tiers.note}
+      </p>
+    </div>
+
+    {/* Single column until lg, then the three-up pricing grid. The 3-column
+        layout only kicks in at lg because in the md band (768–1023px) the
+        cards were too narrow — descriptions and feature lines wrapped into a
+        cramped, broken rag ("end-/to-end", "/wk" orphaned). Stacking to one
+        column through md gives each card full width, matching the mobile read.
+
+        While stacked (<lg) the recommended tier surfaces first (negative
+        order). At lg+ the natural Sprint / Project / Partnership order
+        returns. */}
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" data-animate>
+      {tiers.items.map((t) => (
+        <div
+          class:list={[
+            "p-8 lg:p-10 relative flex flex-col",
+            t.recommended && "-order-1 lg:order-none mt-3 lg:mt-0",
+          ]}
+          style={t.recommended
+            ? "border: 1px solid var(--color-accent); background: color-mix(in oklab, var(--color-accent) 4%, var(--color-bg));"
+            : "border: 1px solid var(--color-hairline); background: var(--color-bg);"}
+        >
+          {t.recommended && (
+            <span
+              class="absolute -top-2.5 left-6 font-mono uppercase text-micro px-2.5 py-1 tracking-mono-loose bg-accent text-on-accent"
+            >
+              Recommended
+            </span>
+          )}
+          <p class="font-mono uppercase text-label text-text-muted m-0 tracking-mono-loose">{t.duration}</p>
+          <h3 class="font-serif font-350 m-0 mt-3 mb-1.5 tracking-display-xl" style="font-size: clamp(40px, 5vw, 56px);">{t.name}</h3>
+          <p
+            class="font-serif italic m-0 mb-6 font-normal tracking-snug"
+            style={`font-size: clamp(22px, 2.6vw, 28px); color: ${t.recommended ? "var(--color-accent)" : "var(--color-text)"};`}
+          >
+            {t.price}
+          </p>
+          <p class="text-sm leading-body text-text-muted m-0 mb-6 md:mb-8">{t.desc}</p>
+          <ul class="list-none p-0 m-0 flex-1 flex flex-col gap-2.5 border-t border-hairline pt-5 md:pt-6">
+            {t.features.map((f) => (
+              <li class="text-sm flex gap-2.5 items-baseline">
+                <span class="text-accent text-micro">●</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="/contact"
+            class="mt-6 md:mt-8 inline-flex justify-center px-4 py-3.5 font-sans text-sm rounded-full cursor-pointer transition-colors"
+            style={t.recommended
+              ? "background: var(--color-accent); color: var(--color-on-accent); border: none; min-height: 48px;"
+              : "background: transparent; color: var(--color-text); border: 1px solid var(--color-hairline); min-height: 48px;"}
+          >
+            {t.ctaLabel}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

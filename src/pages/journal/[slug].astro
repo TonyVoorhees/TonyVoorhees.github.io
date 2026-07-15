@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/sections/journalDetail/Header.astro";
+import HeroImage from "../../components/sections/journalDetail/HeroImage.astro";
+import Author from "../../components/sections/journalDetail/Author.astro";
+import Related from "../../components/sections/journalDetail/Related.astro";
+import InProduction from "../../components/sections/journalDetail/InProduction.astro";
+
+export async function getStaticPaths() {
+  const items = (await getCollection("journal")).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+  );
+  return items.map((entry, i) => {
+    // Up to two related entries — the ones immediately surrounding this entry
+    // in date order. This keeps the "Related" block useful without needing
+    // hand-curated relationships per article.
+    const related = [items[i - 1], items[i + 1]].filter(Boolean).slice(0, 2) as typeof items;
+    return {
+      params: { slug: entry.id },
+      props: { entry, related },
+    };
+  });
+}
+
+const { entry, related } = Astro.props;
+const { Content } = await render(entry);
+
+const pageTitle = `${entry.data.title} — Studio Nord`;
+---
+<Layout
+  active="journal"
+  title={pageTitle}
+  description={entry.data.excerpt}
+  ogType="article"
+  publishedTime={entry.data.date.toISOString()}
+  author={entry.data.author}
+>
+  <Header entry={entry} />
+  <HeroImage entry={entry} />
+
+  {entry.data.status === "published" ? (
+    <section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+      <div class="mx-auto grid gap-6 md:gap-12 grid-cols-1 md:[grid-template-columns:180px_1fr] max-w-[1200px]">
+        <div class="font-mono uppercase text-micro text-text-muted self-start md:sticky md:top-32 tracking-mono-loose">
+          Article · {entry.data.tag}
+        </div>
+        <article class="prose max-w-(--container-prose)">
+          <Content />
+        </article>
+      </div>
+    </section>
+  ) : (
+    <InProduction />
+  )}
+
+  <Author entry={entry} />
+  <Related related={related} />
+</Layout>

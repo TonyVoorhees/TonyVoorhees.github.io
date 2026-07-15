@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"journal">;
+}
+const { entry } = Astro.props;
+
+// Same editorial flourish as work — italicise the last word of the title.
+// For long, sentence-style titles this gives the headline its visual rhythm
+// without forcing a specific word into prose.
+const parts = entry.data.title.split(" ");
+const lead = parts.length === 1 ? "" : parts.slice(0, -1).join(" ") + " ";
+const accent = parts[parts.length - 1].replace(/[.,]$/, "");
+const punct = parts[parts.length - 1].match(/[.,]$/)?.[0] ?? "";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-6 md:pt-10 pb-10 md:pb-16">
+  <div class="mx-auto max-w-(--container-article)">
+    <div class="flex justify-between items-center mb-8 md:mb-10 gap-4">
+      <a href="/journal" class="hover-line font-mono uppercase text-label tracking-mono-loose">
+        ← Journal
+      </a>
+      <span class="font-mono uppercase text-label text-text-muted tracking-mono-loose">
+        {entry.data.tag}
+      </span>
+    </div>
+    <h1
+      class="font-serif font-350 m-0 leading-none tracking-display-xl text-balance"
+      style="font-size: clamp(3rem, 6vw, 6.5rem);"
+    >
+      {lead}<span class="italic">{accent}</span>{punct}
+    </h1>
+    <p class="font-mono uppercase text-label text-text-muted mt-6 md:mt-8 tracking-mono-loose">
+      By {entry.data.author} · {entry.data.dateLabel} · {entry.data.read}
+    </p>
+  </div>
+</section>

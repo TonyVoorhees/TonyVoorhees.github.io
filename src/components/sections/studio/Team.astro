@@ -1,0 +1,48 @@
+---
+import Placeholder from "../../Placeholder.astro";
+import SectionTag from "../../SectionTag.astro";
+import { team } from "../../../data/studio";
+import sofie from "../../../assets/studio/team/sofie.png";
+import magnus from "../../../assets/studio/team/magnus.png";
+import ida from "../../../assets/studio/team/ida.png";
+
+// Portraits aligned by index with team.members in data/studio.ts.
+// Kept here (not in studio.ts) because images are visual assets the
+// data file shouldn't import — it stays purely TypeScript content.
+const portraits = [sofie, magnus, ida];
+---
+<section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-16 md:pb-20">
+  <div class="mx-auto max-w-(--container)">
+    <div class="flex justify-between items-end mb-10 md:mb-16 gap-4">
+      <SectionTag num={team.sectionTag.num} label={team.sectionTag.label} />
+      <span class="font-mono text-xs text-text-muted tracking-mono">{team.est}</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10" data-animate>
+      {team.members.map((p, i) => (
+        <div>
+          <Placeholder
+            image={portraits[i]}
+            ratio="3 / 4"
+            label={p.img}
+            alt={`${p.name} — ${p.role}`}
+            sizes="(min-width: 1024px) 24vw, (min-width: 640px) 48vw, 100vw"
+            w={400}
+            h={533}
+          />
+          <div class="flex justify-between items-baseline mt-5">
+            <h2 class="font-serif font-normal text-2xl md:text-title m-0 tracking-snug">{p.name}</h2>
+            <span class="font-mono text-xs text-text-muted tracking-mono">0{i + 1}</span>
+          </div>
+          <p class="font-mono uppercase text-label text-text-muted mt-2 mb-4 tracking-mono">{p.role}</p>
+          <p class="text-body leading-body text-text-muted m-0 mb-5">{p.bio}</p>
+          <div class="flex gap-4 flex-wrap">
+            {p.links.map((l) => (
+              <a href="#" class="hover-line font-mono uppercase text-micro tracking-mono">{l} ↗</a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

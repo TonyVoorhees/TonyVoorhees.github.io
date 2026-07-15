@@ -1,0 +1,123 @@
+---
+/**
+ * Editorial figure component — dual mode.
+ *
+ * - When `image` is provided: renders an optimized Astro <Image /> filling
+ *   a container locked to `ratio`. The image cover-fits, preserving the
+ *   editorial spread's aspect ratios even when the source crop differs.
+ * - When `image` is not provided: renders a striped placeholder with a
+ *   mono caption, dimensions in the top-right, and a fake IMG_XXXX id in
+ *   the bottom-left. Used for in-production work, missing assets, and
+ *   anywhere the buyer hasn't supplied art yet.
+ *
+ * Single component on purpose — every figure on the site goes through here,
+ * so cropping, captions, and aspect ratios stay consistent whether a
+ * real image is present or not.
+ */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  /** Imported Astro asset. When set, renders <Image /> instead of placeholder. */
+  image?: ImageMetadata;
+  /** Alt text. Required for real images; ignored in placeholder mode. */
+  alt?: string;
+  /** CSS aspect-ratio expression, e.g. "16 / 9", "4 / 5". */
+  ratio?: string;
+  /** Used by the dimension badge in placeholder mode. */
+  w?: number;
+  h?: number;
+  /** Caption describing the intended image — drives the IMG_xxxx hash. */
+  label: string;
+  /** Optional inline class extension. */
+  class?: string;
+  /** Smaller caption font (used when the placeholder itself is small). */
+  fontSize?: number;
+  /** Disable lazy loading — set on above-the-fold images for LCP. */
+  eager?: boolean;
+  /** Widths Astro generates for the responsive srcset (capped to the source). */
+  widths?: number[];
+  /** `sizes` hint — the image's displayed width per breakpoint. Defaults to
+   *  100vw (correct for full-bleed images); pass a tighter value for images
+   *  shown at a fraction of the viewport (cards, portraits) so the browser
+   *  doesn't download an oversized variant. */
+  sizes?: string;
+}
+
+const {
+  image,
+  alt,
+  ratio,
+  w,
+  h,
+  label,
+  class: className = "",
+  fontSize,
+  eager = false,
+  widths = [400, 800, 1200, 1600],
+  sizes = "100vw",
+} = Astro.props;
+
+const aspect = ratio || (w && h ? `${w} / ${h}` : "4 / 3");
+const dimStr = w && h ? `${w}×${h}` : null;
+
+// Stable hash so the IMG_xxxx id stays the same for the same caption.
+function hashStr(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = (h << 5) - h + s.charCodeAt(i);
+    h |= 0;
+  }
+  return h;
+}
+const id = String(Math.abs(hashStr(label)) % 9999).padStart(4, "0");
+
+// Default alt: the label verbatim. Buyers should override with an actual
+// descriptive alt for accessibility — this is a reasonable fallback so we
+// never ship empty alt text.
+const altText = alt ?? label;
+---
+{image ? (
+  <div
+    class={`relative w-full max-w-full overflow-hidden ${className}`}
+    style={`aspect-ratio: ${aspect};`}
+  >
+    <Image
+      src={image}
+      alt={altText}
+      widths={widths}
+      sizes={sizes}
+      class="w-full h-full object-cover"
+      loading={eager ? "eager" : "lazy"}
+      decoding={eager ? "sync" : "async"}
+    />
+  </div>
+) : (
+  <div
+    class={`relative w-full max-w-full overflow-hidden border border-hairline bg-surface-2 placeholder-stripes ${className}`}
+    style={`aspect-ratio: ${aspect};`}
+  >
+    <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
+      <span
+        class="font-mono uppercase text-text-muted max-w-[80%] leading-[1.5] tracking-mono"
+        style={`font-size: ${fontSize || 11}px;`}
+      >
+        {label}
+      </span>
+    </div>
+    {dimStr && (
+      <span
+        class="absolute top-2.5 right-3 font-mono text-micro text-text-muted"
+        style="letter-spacing: 0.05em;"
+      >
+        {dimStr}
+      </span>
+    )}
+    <span
+      class="absolute bottom-2.5 left-3 font-mono text-micro text-text-muted"
+      style="letter-spacing: 0.05em;"
+    >
+      IMG_{id}
+    </span>
+  </div>
+)}

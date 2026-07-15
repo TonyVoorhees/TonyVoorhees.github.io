@@ -1,0 +1,92 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { press } from "../../../data/studio";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-16 md:pb-20">
+  <div class="mx-auto grid items-start gap-10 lg:gap-20 grid-cols-1 lg:[grid-template-columns:1fr_2fr] max-w-(--container)">
+    <SectionTag num={press.sectionTag.num} label={press.sectionTag.label} />
+
+    {/*
+      Each row carries `data-animate` so the global IntersectionObserver
+      in Layout.astro observes them individually — a row only flips to
+      `.is-in` when ITS own bounding box crosses the threshold, not when
+      the list as a whole enters view. That's what makes scrolling past
+      the press list feel scroll-responsive: a slow scroll reveals one
+      row at a time; a fast scroll reveals several together. The IO's
+      shared rootMargin gives the "wait until it's actually inside the
+      viewport" feel we want everywhere on the site.
+
+      The `.press-row` class only exists to override the default vertical
+      slide (16px translateY) with a horizontal one (32px translateX)
+      while keeping the same opacity transition and easing curve.
+
+      Layout switches at lg (not md): below lg each row stacks (year · kind /
+      title / Read) full-width; at lg+ it expands to the 4-column
+      [year | title | kind | link] spread. The switch lives at lg because in
+      the md band the row sat in the section's 2fr column AND the fixed
+      90/200px tracks left only ~47px for the 1fr title cell — `break-words`
+      then split the title one letter per line. lg gives the title cell room.
+    */}
+    {/* overflow-hidden contains the 32px horizontal pre-translate that each
+        `.press-row[data-animate]` paints in before .is-in fires — without it
+        the off-canvas frame can leak past the section's right edge on iOS,
+        where `body { overflow-x: clip }` doesn't always suppress descendants. */}
+    <ul class="list-none p-0 m-0 overflow-hidden">
+      {press.items.map((p) => (
+        <li
+          class="press-row py-5 lg:py-6 border-t border-hairline
+                 flex flex-col gap-1.5
+                 lg:grid lg:items-baseline lg:gap-6
+                 lg:[grid-template-columns:80px_1fr_150px_auto]"
+          data-animate
+        >
+          {/*
+            Below lg, year + kind sit together as a single meta line —
+            avoids the failure mode where the kind label in a `1fr` grid
+            cell (which resolves to `minmax(auto, 1fr)`) expanded the row
+            beyond the viewport. `lg:contents` removes the wrapper from the
+            grid at lg+ so its children participate directly as the year
+            and kind cells of the 4-column row.
+          */}
+          <div class="flex items-baseline gap-2 lg:contents">
+            <span class="font-mono text-meta text-text-muted lg:order-1">{p.year}</span>
+            <span class="font-mono text-label text-text-muted opacity-50 lg:hidden" aria-hidden="true">·</span>
+            <span
+              class="font-mono uppercase text-label text-text-muted lg:order-3 truncate min-w-0 tracking-mono"
+            >
+              {p.kind}
+            </span>
+          </div>
+
+          <h3
+            class="font-serif font-normal text-lg lg:text-title-sm m-0 lg:order-2 break-words tracking-tight min-w-0"
+          >
+            {p.title}
+          </h3>
+
+          <a
+            href="#"
+            class="hover-line font-mono uppercase text-label lg:order-4 mt-0.5 lg:mt-0 self-start tracking-mono"
+          >
+            Read ↗
+          </a>
+        </li>
+      ))}
+      <li class="border-t border-hairline"></li>
+    </ul>
+  </div>
+</section>
+
+<style is:global>
+  /* Right-to-left slide instead of the default bottom-to-top.
+     `:not(.is-in)` scopes the override to the INITIAL state. Without it,
+     this rule (1 class + 1 attribute) ties with the global
+     `[data-animate].is-in` rule and ships later in the cascade — it would
+     keep the row permanently shifted +32px right even after the IO marks
+     it active. The :not bumps specificity AND deactivates the override
+     the moment .is-in is added, so transition to `transform: none` reads
+     correctly. */
+  .press-row[data-animate]:not(.is-in) {
+    transform: translate3d(32px, 0, 0);
+  }
+</style>

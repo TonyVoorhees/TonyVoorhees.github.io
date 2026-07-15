@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Placeholder from "../../Placeholder.astro";
+
+interface Props {
+  items: CollectionEntry<"journal">[];
+}
+const { items } = Astro.props;
+---
+<section class="px-5 sm:px-6 md:px-8 pt-10 md:pt-16 pb-16 md:pb-20">
+  <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-(--container-wide)">
+    {items.map((j) => (
+      <a
+        href={`/journal/${j.id}`}
+        class="cursor-pointer grid gap-5 md:gap-7 [grid-template-columns:5fr_7fr] md:grid-cols-1 lg:[grid-template-columns:5fr_7fr]"
+        x-show={`tag === 'All' || tag === '${j.data.tag}'`}
+      >
+        <Placeholder
+          image={j.data.coverImage}
+          ratio="3 / 2"
+          label={j.data.img}
+          alt={`${j.data.title} — by ${j.data.author}`}
+          sizes="(min-width: 768px) 42vw, 100vw"
+        />
+        <div>
+          <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">
+            {j.data.tag}
+          </p>
+          <h3 class="font-serif font-normal text-lg md:text-2xl mt-2 md:mt-3 m-0 tracking-snug" style="line-height: 1.2;">
+            {j.data.title}
+          </h3>
+          <p class="hidden sm:block text-sm leading-body text-text-muted mt-3 m-0">{j.data.excerpt}</p>
+          <p class="font-mono text-micro text-text-muted mt-3 md:mt-4 uppercase tracking-mono">
+            {j.data.dateLabel} · {j.data.read}
+          </p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

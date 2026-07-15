@@ -1,0 +1,24 @@
+---
+/**
+ * Marginal note label — a small mono uppercase phrase positioned in the
+ * left margin (when the layout allows) next to a paragraph of body copy.
+ * Used in the studio Philosophy section and journal article body.
+ *
+ * On narrow screens it falls back to inline above the content.
+ */
+interface Props {
+  text: string;
+  /** Top margin in pixels — used to space successive marginalia. */
+  mt?: number;
+}
+
+const { text, mt = 0 } = Astro.props;
+---
+<div class="relative" style={mt ? `margin-top: ${mt}px;` : undefined}>
+  <span
+    class="font-mono uppercase text-micro text-text-muted mb-3 block md:absolute md:-left-[180px] md:top-1 md:mb-0 md:w-[140px] tracking-mono-loose"
+  >
+    ↳ {text}
+  </span>
+  <slot />
+</div>

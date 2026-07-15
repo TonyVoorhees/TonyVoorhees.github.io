@@ -1,0 +1,23 @@
+---
+/**
+ * Editorial text-link CTA with a hairline underline that swaps from muted
+ * to accent on hover, plus an arrow that translates right.
+ *
+ * Used everywhere a "soft" link is more appropriate than a pill button:
+ * "Start a brief", "All work", "All entries", "Browse the index", etc.
+ *
+ * The hero-cta utility lives in global.css — this is just the markup.
+ */
+interface Props {
+  href: string;
+  label: string;
+  /** Optional class extension (e.g. to set color: var(--color-text-muted)). */
+  class?: string;
+}
+
+const { href, label, class: className = "" } = Astro.props;
+---
+<a href={href} class={`hero-cta ${className}`}>
+  <span>{label}</span>
+  <span class="hero-cta__arrow" aria-hidden="true">→</span>
+</a>

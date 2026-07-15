@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dateLabel": {
+      "type": "string"
+    },
+    "read": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string",
+      "enum": [
+        "Process",
+        "Craft",
+        "Tools",
+        "Industry",
+        "Studio"
+      ]
+    },
+    "author": {
+      "type": "string"
+    },
+    "authorBio": {
+      "type": "string"
+    },
+    "img": {
+      "type": "string"
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "status": {
+      "default": "in-production",
+      "type": "string",
+      "enum": [
+        "published",
+        "in-production"
+      ]
+    },
+    "coverImage": {
+      "type": "string"
+    },
+    "homeImage": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "excerpt",
+    "date",
+    "dateLabel",
+    "read",
+    "tag",
+    "author",
+    "img"
+  ]
+}

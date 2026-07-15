@@ -1,0 +1,82 @@
+---
+import { blocks } from "../../../data/services";
+---
+{/*
+  Stacked-sticky blocks. Each service block is `position: sticky` with the
+  same top offset (the header height minus 1px, so the border-t hairline
+  fuses with the header's bottom border into a single line). As you scroll,
+  block N sticks at the top; when block N+1's natural position scrolls up
+  to the same sticky line, it stacks ON TOP of block N (later DOM order
+  wins), revealing block N+1 over block N. Effectively each service is
+  "presented" full-bleed once before the next one slides in over it.
+
+  Two requirements for this to work cleanly:
+    1) Each block has an OPAQUE background. If a block were transparent,
+       the previous sticky block underneath would bleed through and the
+       reveal would look wrong. We alternate `bg-bg` / `bg-surface` so
+       the editorial alternation persists, but both tokens are fully
+       opaque (no transparency) — they pick up dark-mode overrides via
+       var(--color-*) automatically.
+    2) The `top` value matches the InfoBar pattern on work-detail pages.
+       Anything that sticks below the header reads the same token, so
+       changes to the header height propagate to every sticky element.
+*/}
+<section>
+  {blocks.map((s, i) => (
+    <div
+      class:list={[
+        "px-5 sm:px-6 md:px-8 py-14 md:py-24 border-t border-hairline static md:sticky under-header",
+        i % 2 === 1 ? "bg-surface" : "bg-bg",
+      ]}
+    >
+      <div class="mx-auto grid items-start gap-8 md:gap-12 grid-cols-1 md:[grid-template-columns:1fr_1.6fr] max-w-(--container)">
+        <div>
+          <span
+            class="font-serif italic font-350 text-accent block tracking-hero-xl"
+            style="font-size: clamp(4rem, 14vw, 14rem); line-height: 0.8;"
+          >
+            {s.n}
+          </span>
+          <p class="font-mono uppercase text-label text-text-muted mt-4 md:mt-6 m-0 tracking-mono-loose">
+            {s.price}
+          </p>
+        </div>
+        <div>
+          <h2
+            class="font-serif font-350 m-0 tracking-display-lg"
+            style="font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1;"
+          >
+            {s.name}
+          </h2>
+          <p
+            class="font-serif text-text-muted m-0 mt-5 md:mt-6 max-w-(--container-lead)"
+            style="font-size: clamp(17px, 2vw, 22px); line-height: 1.4;"
+          >
+            {s.desc}
+          </p>
+
+          <div class="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div>
+              <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Deliverables</p>
+              <ul class="list-none p-0 m-0 mt-3 md:mt-4 flex flex-col gap-2">
+                {s.deliverables.map((d) => (
+                  <li class="text-body md:text-base flex gap-3 items-baseline">
+                    <span class="font-mono text-micro text-accent">+</span>
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Ideal for</p>
+              <p class="text-body md:text-base leading-body mt-3 md:mt-4 m-0">{s.idealFor}</p>
+              <a href="/work" class="hover-line font-mono uppercase text-label cursor-pointer mt-6 md:mt-8 inline-block tracking-mono">
+                Example — {s.example} ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>

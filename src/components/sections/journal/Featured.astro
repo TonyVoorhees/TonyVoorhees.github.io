@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Placeholder from "../../Placeholder.astro";
+
+interface Props {
+  entry: CollectionEntry<"journal">;
+}
+const { entry } = Astro.props;
+---
+{/* x-show lives on the <section>, not the inner <a>: the section owns the
+    vertical padding, so hiding only the link left an empty padded band that
+    pushed the rest of the list out of alignment when the active filter
+    excludes the featured post. Gating the whole section removes the padding
+    too. */}
+<section
+  class="px-5 sm:px-6 md:px-8 py-4 md:py-10"
+  x-show={`tag === 'All' || tag === '${entry.data.tag}'`}
+>
+  <div class="mx-auto max-w-(--container-wide)">
+    <a
+      href={`/journal/${entry.id}`}
+      class="grid gap-8 md:gap-14 items-center cursor-pointer grid-cols-1 md:[grid-template-columns:7fr_5fr]"
+    >
+      <Placeholder
+        image={entry.data.coverImage}
+        ratio="7 / 5"
+        label={entry.data.img}
+        alt={`${entry.data.title} — by ${entry.data.author}`}
+        sizes="(min-width: 768px) 56vw, 100vw"
+        eager
+      />
+      <div>
+        <p class="font-mono uppercase text-label text-accent m-0 tracking-mono-loose">
+          Featured — {entry.data.tag}
+        </p>
+        <h2
+          class="font-serif font-350 m-0 mt-4 md:mt-6 tracking-display-lg text-balance"
+          style="font-size: clamp(1.5rem, 4vw, 3.6rem); line-height: 1.05;"
+        >
+          {entry.data.title}
+        </h2>
+        <p class="mt-4 md:mt-6 text-base md:text-lg leading-body text-text-muted">{entry.data.excerpt}</p>
+        <p class="font-mono uppercase text-label text-text-muted mt-6 md:mt-8 tracking-mono">
+          {entry.data.dateLabel} · {entry.data.read} · By {entry.data.author}
+        </p>
+      </div>
+    </a>
+  </div>
+</section>

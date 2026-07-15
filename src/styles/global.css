@@ -1,0 +1,13 @@
+/* Studio Nord — global stylesheet. Split by concern so you know where to edit:
+ *
+ *   theme.css      → design tokens: colours, type, tracking, sizes, containers
+ *                    (edit this to re-skin the template)
+ *   base.css       → element resets, body defaults, scroll-reveal, keyframes
+ *   utilities.css  → reusable component styles (CTAs, cards, prose, marquee…)
+ *
+ * Tailwind 4 processes @theme / @utility across these imports. Order matters:
+ * tailwindcss first, then tokens, base, utilities. */
+@import "tailwindcss";
+@import "./theme.css";
+@import "./base.css";
+@import "./utilities.css";

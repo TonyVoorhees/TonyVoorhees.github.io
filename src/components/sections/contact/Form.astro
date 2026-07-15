@@ -1,0 +1,165 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { form } from "../../../data/contact";
+---
+<div
+  x-data={`{
+    form: { name: '', email: '', company: '', projectType: '${form.defaultProjectType}', budget: '${form.defaultBudget}', message: '' },
+    submitted: false,
+    focused: null,
+    submit(e) {
+      e.preventDefault();
+      if (!this.form.name || !this.form.email || !this.form.message) return;
+      // Replace this with a real submit handler (Formspree, serverless, etc.).
+      this.submitted = true;
+    }
+  }`}
+>
+  <SectionTag num={form.sectionTag.num} label={form.sectionTag.label} />
+
+  <form x-show="!submitted" x-on:submit="submit($event)" class="mt-8">
+    {/* Name */}
+    <label class="block border-t border-hairline pt-5 pb-1 relative">
+      <span
+        class="font-mono uppercase text-micro transition-colors tracking-mono-loose"
+        x-bind:class="focused === 'name' ? 'text-accent' : 'text-text-muted'"
+      >
+        Your name <span class="text-accent">*</span>
+      </span>
+      <input
+        required
+        type="text"
+        x-model="form.name"
+        x-on:focus="focused = 'name'"
+        x-on:blur="focused = null"
+        class="w-full bg-transparent border-none outline-none font-serif text-xl md:text-2xl text-text py-2 tracking-tight"
+      />
+    </label>
+
+    {/* Email */}
+    <label class="block border-t border-hairline pt-5 pb-1 relative">
+      <span
+        class="font-mono uppercase text-micro transition-colors tracking-mono-loose"
+        x-bind:class="focused === 'email' ? 'text-accent' : 'text-text-muted'"
+      >
+        Email address <span class="text-accent">*</span>
+      </span>
+      <input
+        required
+        type="email"
+        x-model="form.email"
+        x-on:focus="focused = 'email'"
+        x-on:blur="focused = null"
+        class="w-full bg-transparent border-none outline-none font-serif text-xl md:text-2xl text-text py-2 tracking-tight"
+      />
+    </label>
+
+    {/* Company (optional) */}
+    <label class="block border-t border-hairline pt-5 pb-1 relative">
+      <span
+        class="font-mono uppercase text-micro transition-colors tracking-mono-loose"
+        x-bind:class="focused === 'company' ? 'text-accent' : 'text-text-muted'"
+      >
+        Company or studio (optional)
+      </span>
+      <input
+        type="text"
+        x-model="form.company"
+        x-on:focus="focused = 'company'"
+        x-on:blur="focused = null"
+        class="w-full bg-transparent border-none outline-none font-serif text-xl md:text-2xl text-text py-2 tracking-tight"
+      />
+    </label>
+
+    {/* Project type — pill picker */}
+    <div class="block border-t border-hairline pt-5 pb-1">
+      <span class="font-mono uppercase text-micro text-text-muted tracking-mono-loose">
+        What's the project?
+      </span>
+      <div class="flex gap-2 flex-wrap mt-3 mb-3">
+        {form.projectTypes.map((t) => (
+          <button
+            type="button"
+            x-on:click={`form.projectType = '${t}'`}
+            x-bind:class={`form.projectType === '${t}' ? 'bg-text text-bg border-text' : 'bg-transparent text-text-muted border-hairline'`}
+            class="font-mono text-xs uppercase px-4 py-2.5 rounded-md border cursor-pointer transition-colors tracking-mono"
+          >
+            {t}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Budget — pill picker */}
+    <div class="block border-t border-hairline pt-5 pb-1">
+      <span class="font-mono uppercase text-micro text-text-muted tracking-mono-loose">
+        Approximate budget
+      </span>
+      <div class="flex gap-2 flex-wrap mt-3 mb-3">
+        {form.budgets.map((b) => (
+          <button
+            type="button"
+            x-on:click={`form.budget = '${b}'`}
+            x-bind:class={`form.budget === '${b}' ? 'bg-text text-bg border-text' : 'bg-transparent text-text-muted border-hairline'`}
+            class="font-mono text-xs uppercase px-4 py-2.5 rounded-md border cursor-pointer transition-colors tracking-mono"
+          >
+            {b}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Message */}
+    <label class="block border-t border-hairline pt-5 pb-1 relative">
+      <span
+        class="font-mono uppercase text-micro transition-colors tracking-mono-loose"
+        x-bind:class="focused === 'message' ? 'text-accent' : 'text-text-muted'"
+      >
+        A few sentences about the project <span class="text-accent">*</span>
+      </span>
+      <textarea
+        required
+        rows="5"
+        x-model="form.message"
+        x-on:focus="focused = 'message'"
+        x-on:blur="focused = null"
+        placeholder="Tell us where you are, where you'd like to go, and roughly when…"
+        class="w-full bg-transparent border-none outline-none font-serif text-lg md:text-title-sm text-text py-2 resize-none leading-[1.4] tracking-tight min-h-30"
+      ></textarea>
+    </label>
+
+    <div class="border-t border-hairline"></div>
+
+    <div class="mt-6 md:mt-8 flex justify-between items-start sm:items-center flex-col sm:flex-row gap-4">
+      <p class="font-mono uppercase text-micro text-text-muted m-0 sm:max-w-[320px] tracking-mono-loose">
+        {form.consent}
+      </p>
+      <button
+        type="submit"
+        class="bg-accent text-on-accent border border-accent px-5.5 py-3.5 rounded-full font-sans text-sm inline-flex items-center justify-center gap-2.5 cursor-pointer w-full sm:w-auto transition-colors hover:bg-[color-mix(in_oklab,var(--color-accent)_88%,white)] whitespace-nowrap tracking-body"
+      >
+        {form.submitLabel}
+        <svg width="14" height="9" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 5h14M11 1l4 4-4 4" /></svg>
+      </button>
+    </div>
+  </form>
+
+  {/* Thank-you state */}
+  <div
+    x-show="submitted"
+    x-cloak
+    class="mt-8 p-8 md:p-14"
+    style="border: 1px solid var(--color-accent); background: color-mix(in oklab, var(--color-accent) 5%, var(--color-bg));"
+  >
+    <p class="font-mono uppercase text-label text-accent m-0 tracking-mono-loose">
+      {form.thanks.eyebrow}
+    </p>
+    <h3
+      class="font-serif font-350 mt-5 mb-4 tracking-display"
+      style="font-size: clamp(1.75rem, 3vw, 2.6rem); line-height: 1.15;"
+    >
+      Got it, <span x-text="form.name.split(' ')[0]"></span>. We'll <span class="italic">read it carefully</span><br />and reply by tomorrow.
+    </h3>
+    <p class="text-text-muted leading-body max-w-[480px]" set:html={form.thanks.body.replace("hello@studionord.dk", '<span class="text-text">hello@studionord.dk</span>')}></p>
+  </div>
+</div>

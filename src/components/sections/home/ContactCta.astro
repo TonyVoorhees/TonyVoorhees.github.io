@@ -1,0 +1,54 @@
+---
+import { contactCta } from "../../../data/home";
+---
+{/* Editorial inversion — always dark, regardless of the current theme. The
+    dark-only tokens (--color-dark-bg, --color-dark-text, etc.) come from
+    global.css and never swap. */}
+<section class="px-5 sm:px-6 md:px-8">
+  <div
+    class="relative overflow-hidden mx-auto py-16 px-6 sm:py-20 sm:px-10 md:py-28 md:px-16 lg:py-[120px] lg:px-16 bg-dark-bg text-dark-text"
+  >
+    <div class="mx-auto max-w-(--container-band)">
+      <div class="font-mono uppercase text-label tracking-mono-loose text-dark-text-muted">
+        ({contactCta.sectionTag.num}) <span class="mx-1.5">—</span> {contactCta.sectionTag.label}
+      </div>
+      <h2
+        class="font-serif font-350 m-0 mt-6 md:mt-9 tracking-hero text-balance text-dark-heading"
+        style="font-size: clamp(2.25rem, 7vw, 7.5rem); line-height: 0.95;"
+      >
+        {contactCta.title.line1} <span class="italic">{contactCta.title.accent}</span><br />
+        {contactCta.title.line3}
+      </h2>
+
+      <div class="mt-10 md:mt-16 flex gap-3 md:gap-4 flex-col sm:flex-row sm:flex-wrap">
+        <a
+          href={contactCta.ctas.primary.href}
+          class="inline-flex items-center justify-center gap-2.5 px-7 py-4.5 rounded-full text-body font-sans tracking-body bg-accent text-on-accent min-h-12"
+        >
+          {contactCta.ctas.primary.label}
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 5h14M11 1l4 4-4 4" /></svg>
+        </a>
+        <a
+          href={contactCta.ctas.secondary.href}
+          class="inline-flex items-center justify-center px-7 py-4.5 rounded-full text-body font-sans bg-transparent text-dark-text border border-dark-outline min-h-12"
+        >
+          {contactCta.ctas.secondary.label}
+        </a>
+      </div>
+
+      <div class="mt-16 md:mt-24 pt-7 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 border-t border-dark-hairline">
+        {contactCta.stats.map((s) => (
+          <div>
+            <p class="font-mono uppercase text-label m-0 tracking-mono-loose text-dark-text-muted">{s.label}</p>
+            <p class="font-serif font-light m-0 mt-3 flex flex-wrap items-baseline gap-2 tracking-display" style="font-size: clamp(24px, 3vw, 32px);">
+              {s.dot && <span class="pulse-dot inline-block rounded-full size-2.5 bg-accent" aria-hidden="true"></span>}
+              {s.value}
+              {s.italicSuffix && <span class="italic text-base md:text-lg text-dark-text-muted">{s.italicSuffix}</span>}
+              {s.suffix && <span class="text-base md:text-lg text-dark-text-muted">{s.suffix}</span>}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

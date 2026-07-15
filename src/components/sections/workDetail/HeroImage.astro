@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Placeholder from "../../Placeholder.astro";
+
+interface Props {
+  entry: CollectionEntry<"work">;
+}
+const { entry } = Astro.props;
+---
+<section class="px-5 sm:px-6 md:px-8">
+  <div class="mx-auto max-w-(--container-feature)">
+    <Placeholder
+      image={entry.data.heroImage}
+      ratio="16 / 9"
+      label={entry.data.img}
+      alt={`${entry.data.name} — ${entry.data.client}, ${entry.data.year}`}
+      w={1440}
+      h={810}
+      eager
+    />
+    <p
+      class="font-mono uppercase text-micro text-text-muted mt-4 tracking-mono-loose"
+    >
+      FIG. 01 — {entry.data.name}, {entry.data.type.toLowerCase()}, {entry.data.year}
+    </p>
+  </div>
+</section>

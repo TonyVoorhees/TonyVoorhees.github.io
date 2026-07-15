@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SectionTag from "../../SectionTag.astro";
+
+interface Props {
+  entry: CollectionEntry<"work">;
+}
+const { entry } = Astro.props;
+
+const credits = entry.data.credits ?? [];
+---
+{credits.length > 0 && (
+  <section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-12 md:pb-16">
+    <div class="mx-auto grid gap-8 md:gap-20 border-t border-hairline pt-10 md:pt-16 grid-cols-1 md:[grid-template-columns:1fr_2fr] max-w-(--container)">
+      <SectionTag num="—" label="Credits" />
+      <div class="grid grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-8">
+        {credits.map((c) => (
+          <div class="min-w-0">
+            <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">{c.k}</p>
+            <p class="font-serif text-base md:text-xl m-0 mt-1.5 break-words tracking-tight">{c.v}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

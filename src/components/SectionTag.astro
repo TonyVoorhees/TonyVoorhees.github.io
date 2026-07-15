@@ -1,0 +1,17 @@
+---
+/**
+ * Mono uppercase section label of the form "(01) — Label".
+ * Used as the top label of nearly every section across the site.
+ */
+interface Props {
+  num: string;
+  label: string;
+}
+
+const { num, label } = Astro.props;
+---
+<div
+  class="font-mono uppercase text-label text-text-muted tracking-mono-loose"
+>
+  ({num}) <span class="mx-1.5">—</span> {label}
+</div>

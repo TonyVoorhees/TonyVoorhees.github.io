@@ -1,0 +1,543 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionTag from "../components/SectionTag.astro";
+import Btn from "../components/Btn.astro";
+import HeroCta from "../components/HeroCta.astro";
+import Wordmark from "../components/Wordmark.astro";
+import Placeholder from "../components/Placeholder.astro";
+import Marginalia from "../components/Marginalia.astro";
+import studioHero from "../assets/studio/hero.png";
+import { meta, hero, colorTokens, typeSamples, trackingScale, breakpoints } from "../data/styleguide";
+
+/**
+ * Each component row pairs a live demo on the left with its metadata on
+ * the right. Naming + file path help buyers find the source quickly;
+ * the description orients them on intended usage. Kept inline (not in
+ * styleguide.ts) because the demos require actual component invocation
+ * and the descriptions live naturally next to the rendered example.
+ */
+const componentRows: { name: string; file: string; desc: string }[] = [
+  {
+    name: "Btn",
+    file: "src/components/Btn.astro",
+    desc: "Pill-shaped call-to-action. Polymorphic: renders <a> when href is set, <button> otherwise. Three variants — primary (accent), dark (near-black), ghost (outline).",
+  },
+  {
+    name: "HeroCta",
+    file: "src/components/HeroCta.astro",
+    desc: "Editorial inline link. A muted hairline always sits under it; on hover, an accent-coloured hairline grows in from the left and the arrow translates right. Used in place of pill buttons where a softer affordance reads better.",
+  },
+  {
+    name: "SectionTag",
+    file: "src/components/SectionTag.astro",
+    desc: 'Mono uppercase section label of the form "(01) — Label". Used as the eyebrow on nearly every section across the site.',
+  },
+  {
+    name: "Wordmark",
+    file: "src/components/Wordmark.astro",
+    desc: "Brand mark — italic Studio + roman Nord + pulsing accent dot. Size prop drives font-size (px). Inline by default; pass inline={false} for block-level usage like the footer.",
+  },
+  {
+    name: "Placeholder",
+    file: "src/components/Placeholder.astro",
+    desc: "Editorial figure component. When given an image prop, renders an optimized Astro <Image /> filling a container locked to the aspect ratio. Without an image, falls back to a striped placeholder with a mono caption and a fake IMG_XXXX id — used for in-production work and missing assets so a buyer never sees a broken figure.",
+  },
+  {
+    name: "Marginalia",
+    file: "src/components/Marginalia.astro",
+    desc: "Sidebar note pattern. A small mono uppercase label aligns to the margin (or stacks above on narrow screens) next to a body paragraph. Used heavily in the studio Philosophy section and inside journal articles.",
+  },
+  {
+    name: "Form field",
+    file: "src/components/sections/contact/Form.astro",
+    desc: "Editorial form pattern. Each field is bounded by a top hairline; a small mono uppercase label sits above a large serif input. The label colour swaps to accent on focus, giving the only visual feedback the design needs. For fixed-choice fields, a pill picker variant toggles between an inverted (active) and an outlined (idle) state.",
+  },
+  {
+    name: "Filter tabs",
+    file: "src/components/sections/work/Hero.astro · journal/Hero.astro",
+    desc: "Horizontal tab bar bounded by hairlines top + bottom. Mono uppercase labels with the active tab marked by a 1-pixel accent indicator inset 24px from the button edges. Drives a single Alpine state (the filter or tag) on the parent — see /work and /journal for the live patterns.",
+  },
+  {
+    name: "hover-line",
+    file: "src/styles/global.css",
+    desc: "The primary inline-link pattern across the site — nav items, footer columns, breadcrumbs, social refs, anywhere a soft secondary CTA is wanted. Apply the class and the link gets an accent-coloured underline that grows from left to full width on hover or focus. Honours prefers-reduced-motion by skipping the transition.",
+  },
+];
+---
+<Layout title={meta.title} description={meta.description} noindex>
+  {/* Hero */}
+  <section class="px-5 sm:px-6 md:px-8 pt-6 md:pt-10 pb-12 md:pb-20">
+    <div class="mx-auto" style="max-width: 1500px;">
+      <div class="font-mono uppercase text-[11px] text-text-muted" style="letter-spacing: var(--tracking-mono-loose);">
+        {hero.caption}
+      </div>
+      <h1
+        class="font-serif font-350 m-0 mt-6 md:mt-8 leading-[0.95]"
+        style="font-size: clamp(3rem, 7.5vw, 8.5rem); letter-spacing: var(--tracking-hero);"
+      >
+        {hero.title.lead} <span class="italic">{hero.title.accent}</span><br />{hero.title.line3}
+      </h1>
+      <p class="mt-6 md:mt-8 text-[16px] md:text-[18px] text-text-muted leading-[1.55]" style="max-width: 640px;">
+        {hero.body}
+      </p>
+    </div>
+  </section>
+
+  {/* Colour tokens */}
+  <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+    <div class="mx-auto" style="max-width: 1500px;">
+      <SectionTag num="01" label="Colour tokens" />
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+        {colorTokens.map((c) => (
+          <div>
+            <div
+              class="border border-hairline"
+              style={`aspect-ratio: 4 / 3; background: ${c.hex};`}
+            ></div>
+            <p class="font-serif text-[18px] mt-3 mb-1.5" style="letter-spacing: var(--tracking-tight);">{c.name}</p>
+            <p class="font-mono text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono);">{c.hex}</p>
+            <p class="font-mono text-[10px] text-text-muted m-0 break-all" style="letter-spacing: var(--tracking-mono);">{c.oklch}</p>
+            <p class="font-mono uppercase text-[10px] text-text-muted mt-1.5 m-0" style="letter-spacing: var(--tracking-mono);">
+              {c.use}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Typography scale */}
+  <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+    <div class="mx-auto" style="max-width: 1500px;">
+      <SectionTag num="02" label="Typography scale" />
+      <div class="mt-10">
+        {typeSamples.map((t) => (
+          <div class="grid items-baseline gap-3 md:gap-8 py-6 md:py-8 border-t border-hairline grid-cols-1 md:[grid-template-columns:200px_1fr_180px]">
+            <div>
+              <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">{t.name}</p>
+              <p class="font-mono text-[11px] text-text-muted mt-1.5 m-0">{t.font}, {t.weight}</p>
+            </div>
+            <p
+              class="m-0"
+              style={[
+                `font-family: var(--font-${t.font === "Fraunces" ? "serif" : t.font === "Geist" ? "sans" : "mono"});`,
+                `font-size: ${t.sizeCss};`,
+                `font-weight: ${t.weight};`,
+                t.italic ? "font-style: italic;" : "",
+                t.mono ? "text-transform: uppercase; letter-spacing: var(--tracking-mono-loose);" : "letter-spacing: var(--tracking-snug);",
+                t.muted ? "color: var(--color-text-muted);" : "",
+                "line-height: 1.15;",
+              ].join(" ")}
+            >
+              {t.sample}
+            </p>
+            <p class="font-mono text-[11px] text-text-muted m-0 text-left md:text-right">{t.sizeCss}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Tracking scale — two columns on desktop, stacked on mobile.
+
+      Splitting the list in half is purely a typographic concern: 11 entries
+      in one stacked column reads as a wall on a wide layout, while two
+      shorter columns let the buyer scan side-by-side and compare values
+      visually. The inner row keeps its 4-cell structure (token · sample ·
+      value · use), only with tighter fixed widths so it fits half the page. */}
+  <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+    <div class="mx-auto" style="max-width: 1500px;">
+      <SectionTag num="03" label="Tracking scale" />
+      <p class="mt-6 max-w-[640px] text-text-muted leading-[1.55]">
+        Every letter-spacing the template reuses is defined as a token in
+        <code class="font-mono text-[13px] bg-surface px-1.5 py-0.5 rounded">@theme</code>.
+        Use the named utility, never an arbitrary <code class="font-mono text-[13px] bg-surface px-1.5 py-0.5 rounded">tracking-[…]</code> value.
+      </p>
+
+      {(() => {
+        const half = Math.ceil(trackingScale.length / 2);
+        const left = trackingScale.slice(0, half);
+        const right = trackingScale.slice(half);
+        return (
+          <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-14">
+            {[left, right].map((column) => (
+              <div>
+                {column.map((t) => (
+                  <div class="grid items-baseline gap-2 md:gap-4 py-4 md:py-5 border-t border-hairline [grid-template-columns:1fr_auto] md:[grid-template-columns:110px_1fr_60px_130px]">
+                    <p class="font-mono text-[12px] text-text" style="letter-spacing: var(--tracking-mono);">tracking-{t.name}</p>
+                    <p class="font-mono text-[11px] text-text-muted text-right md:hidden">{t.value}</p>
+                    <p class="font-serif text-[20px] md:text-[24px] m-0 truncate col-span-2 md:col-span-1" style={`letter-spacing: ${t.value};`}>Studio Nord</p>
+                    <p class="hidden md:block font-mono text-[11px] text-text-muted">{t.value}</p>
+                    <p class="font-mono uppercase text-[10px] text-text-muted text-left md:text-right col-span-2 md:col-span-1" style="letter-spacing: var(--tracking-mono);">{t.use}</p>
+                  </div>
+                ))}
+                <div class="border-t border-hairline"></div>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
+    </div>
+  </section>
+
+  {/* Breakpoints */}
+  <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+    <div class="mx-auto" style="max-width: 1500px;">
+      <SectionTag num="04" label="Breakpoints" />
+      <p class="mt-6 max-w-[640px] text-text-muted leading-[1.55]">
+        Standard Tailwind breakpoints. The template avoids custom breakpoints
+        — buyers will find their muscle memory honoured.
+      </p>
+      <div class="mt-10">
+        {breakpoints.map((b) => (
+          <div class="grid items-baseline gap-3 md:gap-8 py-4 md:py-5 border-t border-hairline [grid-template-columns:auto_1fr] md:[grid-template-columns:120px_160px_1fr]">
+            <p class="font-mono text-[14px] text-text">{b.name}</p>
+            <p class="font-mono text-[13px] text-text-muted">{b.px}</p>
+            <p class="text-[14px] md:text-[15px] text-text-muted m-0 col-span-2 md:col-span-1">{b.use}</p>
+          </div>
+        ))}
+        <div class="border-t border-hairline"></div>
+      </div>
+    </div>
+  </section>
+
+  {/*
+    Components — live demos paired with metadata. Each row shows the
+    primitive rendered with its real variants on the left, and the
+    component name + source path + intended use on the right. The
+    template's whole vocabulary fits in this section; if a UI element
+    isn't here, it's a section composition, not a primitive.
+  */}
+  <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+    <div class="mx-auto" style="max-width: 1500px;">
+      <SectionTag num="05" label="Components" />
+      <p class="mt-6 max-w-[640px] text-text-muted leading-[1.55]">
+        The primitives every page composes from. Each lives in
+        <code class="font-mono text-[13px] bg-surface px-1.5 py-0.5 rounded">src/components/</code>
+        and is documented with a live demo so changes you make here
+        propagate visibly everywhere.
+      </p>
+
+      <div class="mt-10">
+        {/* Btn — three variants, two sizes */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-wrap items-center gap-3">
+              <Btn variant="primary">Start a project</Btn>
+              <Btn variant="dark">Read more</Btn>
+              <Btn variant="ghost">Enquire</Btn>
+            </div>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Variants — primary · dark · ghost
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[0].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[0].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[0].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* HeroCta */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="flex flex-col gap-6">
+            <div>
+              <HeroCta href="#" label="All work (12)" />
+            </div>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Hover to see the hairline fill from left
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[1].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[1].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[1].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* SectionTag */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div>
+            <SectionTag num="01" label="Example section" />
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[2].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[2].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[2].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* Wordmark — small + large */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-wrap items-baseline gap-8">
+              <Wordmark size={18} />
+              <Wordmark size={28} />
+              <Wordmark size={40} />
+            </div>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Sizes — 18px · 28px · 40px (scales with the size prop)
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[3].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[3].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[3].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* Placeholder — both modes side by side */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="flex flex-col gap-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <Placeholder image={studioHero} ratio="4 / 3" label="Studio Nord — image mode" alt="Sample image" w={400} h={300} />
+                <p class="font-mono uppercase text-[10px] text-text-muted mt-3 m-0" style="letter-spacing: var(--tracking-mono);">
+                  Image mode
+                </p>
+              </div>
+              <div>
+                <Placeholder ratio="4 / 3" label="placeholder mode — striped fallback" w={400} h={300} />
+                <p class="font-mono uppercase text-[10px] text-text-muted mt-3 m-0" style="letter-spacing: var(--tracking-mono);">
+                  Placeholder mode
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[4].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[4].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[4].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* Marginalia — needs a paragraph next to it to read correctly */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="pl-0 md:pl-[180px]">
+            <Marginalia text="Example label">
+              <p class="text-[15px] leading-[1.65] m-0">
+                The label sits in the left margin (or stacks above on narrow
+                screens) next to the body it annotates. Use sparingly — the
+                pattern earns its weight by being rare.
+              </p>
+            </Marginalia>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[5].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[5].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[5].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* Form field — text input + pill picker. Single Alpine scope so
+            the label colour swap on focus reads honestly. */}
+        <div
+          class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]"
+          x-data="{ focused: null, projectType: 'Brand' }"
+        >
+          <div class="flex flex-col gap-8">
+            {/* Text input variant */}
+            <label class="block border-t border-hairline pt-5 pb-1 relative">
+              <span
+                class="font-mono uppercase text-[10px] transition-colors"
+                x-bind:class="focused === 'demo' ? 'text-accent' : 'text-text-muted'"
+                style="letter-spacing: var(--tracking-mono-loose);"
+              >
+                Your name <span class="text-accent">*</span>
+              </span>
+              <input
+                type="text"
+                placeholder="Astrid Lange"
+                x-on:focus="focused = 'demo'"
+                x-on:blur="focused = null"
+                class="w-full bg-transparent border-none outline-none font-serif text-[20px] md:text-[24px] text-text py-2"
+                style="letter-spacing: var(--tracking-tight);"
+              />
+            </label>
+
+            {/* Pill picker variant */}
+            <div class="block border-t border-hairline pt-5 pb-1">
+              <span class="font-mono uppercase text-[10px] text-text-muted" style="letter-spacing: var(--tracking-mono-loose);">
+                What's the project?
+              </span>
+              <div class="flex gap-2 flex-wrap mt-3 mb-2">
+                {["Brand", "Motion", "Web", "Other"].map((t) => (
+                  <button
+                    type="button"
+                    x-on:click={`projectType = '${t}'`}
+                    x-bind:class={`projectType === '${t}' ? 'bg-text text-bg border-text' : 'bg-transparent text-text-muted border-hairline'`}
+                    class="font-mono text-[12px] uppercase px-4 py-2.5 rounded-md border cursor-pointer transition-colors"
+                    style="letter-spacing: var(--tracking-mono);"
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Click between pills · Focus the input to see the label swap to accent
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[6].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[6].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[6].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* Filter tabs — interactive Alpine demo. Buyer can click between
+            tabs to see the accent indicator slide between active states. */}
+        <div
+          class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]"
+          x-data="{ filter: 'All' }"
+        >
+          <div class="flex flex-col gap-4">
+            <div class="border-t border-b border-hairline flex overflow-x-auto whitespace-nowrap [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {["All", "Branding", "Motion", "Web", "Print"].map((f) => (
+                <button
+                  type="button"
+                  x-on:click={`filter = '${f}'`}
+                  x-bind:class={`filter === '${f}' ? 'text-text' : 'text-text-muted'`}
+                  class="bg-transparent border-none px-4 md:px-6 py-4 md:py-5 font-mono text-[12px] uppercase relative cursor-pointer transition-colors shrink-0"
+                  style="letter-spacing: var(--tracking-mono);"
+                >
+                  {f}
+                  <span
+                    x-show={`filter === '${f}'`}
+                    x-cloak
+                    class="absolute left-4 right-4 md:left-6 md:right-6 bottom-0 h-px bg-accent"
+                  ></span>
+                </button>
+              ))}
+            </div>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Click between tabs · The accent indicator marks the active filter
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[7].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[7].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[7].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* hover-line — the primary inline-link pattern. Multiple
+            examples at the sizes/contexts they actually ship at. */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-wrap items-baseline gap-x-10 gap-y-4">
+              {/* Mono uppercase (nav, footer "navigate" column) */}
+              <a href="#" class="hover-line font-mono uppercase text-[12px]" style="letter-spacing: var(--tracking-mono);">
+                Index
+              </a>
+              {/* Serif body size (footer columns, press list) */}
+              <a href="#" class="hover-line text-[15px]">
+                Style Guide
+              </a>
+              {/* External link convention */}
+              <a href="#" class="hover-line font-mono uppercase text-[11px]" style="letter-spacing: var(--tracking-mono);">
+                Read ↗
+              </a>
+              {/* Breadcrumb */}
+              <a href="#" class="hover-line font-mono uppercase text-[11px]" style="letter-spacing: var(--tracking-mono);">
+                ← All work
+              </a>
+            </div>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Hover any link · The accent hairline grows from left to full width
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              {componentRows[8].name}
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              {componentRows[8].file}
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              {componentRows[8].desc}
+            </p>
+          </div>
+        </div>
+
+        {/* pulse-dot — kept separate from hover-line so each utility gets
+            its own room. Small enough that a single example suffices. */}
+        <div class="grid items-start gap-8 md:gap-10 py-8 md:py-10 border-t border-hairline grid-cols-1 md:[grid-template-columns:1.4fr_1fr]">
+          <div class="flex flex-col gap-4">
+            <span class="inline-flex items-center gap-2.5 font-mono uppercase text-[11px] text-text-muted" style="letter-spacing: var(--tracking-mono-loose);">
+              <span class="pulse-dot inline-block rounded-full bg-accent" style="width: 8px; height: 8px;" aria-hidden="true"></span>
+              Available Q3 2026
+            </span>
+            <p class="font-mono uppercase text-[10px] text-text-muted m-0" style="letter-spacing: var(--tracking-mono-loose);">
+              Utility class — pulse-dot
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif font-normal text-[24px] m-0" style="letter-spacing: var(--tracking-snug);">
+              pulse-dot
+            </h2>
+            <p class="font-mono text-[11px] text-text-muted m-0 mt-2" style="letter-spacing: var(--tracking-mono);">
+              src/styles/global.css
+            </p>
+            <p class="text-[15px] text-text-muted leading-[1.55] mt-4 m-0">
+              Animates an element with a soft pulsing scale + opacity loop. Used as a
+              "live" / "available" indicator next to status lines in the nav, footer,
+              and contact stats. Honours
+              <code class="font-mono text-[13px] bg-surface px-1.5 py-0.5 rounded">prefers-reduced-motion</code>.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-t border-hairline"></div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Marginalia from "../../Marginalia.astro";
+import { philosophy } from "../../../data/studio";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-24 md:pt-40 pb-16 md:pb-20">
+  <div class="mx-auto grid gap-8 md:gap-16 grid-cols-1 md:[grid-template-columns:180px_1fr] max-w-(--container-band)">
+    <div class="font-mono uppercase text-micro text-text-muted self-start md:sticky md:top-32 tracking-mono-loose">
+      ({philosophy.sectionTag.num}) — {philosophy.sectionTag.label}
+    </div>
+
+    <div class="max-w-(--container-prose)">
+      <p
+        class="font-serif font-350 m-0 dropcap tracking-snug text-pretty"
+        style="font-size: clamp(1.25rem, 2.4vw, 2.2rem); line-height: 1.35;"
+        data-animate
+      >
+        {philosophy.intro}
+      </p>
+
+      {philosophy.marginalia.map((m, i) => (
+        <Marginalia text={m.text} mt={i === 0 ? 56 : 48}>
+          <p class="text-base md:text-prose leading-[1.65] m-0 text-text">{m.body}</p>
+        </Marginalia>
+      ))}
+    </div>
+  </div>
+</section>

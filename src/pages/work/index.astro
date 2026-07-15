@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/sections/work/Hero.astro";
+import Grid from "../../components/sections/work/Grid.astro";
+import { meta, FILTERS } from "../../data/work";
+
+const items = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
+
+// Pre-compute filter counts so Alpine can display the totals reactively
+// without recounting on every keystroke.
+const counts: Record<string, number> = { All: items.length };
+for (const f of FILTERS) {
+  if (f === "All") continue;
+  counts[f] = items.filter((i) => i.data.type === f).length;
+}
+---
+<Layout active="work" title={meta.title} description={meta.description}>
+  <main
+    x-data={`{
+      filter: 'All',
+      total: ${items.length},
+      counts: ${JSON.stringify(counts)},
+      get filteredCount() { return this.counts[this.filter] || 0; }
+    }`}
+  >
+    <Hero total={items.length} />
+    <Grid items={items} />
+  </main>
+</Layout>

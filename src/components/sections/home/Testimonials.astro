@@ -1,0 +1,135 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { testimonials } from "../../../data/home";
+
+// Inline the testimonials as a JS array Alpine can index into. We escape the
+// quote text via JSON so embedded apostrophes / quotes survive the attribute.
+const items = testimonials.items;
+---
+{/*
+  Grid-stack crossfade. All three testimonials render simultaneously, each
+  placed at the same grid cell (grid-area: 1 / 1). The cell auto-sizes to
+  the tallest of the three — so whichever testimonial is currently active,
+  the section height is always the height of the longest one. No layout
+  shift on swap; the previous symptom was the section collapsing or
+  expanding by 1–2 lines when a shorter or longer quote took over.
+
+  Only the active item is `opacity: 1`; the others are `opacity: 0`. Click
+  a dot → the previous active fades out and the new one fades in
+  simultaneously, both over 400ms with the editorial easing curve. The
+  fade is symmetric — pure crossfade, no translate — because asymmetric
+  motion only reads correctly when the height is stable, which we're
+  guaranteeing via the grid stack.
+
+  aria-hidden mirrors the active state so screen readers only announce
+  the visible quote, not all three. */}
+<section
+  class="pt-24 md:pt-40 xl:pt-44 pb-20 md:pb-28 xl:pb-32 px-5 sm:px-6 md:px-8"
+  x-data={`{
+    idx: 0,
+    items: ${JSON.stringify(items)},
+    touchStartX: 0,
+    touchStartY: 0,
+    set(i) { this.idx = i; },
+    next() { this.idx = (this.idx + 1) % this.items.length; },
+    prev() { this.idx = (this.idx - 1 + this.items.length) % this.items.length; },
+    onTouchStart(e) {
+      const t = e.changedTouches[0];
+      this.touchStartX = t.clientX;
+      this.touchStartY = t.clientY;
+    },
+    onTouchEnd(e) {
+      const t = e.changedTouches[0];
+      const dx = t.clientX - this.touchStartX;
+      const dy = t.clientY - this.touchStartY;
+      // Only fire when the gesture is dominantly horizontal — keeps vertical
+      // scroll from being captured as a swipe.
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      if (dx < 0) this.next(); else this.prev();
+    }
+  }`}
+>
+  <div class="mx-auto text-center max-w-(--container-narrow)">
+    <SectionTag num={testimonials.sectionTag.num} label={testimonials.sectionTag.label} />
+
+    <div
+      class="testimonial-stack mt-10 touch-pan-y select-none"
+      x-on:touchstart.passive="onTouchStart($event)"
+      x-on:touchend="onTouchEnd($event)"
+    >
+      {items.map((t, i) => (
+        <div
+          class="testimonial-item"
+          x-bind:class={`idx === ${i} ? 'is-active' : ''`}
+          x-bind:aria-hidden={`idx !== ${i}`}
+        >
+          <blockquote
+            class="m-0 p-0 font-serif italic font-light tracking-display text-balance"
+            style="font-size: clamp(1.75rem, 3.4vw, 3.2rem); line-height: 1.25;"
+          >
+            <span class="text-accent" style="font-size: 1.4em; line-height: 0; vertical-align: -0.18em; margin-right: 4px;">“</span>
+            {t.quote}
+            <span class="text-accent" style="font-size: 1.4em; line-height: 0; vertical-align: -0.18em; margin-left: 4px;">”</span>
+          </blockquote>
+          <div class="mt-14">
+            <p class="font-serif text-lg m-0 tracking-tight">{t.name}</p>
+            <p class="font-mono uppercase text-micro text-text-muted mt-1 m-0 tracking-mono">{t.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Dots: the visible pill is an inner <span> (8px / 28px); the <button>
+        wrapper carries a ≥24px hit area so it meets WCAG 2.5.8 target-size
+        without enlarging the dot itself. */}
+    <div class="mt-10 flex justify-center gap-1">
+      {items.map((_, i) => (
+        <button
+          type="button"
+          aria-label={`Testimonial ${i + 1}`}
+          x-on:click={`set(${i})`}
+          class="inline-flex items-center justify-center bg-transparent border-none p-0 cursor-pointer min-w-6 h-6"
+        >
+          <span
+            x-bind:style={`{ width: idx === ${i} ? '28px' : '8px', background: idx === ${i} ? 'var(--color-accent)' : 'var(--color-hairline)' }`}
+            class="block h-2 rounded transition-all duration-300"
+          ></span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Grid with a single auto-sized row. All items live in the same cell
+     (grid-area: 1 / 1), so the row's natural height = the tallest item's
+     height. The section's reserved space is therefore stable regardless
+     of which testimonial is active. */
+  .testimonial-stack {
+    display: grid;
+  }
+  .testimonial-item {
+    grid-area: 1 / 1;
+    /* align-self: start anchors each item to the top of the cell. Without
+       it, shorter items would stretch (default) and could push their
+       internal content into unexpected positions inside the inflated cell.
+       Top-anchoring keeps the visual flow of "header → quote → author"
+       consistent regardless of which item is active. */
+    align-self: start;
+    opacity: 0;
+    transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1);
+    /* Non-active items are inert — buttons / links inside them shouldn't
+       receive clicks even though they're rendered. There aren't any today
+       but this protects the pattern if testimonials ever sprout a CTA. */
+    pointer-events: none;
+  }
+  .testimonial-item.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-item {
+      transition: none;
+    }
+  }
+</style>

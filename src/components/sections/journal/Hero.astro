@@ -1,0 +1,50 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { indexCopy, TAGS } from "../../../data/journal";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-6 md:pt-10 pb-12 md:pb-20">
+  <div class="mx-auto max-w-(--container)">
+    <SectionTag num={indexCopy.sectionTag.num} label={indexCopy.sectionTag.label} />
+    <h1
+      class="font-serif font-350 m-0 mt-6 md:mt-8 leading-display tracking-hero text-balance text-page-title"
+    >
+      {indexCopy.title.lead} <span class="italic">{indexCopy.title.accent}</span><br />{indexCopy.title.line3}
+    </h1>
+    <p class="mt-6 md:mt-8 text-base md:text-lg text-text-muted leading-body max-w-(--container-lead)">
+      {indexCopy.body}
+    </p>
+
+    {/* Tag filter + search — search is decorative, no backend behind it.
+        On narrow screens the search input drops below the tag row via the
+        `.filterbar` media-query in global.css. The tag row itself scrolls
+        horizontally when it overflows. */}
+    <div class="filterbar mt-10 md:mt-14 border-t border-b border-hairline flex items-stretch">
+      <div class="flex flex-1 overflow-x-auto whitespace-nowrap scrollbar-hide md:flex-wrap md:overflow-visible md:whitespace-normal">
+        {TAGS.map((t) => (
+          <button
+            type="button"
+            x-on:click={`tag = '${t}'`}
+            x-bind:class={`tag === '${t}' ? 'text-text' : 'text-text-muted'`}
+            class="bg-transparent border-none px-4 md:px-6 py-4 md:py-5 font-mono text-xs uppercase relative cursor-pointer transition-colors shrink-0 tracking-mono"
+          >
+            {t}
+            <span x-show={`tag === '${t}'`} x-cloak class="absolute left-4 right-4 md:left-6 md:right-6 bottom-0 h-px bg-accent"></span>
+          </button>
+        ))}
+      </div>
+      <div
+        class="filterbar__search flex items-center gap-2.5 px-5 border-l border-hairline md:min-w-[320px]"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" class="text-text-muted shrink-0 grow-0 basis-3.5">
+          <circle cx="6" cy="6" r="5" /><path d="M10 10l3 3" />
+        </svg>
+        <input
+          type="search"
+          placeholder="Search articles…"
+          class="bg-transparent border-none outline-none font-sans text-sm text-text flex-1 min-w-0"
+        />
+        <span class="font-mono text-micro text-text-muted border border-hairline px-1.5 py-0.5 rounded">⌘K</span>
+      </div>
+    </div>
+  </div>
+</section>

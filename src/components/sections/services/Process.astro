@@ -1,0 +1,174 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { process } from "../../../data/services";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-24 md:pt-40 pb-16 md:pb-20 border-t border-hairline">
+  <div class="mx-auto max-w-(--container-wide)">
+    <SectionTag num={process.sectionTag.num} label={process.sectionTag.label} />
+    <h2
+      class="font-serif font-350 m-0 mt-6 md:mt-8 mb-12 md:mb-20 leading-none tracking-display-lg text-section"
+    >
+      {process.title.lead} <span class="italic">{process.title.accent}</span>.
+    </h2>
+
+    {/*
+      Choreography: when the grid enters the viewport (`data-animate` flips
+      `.is-in` via the global IntersectionObserver in Layout.astro), each
+      stage card fires two coordinated transitions sharing one delay:
+
+        - `.process-dot`        fills (bg + border → accent)
+        - `.process-content`    rises 12px and fades to opacity 1
+
+      Both read `--stage-index` from the card to stagger 400ms apart, so
+      stage I plays at t=0, stage II at t=400ms, …, stage V at t=1.6s.
+      The dot stays in document position (absolute, anchored to the border-t)
+      while only the content block translates — so the "ticks on a timeline"
+      reading of the row holds steady through the animation.
+    */}
+    {/*
+      Mobile (<md): the timeline rotates 90°. Each stage carries a left
+      hairline (`border-l`) — consecutive stages share their borders so
+      the line reads continuous. The dot is absolutely positioned at
+      `-left-[7px]` to straddle that 1px hairline (14px dot ÷ 2). Content
+      sits at `pl-6` to the right of the line. Vertical padding gives
+      breathing room between stages.
+
+      Tablet (md–lg): horizontal timeline that scrolls — `border-t` replaces
+      `border-l`, the dot lifts above the top edge, content sits below. Each
+      stage is a FIXED `w-[37vw]` (not min-w) so ~2.5 stages show across the
+      range — two full plus a clear partial third — at 768px, 840px and 1023px
+      alike. Why a fixed width, not min-width: a flex item with `min-w` +
+      `shrink-0` still grows to its content's max-content size, so the
+      single-line description stretched each stage to ~60vw and only ~1.5
+      showed. A fixed `w` forces the description to wrap inside the column,
+      making the visible count predictable. 37vw lands at ~2.5 (well clear of
+      2.0 and 3.0) so the peek never collapses to a whole number. `md:pt-3`
+      reserves room so the dot (7px above the line) isn't clipped, since
+      `overflow-x` coerces `overflow-y` to auto. A right-edge gradient (below)
+      reinforces the hint. Scrollbar hidden to match the filter bars.
+
+      Desktop (lg+): the five stages revert to an even flex row that fills the
+      track (`grow basis-0 min-w-0`) — no scroll, no fade.
+    */}
+    <div class="relative">
+      <div
+        class="process-grid grid grid-cols-1 gap-0
+               md:flex md:overflow-x-auto md:scroll-smooth md:pt-3 md:pb-4
+               md:scrollbar-hide"
+        data-animate
+      >
+        {process.stages.map((p, i) => (
+          <div
+            class="pl-6 md:pl-0 pr-0 md:pr-5 pt-2 md:pt-7 pb-10 md:pb-0
+                   border-l md:border-l-0 md:border-t border-hairline relative
+                   md:shrink-0 md:w-[37vw] lg:w-auto lg:min-w-0 lg:grow lg:basis-0"
+            style={`--stage-index: ${i};`}
+          >
+          <div class="process-dot absolute w-3.5 h-3.5 rounded-full
+                      left-[-7px] top-1
+                      md:left-0 md:top-[-7px]"></div>
+          <div class="process-content">
+            <span class="font-mono text-xs text-text-muted tracking-mono">STAGE {p.n}</span>
+            <h3 class="font-serif font-normal text-2xl md:text-[32px] mt-3 md:mt-5 mb-3 md:mb-4 tracking-display">
+              {p.name}
+            </h3>
+            <p class="text-sm leading-body text-text-muted m-0">{p.desc}</p>
+          </div>
+        </div>
+      ))}
+      </div>
+
+      {/* Right-edge fade — reinforces the scroll hint. Shown only in the
+          md–lg range where the row actually scrolls; the partial stage
+          dissolves into the page background instead of being hard-cut.
+          pointer-events-none keeps it purely decorative.
+
+          The gradient colour rides --fade-bg (a registered <color>, see
+          global.css) instead of the `from-bg` utility, so it eases on theme
+          toggle over --theme-transition in lockstep with the body's
+          background — a raw gradient would snap because background-image
+          isn't animatable. */}
+      <div
+        class="hidden md:block lg:hidden absolute inset-y-0 right-0 w-16 pointer-events-none"
+        style="--fade-bg: var(--color-bg); background-image: linear-gradient(to left, var(--fade-bg), transparent); transition: --fade-bg var(--theme-transition) ease;"
+        aria-hidden="true"
+      ></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* The grid carries `data-animate` only as the IntersectionObserver
+     trigger — we want `.is-in` to flip on entry so the per-stage cascade
+     below can fire. But the global [data-animate] rule in global.css
+     also fades and translates the whole grid as one block, which would
+     overlay every stage's individual transition and break the synced
+     stagger between dot and content per stage. Overriding here pins the
+     grid at its final visual state from first paint, leaving the entrance
+     choreography exclusively to .process-dot and .process-content.
+     Specificity wins because Astro scopes the selector with a data-astro
+     attribute, making this .process-grid[data-cid-xxx] rule beat the
+     unscoped [data-animate]. */
+  .process-grid {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Shared easing — the same curve used by the global [data-animate]
+     reveal-on-scroll. Keeping it consistent across animations gives the
+     site one motion identity instead of a mix of "feels". */
+  .process-dot,
+  .process-content {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Dot — empty by default, fills with accent when the row enters view.
+     700ms duration lands soft enough to read as a paint rather than a
+     toggle, and matches .process-content's duration so the two
+     animations resolve at the same moment per stage. */
+  .process-dot {
+    background: var(--color-bg);
+    border: 1px solid var(--color-hairline);
+    transition-property: background, border-color;
+    transition-duration: 700ms;
+  }
+  [data-animate].is-in .process-dot {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    transition-delay: calc(var(--stage-index, 0) * 400ms);
+  }
+
+  /* Content block — rises 12px and fades in, synchronized with the dot
+     fill via the same stagger. Initial transform/opacity guarantees the
+     "before" state is visible on first paint, before the IO fires. */
+  .process-content {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    transition-property: opacity, transform;
+    transition-duration: 700ms;
+    will-change: opacity, transform;
+  }
+  [data-animate].is-in .process-content {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--stage-index, 0) * 400ms);
+  }
+
+  /* Reduced motion — present the end state on intersection, no movement,
+     no staggered entrance. The information (filled dots + visible text)
+     is preserved; only the choreography is dropped. */
+  @media (prefers-reduced-motion: reduce) {
+    .process-dot,
+    .process-content {
+      transition: none;
+    }
+    .process-content {
+      opacity: 1;
+      transform: none;
+    }
+    [data-animate].is-in .process-dot,
+    [data-animate].is-in .process-content {
+      transition-delay: 0s;
+    }
+  }
+</style>

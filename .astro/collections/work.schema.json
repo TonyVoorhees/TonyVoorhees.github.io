@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "client": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Branding",
+        "Motion",
+        "Web",
+        "Print"
+      ]
+    },
+    "chips": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scope": {
+      "type": "string"
+    },
+    "recognition": {
+      "type": "string"
+    },
+    "img": {
+      "type": "string"
+    },
+    "order": {
+      "type": "number"
+    },
+    "status": {
+      "default": "in-production",
+      "type": "string",
+      "enum": [
+        "published",
+        "in-production"
+      ]
+    },
+    "span": {
+      "default": 1,
+      "type": "number",
+      "minimum": 1,
+      "maximum": 2
+    },
+    "credits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "k": {
+            "type": "string"
+          },
+          "v": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "k",
+          "v"
+        ]
+      }
+    },
+    "coverImage": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "string"
+    },
+    "homeImage": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "client",
+    "year",
+    "type",
+    "chips",
+    "scope",
+    "recognition",
+    "img",
+    "order"
+  ]
+}

@@ -1,0 +1,84 @@
+---
+name: "Kjeld & Co."
+client: "Kjeld Coffee Roasters"
+year: "2026"
+type: "Branding"
+chips: ["Brand Identity", "Packaging", "Web"]
+scope: "Identity · Packaging · Site"
+recognition: "Awwwards SOTD · TDC"
+img: "editorial brand identity on print piece — coffee bag mockup, soft daylight"
+order: 1
+status: "published"
+span: 2
+coverImage: "../../assets/work/index/kjeld.png"
+heroImage: "../../assets/work/detail/kjeld/hero.png"
+homeImage: "../../assets/home/work/kjeld.png"
+credits:
+  - { k: "Art Direction", v: "Sofie Lindquist" }
+  - { k: "Design", v: "Magnus Holm, Sofie Lindquist" }
+  - { k: "Development", v: "Ida Skov" }
+  - { k: "Photography", v: "Anders Mølgaard" }
+  - { k: "Print Production", v: "Trykkeriet Munck, Aarhus" }
+  - { k: "Client Team", v: "Astrid Lange, Mads Kjeld" }
+---
+
+import Placeholder from "../../components/Placeholder.astro";
+import img01 from "../../assets/work/detail/kjeld/01.png";
+import img02 from "../../assets/work/detail/kjeld/02.png";
+import img03 from "../../assets/work/detail/kjeld/03.png";
+import img04 from "../../assets/work/detail/kjeld/04.png";
+import img05 from "../../assets/work/detail/kjeld/05.png";
+import img06 from "../../assets/work/detail/kjeld/06.png";
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-24 pt-8 md:pt-10">
+  <div class="mx-auto max-w-(--container-article)">
+    <p class="font-serif font-350 text-[clamp(1.25rem,2.4vw,2.2rem)] leading-[1.35] m-0 dropcap tracking-snug text-pretty">
+      Kjeld is a third-generation roastery on Vesterbrogade. We rebuilt their identity around the quiet ritual of the morning cup — a Fraunces wordmark, a single weight of Geist for the specs, and a packaging system that ages with the bag. The brief, in the founder's words, was simply: <em>"Less."</em>
+    </p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-(--container-feature)">
+    <div>
+      <Placeholder image={img01} ratio="4 / 5" label="brand mark, monochrome printed on uncoated stock" alt="Kjeld wordmark on letterpressed business card" sizes="(min-width: 768px) 50vw, 100vw" w={800} h={1000} />
+      <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 03 — Wordmark on letterpressed business card</p>
+    </div>
+    <div class="md:mt-20">
+      <Placeholder image={img02} ratio="4 / 5" label="coffee bag packaging detail, hand holding bag, natural light" alt="Kjeld single-origin retail packaging" sizes="(min-width: 768px) 50vw, 100vw" w={800} h={1000} />
+      <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 04 — Single-origin retail packaging</p>
+    </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-20 md:py-32">
+  <div class="mx-auto text-center max-w-(--container-narrow)">
+    <blockquote class="font-serif italic font-light text-[clamp(1.5rem,4.2vw,4rem)] leading-[1.2] m-0 tracking-display text-balance">
+      "The kerning was the conversation. Once we got the wordmark right, everything else became a footnote."
+    </blockquote>
+    <p class="font-mono uppercase text-label text-text-muted mt-8 md:mt-10 tracking-mono-loose">Astrid Lange, Founder</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto max-w-(--container-bleed)">
+    <Placeholder image={img03} ratio="16 / 9" label="full-bleed brand campaign image — coffee shop interior, morning light, customers" alt="Kjeld brand campaign — coffee shop interior, morning light" w={1440} h={900} />
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-(--container-wide)">
+    <Placeholder image={img04} ratio="1 / 1" label="logotype detail crop" alt="Kjeld logotype detail" sizes="(min-width: 640px) 33vw, 100vw" w={600} h={600} />
+    <Placeholder image={img05} ratio="1 / 1" label="grid system specimen" alt="Kjeld grid system specimen" sizes="(min-width: 640px) 33vw, 100vw" w={600} h={600} />
+    <Placeholder image={img06} ratio="1 / 1" label="colour swatch on uncoated paper" alt="Kjeld colour swatch on uncoated paper" sizes="(min-width: 640px) 33vw, 100vw" w={600} h={600} />
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>A system that ages with the bag.</h2>
+    <p>We designed three packaging variants — house, single-origin, and reserve — that share a single grid and a single type system. The label is printed in one Pantone on uncoated kraft; the specs are stamped on at the roastery the morning the beans are bagged.</p>
+    <p>The marque itself is a custom drawing built on Fraunces, with the ampersand redrawn from a 1962 ledger we found at the roastery. We held the wordmark at 80% optical size on the bag — small enough that it reads as a quiet detail, not a logo applied.</p>
+    <p>The site followed the same logic. Built on a content-first static stack, with a single column of editorial type, generous line-length, and a shop drawer that stays out of the way until you ask for it. We shipped in ten weeks; the team has been editing it themselves ever since.</p>
+  </div>
+</section>

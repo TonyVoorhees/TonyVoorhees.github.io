@@ -1,0 +1,57 @@
+---
+/**
+ * Theme toggle button — switches html[data-theme] between "light" and "dark",
+ * persists the choice in localStorage, and shows a sun or moon icon to match.
+ *
+ * Hydration: Alpine reads the current data-theme on init. The inline boot
+ * script in Layout.astro has already set data-theme before paint so this
+ * never flashes the wrong icon.
+ */
+---
+<button
+  type="button"
+  aria-label="Toggle theme"
+  x-data="{
+    theme: document.documentElement.dataset.theme || 'light',
+    toggle() {
+      this.theme = this.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = this.theme;
+      try { localStorage.setItem('theme', this.theme); } catch (_) {}
+    }
+  }"
+  x-on:click="toggle()"
+  class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-hairline text-inherit bg-transparent transition-colors hover:border-text-muted"
+>
+  {/* Sun (shown in dark mode) */}
+  <svg
+    x-show="theme === 'dark'"
+    x-cloak
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+  </svg>
+  {/* Moon (shown in light mode) */}
+  <svg
+    x-show="theme !== 'dark'"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+  </svg>
+</button>

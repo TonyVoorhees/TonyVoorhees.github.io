@@ -1,22 +1,89 @@
-The MIT License (MIT)
+Lambda Studio — Commercial License Agreement
+=============================================
 
-Copyright (c) 2015 Cyril Suzat
+Template: Lambda Minimal — A minimal, editorial Astro 6 template for
+          design studios and portfolios.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Copyright © 2026 Lambda Studio. All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. GRANT OF LICENSE
 
+   By purchasing or otherwise obtaining a copy of this template (the
+   "Template"), you (the "Licensee") are granted a non-exclusive,
+   non-transferable, perpetual license to use the Template subject to the
+   terms below.
+
+
+2. PERMITTED USE
+
+   You may:
+
+   (a) Use the Template on an unlimited number of personal and commercial
+       projects — your own or your clients'.
+
+   (b) Modify the Template's source code, assets, and copy as needed to
+       fit each project.
+
+   (c) Deploy the modified Template to any public website.
+
+   (d) Hand off a deployed site built on the Template to a client as part
+       of normal client work.
+
+
+3. PROHIBITED USE
+
+   You may not:
+
+   (a) Redistribute, resell, sublicense, or share the Template's source
+       code (in whole or in part), modified or not, with any party other
+       than the Licensee, except as part of a deployed site delivered to
+       a client per Section 2(d).
+
+   (b) Include the Template (modified or not) in any product, theme,
+       starter, boilerplate, course, asset pack, or marketplace listing
+       intended to be redistributed to third parties.
+
+   (c) Claim authorship of the Template itself.
+
+   (d) Use the Template in a way that infringes the rights of third
+       parties or violates applicable law.
+
+
+4. THIRD-PARTY ASSETS
+
+   The Template bundles third-party assets under their own licenses,
+   which take precedence for those assets:
+
+   - Fraunces is licensed under the SIL Open Font License 1.1. See
+     public/fonts/fraunces/OFL.txt for the full license text.
+
+   - Geist and Geist Mono are distributed under the SIL Open Font
+     License 1.1 via Astro's font integration.
+
+   - Astro, Tailwind CSS, Alpine.js, and other npm dependencies are
+     subject to their respective open-source licenses as declared in
+     package.json and their published packages.
+
+
+5. NO WARRANTY
+
+   THE TEMPLATE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+   NON-INFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW,
+   LAMBDA STUDIO SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+   LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE TEMPLATE OR
+   THE USE OR OTHER DEALINGS IN THE TEMPLATE.
+
+
+6. TERMINATION
+
+   This license terminates automatically if you breach any of its terms.
+   Upon termination, you must cease all use of the Template and destroy
+   any copies in your possession.
+
+
+7. CONTACT
+
+   Questions about this license: info@lambdastudio.io

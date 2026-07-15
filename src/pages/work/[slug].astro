@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/sections/workDetail/Header.astro";
+import HeroImage from "../../components/sections/workDetail/HeroImage.astro";
+import InfoBar from "../../components/sections/workDetail/InfoBar.astro";
+import InProduction from "../../components/sections/workDetail/InProduction.astro";
+import Credits from "../../components/sections/workDetail/Credits.astro";
+import NextProject from "../../components/sections/workDetail/NextProject.astro";
+
+export async function getStaticPaths() {
+  const items = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
+  return items.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      index: i + 1,
+      total: items.length,
+      next: items[i + 1] ?? null,
+    },
+  }));
+}
+
+const { entry, index, total, next } = Astro.props;
+const { Content } = await render(entry);
+
+const pageTitle = `${entry.data.name} — Studio Nord`;
+const pageDescription = `${entry.data.name} for ${entry.data.client} (${entry.data.year}) — ${entry.data.scope}.`;
+---
+<Layout active="work" title={pageTitle} description={pageDescription}>
+  <Header entry={entry} index={index} total={total} />
+  <HeroImage entry={entry} />
+  <InfoBar entry={entry} />
+
+  {entry.data.status === "published" ? (
+    <>
+      <Content />
+      <Credits entry={entry} />
+    </>
+  ) : (
+    <InProduction />
+  )}
+
+  <NextProject next={next} />
+</Layout>
