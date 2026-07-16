@@ -14,7 +14,7 @@ export const meta = {
 
 export const hero = {
   sectionTag: { num: "01", label: "Hello" },
-  title: { lead: "Let's", accent: "talk" },
+  title: { lead: "Let's", accent: "Ride" },
   body:
     "A short note is enough. We read every message ourselves and reply within a working day. Currently booking Q3 2026 — two slots remaining.",
 };

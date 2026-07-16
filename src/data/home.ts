@@ -9,31 +9,31 @@
 
 // ─── (Hero) ────────────────────────────────────────────────────────────────
 export const hero = {
-  eyebrows: ["Art Direction", "Branding", "Motion", "Web"],
-  sectionTag: { num: "00", label: "Index" },
+  eyebrows: ["Product Design", "Brand Identity", "Creative Direction"],
+  sectionTag: { num: "00", label: "base" },
   // Three-line title with an italicised second line.
   title: {
-    line1: "We design",
-    accent: "brands",
-    line3: "digital experiences.",
-    connector: "and",
+    line1: "Most designers",
+    accent: "pick a trail.",
+    connector: "I ride",
+    line3: "the whole mountain.",
   },
-  cta: { href: "/contact", label: "Start a brief" },
+  cta: { href: "/contact", label: "Let's Ride" },
   status: "Selective by design",
   portrait: {
     label: "black-and-white close-up portrait, soft natural light, editorial mood",
-    caption: "FIG. 01 — Studio principal, Copenhagen, March 2026",
+    caption: "Mount Tamalpias",
   },
-  footnote: "Based in Copenhagen — Est. 2018",
+  footnote: "Based in the Bay Area",
 };
 
-// ─── (01) Selected work ────────────────────────────────────────────────────
+// ─── (01) SelecPted work ────────────────────────────────────────────────────
 /** Slugs of work entries shown on the home asymmetric spread, in order. */
 export const featuredWorkSlugs = ["kjeld", "meridian", "hjem", "aalto"] as const;
 export const featuredWork = {
-  sectionTag: { num: "01", label: "Selected work" },
-  title: { lead: "Recent", accent: "chapters" },
-  allWorkLabel: "All work (12)",
+  sectionTag: { num: "01", label: "Work" },
+  title: { lead: "Recent", accent: "Projects" },
+  allWorkLabel: "All work",
 };
 
 // ─── (02) Studio statement ─────────────────────────────────────────────────

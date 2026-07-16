@@ -4,27 +4,26 @@
  */
 
 export const site = {
-  name: "Studio Nord",
-  legalName: "Studio Nord ApS",
-  title: "Studio Nord — A small studio building brands and digital experiences",
+  name: "Tony Voorhees",
+  legalName: "Tony Voorhees Studio",
+  title: "Tony Voorhees — Senior Product Designer & Brand Specialist",
   description:
-    "A three-person studio in Copenhagen working with founders, editors, and product leads on a handful of projects each year. Branding, motion direction, and editorial websites.",
-  url: "https://lambda-minimal.netlify.app",
+    "Product and brand designer with 20+ years experience building digital products and identity systems that work together. Founder, Tony Voorhees Studio.",
+  url: "https://tonyvoorhees.github.io/",
   locale: "en",
-  copyright: "© 2026 Studio Nord — All work confidential until shipped.",
-  address: "Sankt Peders Stræde 28, 1453 Copenhagen K — Denmark",
-  availability: "Available Q3 2026",
+  copyright: "© Tony Voorhees Studio",
+  address: "Bay Area, CA",
+  availability: "Available Now",
   tagline:
-    "A small studio building brands and digital experiences with discipline and quiet ambition.",
+    "Most designers pick a trail. I ride the whole mountain.",
   /** Used in the dark theme-color meta tag and as a fallback background. */
   themeColor: "#F8F8F6",
   themeColorDark: "#1A1A18",
   social: {
-    instagram: "#",
-    x: "#",
-    dribbble: "#",
-    arena: "#",
-    vimeo: "#",
+    instagram: "https://www.instagram.com/tonyvoorhees/",
+    bsky: "https://bsky.app/profile/tonyvoorhees.bsky.social",
+    dribbble: "https://dribbble.com/tonyvoorhees",
+    linkedin: "https://www.linkedin.com/in/tonyvoorhees/",
   },
 } as const;
 
@@ -65,11 +64,10 @@ export const footerGroups: FooterGroup[] = [
   {
     title: "Elsewhere",
     links: [
-      { href: "#", label: "Instagram", external: true },
-      { href: "#", label: "X (Twitter)", external: true },
-      { href: "#", label: "Dribbble", external: true },
-      { href: "#", label: "Are.na", external: true },
-      { href: "#", label: "Vimeo", external: true },
+      { href: "https://www.instagram.com/tonyvoorhees/", label: "Instagram", external: true },
+      { href: "https://bsky.app/profile/tonyvoorhees.bsky.social", label: "BlueSky", external: true },
+      { href: "https://dribbble.com/tonyvoorhees", label: "Dribbble", external: true },
+      { href: "https://www.linkedin.com/in/tonyvoorhees/", label: "linkedIn", external: true },
     ],
   },
 ];
