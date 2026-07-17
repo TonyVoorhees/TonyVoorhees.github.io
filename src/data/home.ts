@@ -19,10 +19,10 @@ export const hero = {
     line3: "the whole mountain.",
   },
   cta: { href: "/contact", label: "Let's Ride" },
-  status: "Designed Defualt",
+  status: "Designed Default",
   portrait: {
-    label: "black-and-white close-up portrait, soft natural light, editorial mood",
-    caption: "Marin County, CA",
+    label: "black-and-white landscape, soft natural light, mountain terrain, early morning mist",
+    caption: "Mount Tamalpais, CA",
   },
   footnote: "Based in the Bay Area",
 };
@@ -125,7 +125,7 @@ export const contactCta = {
   },
   stats: [
     { label: "Response time", value: "~24 hours", italicSuffix: "weekdays" },
-    { label: "Availability", value: "Q4 2026", dot: true },
-    { label: "Slots remaining", value: "02", suffix: "of 04" },
+    { label: "Availability", value: "Available Now", dot: true },
+    //{ label: "Slots remaining", value: "02", suffix: "of 04" },
   ],
 };

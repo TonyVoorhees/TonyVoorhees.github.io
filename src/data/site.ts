@@ -67,7 +67,7 @@ export const footerGroups: FooterGroup[] = [
       { href: "https://www.instagram.com/tonyvoorhees/", label: "Instagram", external: true },
       { href: "https://bsky.app/profile/tonyvoorhees.bsky.social", label: "BlueSky", external: true },
       { href: "https://dribbble.com/tonyvoorhees", label: "Dribbble", external: true },
-      { href: "https://www.linkedin.com/in/tonyvoorhees/", label: "linkedIn", external: true },
+      { href: "https://www.linkedin.com/in/tonyvoorhees/", label: "LinkedIn", external: true },
     ],
   },
 ];

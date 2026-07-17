@@ -101,6 +101,6 @@ export const press = {
 // ─── Availability strip ────────────────────────────────────────────────────
 export const availability = {
   label: "Currently booking",
-  title: { lead: "Q4 2026 —", accent: "two slots remaining" },
+  title: { lead: "Available Now —", accent: "Reach out anytime." },
   cta: { href: "/contact", label: "Let's Talk →" },
 };
