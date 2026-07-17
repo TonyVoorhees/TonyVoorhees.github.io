@@ -7,22 +7,22 @@
  */
 
 export const meta = {
-  title: "Contact — Studio Nord",
+  title: "Contact — Tony Voorhees Studio",
   description:
-    "Start a brief with Studio Nord. We read every message ourselves and reply within a working day. Currently booking Q3 2026.",
+    "Start a brief with Tony. We read every message ourselves and respond promptly. Currently booking Q4 2026.",
 };
 
 export const hero = {
   sectionTag: { num: "01", label: "Hello" },
   title: { lead: "Let's", accent: "Ride" },
   body:
-    "A short note is enough. We read every message ourselves and reply within a working day. Currently booking Q3 2026 — two slots remaining.",
+    "Drop us a note. We read every message ourselves and respond promplty. Currently booking Q4 2026 — two slots remaining.",
 };
 
 export const form = {
-  sectionTag: { num: "02", label: "A short brief" },
-  projectTypes: ["Brand Identity", "Art Direction", "Motion", "Web Build", "Other"] as const,
-  budgets: ["€6–12k", "€12–20k", "€20–40k", "€40–80k", "€80k+"] as const,
+  sectionTag: { num: "02", label: "Note" },
+  projectTypes: ["Brand Identity", "Product Design", "Web Build", "Print", "Other"] as const,
+  budgets: ["$6–12k", "$12–20k", "$20–40k", "$40–80k", "$80k+"] as const,
   /** Default selections — the design starts the form with these picked. */
   defaultProjectType: "Brand Identity",
   defaultBudget: "€20–40k",
@@ -38,14 +38,16 @@ export const form = {
 export const studio = {
   sectionTag: { num: "03", label: "Studio" },
   info: [
-    { k: "Email", v: "hello@studionord.dk", link: true },
-    { k: "Telephone", v: "+45 32 11 22 33" },
-    { k: "Studio", v: "Sankt Peders Stræde 28\n1453 Copenhagen K\nDenmark" },
-    { k: "Hours", v: "Mon — Fri, 09:00 – 17:00 CET" },
+    { k: "Email", v: "hello@tonyvoorhees.com", link: true },
+    { k: "Location", v: "Marin County, CA" },
+    /**
+     * { k: "Telephone", v: "" },
+    { k: "Hours", v: "" },
     { k: "Press & speaking", v: "press@studionord.dk", link: true },
+     **/
   ],
   availabilityLabel: "Availability",
-  availabilityValue: "Booking Q3 2026 · 2 slots",
+  availabilityValue: "Booking Q4 2026 · 2 slots",
   /**
    * Studio map — disabled by default. The contact Aside no longer renders it
    * (see the commented-out map block in

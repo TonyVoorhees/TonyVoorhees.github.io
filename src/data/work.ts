@@ -5,16 +5,16 @@
  */
 
 export const meta = {
-  title: "Work — Studio Nord",
+  title: "Work — Tony Voorhees Studio",
   description:
-    "An archive of selected work from Studio Nord, 2018 to 2026 — brand identity, motion direction, editorial sites, and print.",
+    "An archive of selected work from Tony Voorhees Studio, 2020 to 2026 — brand identity, motion direction, editorial sites, and print.",
 };
 
 export const indexCopy = {
   sectionTag: { num: "01", label: "Archive" },
-  title: { lead: "Selected work", accent: "2018→2026" },
+  title: { lead: "Selected work", accent: "2020→2026" },
 };
 
 /** Filter tab vocabulary. "All" is implicit and always first. */
-export const FILTERS = ["All", "Branding", "Motion", "Web", "Print"] as const;
+export const FILTERS = ["All", "Product", "Branding", "Motion", "Web", "Print"] as const;
 export type Filter = (typeof FILTERS)[number];

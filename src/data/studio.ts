@@ -3,9 +3,9 @@
  */
 
 export const meta = {
-  title: "Studio — Studio Nord",
+  title: "Studio — Tony Voorhees",
   description:
-    "Studio Nord is a three-person practice in Copenhagen. We work with founders, editors, and product leads on a handful of projects each year.",
+    "Tony Voorhees is a solo practice in Northern California. I work with founders, editors, and product leads on a handful of projects each year.",
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
@@ -13,13 +13,13 @@ export const hero = {
   sectionTag: { num: "01", label: "On craft" },
   title: { line1: "On craft,", accent: "clarity", line3: "and quiet ambition." },
   body:
-    "Studio Nord is a three-person practice in Copenhagen. We work with founders, editors, and product leads on a handful of projects each year. We keep our calendar small on purpose.",
+    "Tony Voorhees is a solo practice in Northern California. I work with founders, editors, and product leads on a handful of projects each year. I keep my calendar small on purpose.",
 };
 
 // ─── Studio image ──────────────────────────────────────────────────────────
 export const studioImage = {
-  label: "three creative professionals in a minimal studio environment — editorial composition, B&W",
-  caption: "FIG. 02 — The studio, Sankt Peders Stræde, February 2026",
+  label: "View from the my office window",
+  caption: "mount tamalpais - Marin County, CA",
 };
 
 // ─── (02) Philosophy ───────────────────────────────────────────────────────
@@ -56,29 +56,29 @@ export const philosophy = {
 
 // ─── (03) Team ─────────────────────────────────────────────────────────────
 export const team = {
-  sectionTag: { num: "03", label: "Three of us" },
-  est: "EST. 2018",
+  sectionTag: { num: "03", label: "Team" },
+  est: "EST. 2023",
   members: [
     {
-      name: "Sofie Lindquist",
-      role: "Art Director / Co-founder",
-      bio: "Twelve years in editorial and brand. Previously at Spin (London) and Designstudio. Teaches type at KADK.",
-      img: "editorial portrait, B&W, soft natural light, neutral background",
-      links: ["sofie.dk", "@sofielindquist"],
+      name: "Tony Voorhees",
+      role: "Founder & Designer",
+      bio: "I work across product and brand — and the overlap between them is where I do my best work.",
+      img: "",
+      links: ["@tonyvoorhees"],
     },
     {
-      name: "Magnus Holm",
-      role: "Designer / Co-founder",
-      bio: "Identity, motion, and the occasional album sleeve. Studied at the Royal Danish Academy. Loves a grid.",
-      img: "editorial portrait, B&W, soft window light, neutral background",
-      links: ["magnusholm.co", "@m.holm"],
+      name: "Hudson Voorhees",
+      role: "Apprentice & Creative  Consultant",
+      bio: "Creative in training, learning the ropes of design and development.",
+      img: "",
+      links: ["@hudsonvoorhees"],
     },
     {
-      name: "Ida Skov",
-      role: "Developer / Co-founder",
-      bio: "Ten years building editorial websites for studios. A deep suspicion of frameworks that ship more than they save, and a quiet preference for the tools that don't.",
-      img: "editorial portrait, B&W, studio doorway light, neutral background",
-      links: ["idaskov.dev", "@idaskov"],
+      name: "JoJo & Wabi",
+      role: "Emotional Support",
+      bio: "Two years ago, they joined the studio as emotional support animals.",
+      img: "",
+      links: ["@jojowabi"],
     },
   ],
 };
@@ -101,6 +101,6 @@ export const press = {
 // ─── Availability strip ────────────────────────────────────────────────────
 export const availability = {
   label: "Currently booking",
-  title: { lead: "Q3 2026 —", accent: "two slots remaining" },
-  cta: { href: "/contact", label: "Start a conversation →" },
+  title: { lead: "Q4 2026 —", accent: "two slots remaining" },
+  cta: { href: "/contact", label: "Let's Talk →" },
 };

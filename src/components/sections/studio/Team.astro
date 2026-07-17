@@ -2,14 +2,14 @@
 import Placeholder from "../../Placeholder.astro";
 import SectionTag from "../../SectionTag.astro";
 import { team } from "../../../data/studio";
-import sofie from "../../../assets/studio/team/sofie.png";
-import magnus from "../../../assets/studio/team/magnus.png";
-import ida from "../../../assets/studio/team/ida.png";
+import tony from "../../../assets/studio/team/tony.jpg";
+import hudson from "../../../assets/studio/team/hudson.jpg";
+import cats from "../../../assets/studio/team/jojowabi.jpg";
 
 // Portraits aligned by index with team.members in data/studio.ts.
 // Kept here (not in studio.ts) because images are visual assets the
 // data file shouldn't import — it stays purely TypeScript content.
-const portraits = [sofie, magnus, ida];
+const portraits = [tony, hudson, cats];
 ---
 <section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-16 md:pb-20">
   <div class="mx-auto max-w-(--container)">

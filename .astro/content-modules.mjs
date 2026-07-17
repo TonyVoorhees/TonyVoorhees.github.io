@@ -12,6 +12,7 @@ export default new Map([
 ["src/content/pages/terms.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fterms.mdx&astroContentModuleFlag=true")],
 ["src/content/work/aalto.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Faalto.mdx&astroContentModuleFlag=true")],
 ["src/content/work/atelier.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fatelier.mdx&astroContentModuleFlag=true")],
+["src/content/work/evgo.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fevgo.mdx&astroContentModuleFlag=true")],
 ["src/content/work/feltland.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Ffeltland.mdx&astroContentModuleFlag=true")],
 ["src/content/work/graesten.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fgraesten.mdx&astroContentModuleFlag=true")],
 ["src/content/work/helios.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fhelios.mdx&astroContentModuleFlag=true")],
@@ -20,6 +21,9 @@ export default new Map([
 ["src/content/work/kjeld.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fkjeld.mdx&astroContentModuleFlag=true")],
 ["src/content/work/meridian.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fmeridian.mdx&astroContentModuleFlag=true")],
 ["src/content/work/nordlys.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fnordlys.mdx&astroContentModuleFlag=true")],
+["src/content/work/peggythepanda.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fpeggythepanda.mdx&astroContentModuleFlag=true")],
+["src/content/work/seek.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fseek.mdx&astroContentModuleFlag=true")],
 ["src/content/work/solv.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fsolv.mdx&astroContentModuleFlag=true")],
-["src/content/work/typea.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Ftypea.mdx&astroContentModuleFlag=true")]]);
+["src/content/work/typea.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Ftypea.mdx&astroContentModuleFlag=true")],
+["src/content/work/wmbmx.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fwork%2Fwmbmx.mdx&astroContentModuleFlag=true")]]);
 		

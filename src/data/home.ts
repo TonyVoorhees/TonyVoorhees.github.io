@@ -19,17 +19,17 @@ export const hero = {
     line3: "the whole mountain.",
   },
   cta: { href: "/contact", label: "Let's Ride" },
-  status: "Selective by design",
+  status: "Designed Defualt",
   portrait: {
     label: "black-and-white close-up portrait, soft natural light, editorial mood",
-    caption: "Mount Tamalpias",
+    caption: "Marin County, CA",
   },
   footnote: "Based in the Bay Area",
 };
 
 // ─── (01) SelecPted work ────────────────────────────────────────────────────
 /** Slugs of work entries shown on the home asymmetric spread, in order. */
-export const featuredWorkSlugs = ["kjeld", "meridian", "hjem", "aalto"] as const;
+export const featuredWorkSlugs = ["seek", "peggythepanda", "wmbmx", "evgo"] as const;
 export const featuredWork = {
   sectionTag: { num: "01", label: "Work" },
   title: { lead: "Recent", accent: "Projects" },
@@ -40,32 +40,32 @@ export const featuredWork = {
 export const studioStatement = {
   sectionTag: { num: "02", label: "Studio" },
   body:
-    "We are a small studio of three, working on a handful of projects each year. Our practice sits at the seam between design discipline and development precision — where a typesetting decision and a build pipeline are treated with the same care.",
+  "I move fluidly across product, brand, and visual systems—which means I can design your app, build the brand around it, and keep everything speaking the same language. No handoff chaos. No, that's not my department.",
   values: [
-    { n: "01", name: "Clarity", desc: "The brief survives every meeting." },
-    { n: "02", name: "Craft", desc: "The kerning is the concept." },
-    { n: "03", name: "Pace", desc: "Slow enough to be considered. Fast enough to ship." },
+    { n: "01", name: "Clarity", desc: "Effective communication is key." },
+    { n: "02", name: "Craft", desc: "Detail-oriented execution." },
+    { n: "03", name: "Pace", desc: "Sure and steady." },
   ],
 };
 
 // ─── (03) Services preview ─────────────────────────────────────────────────
 export const servicesPreview = {
-  sectionTag: { num: "03", label: "What we do" },
+  sectionTag: { num: "03", label: "Capabilities" },
   allServicesLabel: "All services →",
   items: [
-    { n: "01", name: "Art Direction", desc: "Setting the visual register for a brand, campaign, or product." },
-    { n: "02", name: "Brand Identity", desc: "Systems that hold up across every surface — print, screen, motion." },
-    { n: "03", name: "Motion Direction", desc: "Short-form motion for launch films, social, and interface." },
-    { n: "04", name: "Editorial websites", desc: "Hand-built websites with editorial typography and considered transitions." },
+    { n: "01", name: "Product Design", desc: "0-1 jumpstart, redesign, or fine-tuning." },
+    { n: "02", name: "Brand Identity", desc: "Systems that hold up across every touchpoint." },
+    { n: "03", name: "Build & Launch", desc: "Simple brand and website packages available." },
+    { n: "04", name: "Print Production", desc: "Hand-crafted books, merch, and art." },
   ],
 };
 
 // ─── (04) Clients band (marquee) ───────────────────────────────────────────
 export const clientsBand = {
-  sectionTag: { num: "04", label: "Trusted by" },
+  sectionTag: { num: "04", label: "Brands" },
   names: [
-    "ATELIER NORD", "KJELD & CO", "MERIDIAN", "AALTO", "HJEM", "FELTLAND",
-    "BJÖRK STUDIOS", "NORDLYS", "GRÅSTEN", "SØLV+CO", "HELLAS", "TYPE/A",
+    "CHASE", "DRAFTKINGS", "SEEK AI", "CAPE ATLANTIS SHELLS", "EVgo", "SUPER EVIL MEGACORP", "CHAMPION", "AOL",
+    "DEWARS", "ACTIVE NATIVE", "WES MOORE BMX", "DAHLIA CAKE SHOP", "PEGGY THE PANDA", "TIDY OWL CO.", "WOJO PHOTO",
   ],
 };
 
@@ -102,21 +102,15 @@ export const testimonials = {
   items: [
     {
       quote:
-        "Studio Nord rebuilt our identity from the inside out. Three months in, our team still references their type system every week — and our customers can feel it.",
-      name: "Astrid Lange",
-      role: "Founder, Kjeld & Co. Coffee Roasters",
+        "He thinks like a product person, designs like a brand strategist, and still cares about the tiny visual details most people miss. Working with Tony feels less like hiring a designer and more like bringing on a creative co-pilot who actually gets where you’re trying to go.",
+      name: "Wes Moore",
+      role: "Founder, Wes Moore BMX",
     },
     {
       quote:
-        "They held the line on craft when our deadline tried to negotiate. The launch site reads like a magazine and converts like a landing page.",
-      name: "Theodor Wexø",
-      role: "Head of Brand, Meridian Foundry",
-    },
-    {
-      quote:
-        "Quiet, exact, and unusually generous with their process. The rare studio that makes you a better client.",
-      name: "Helena Brask",
-      role: "Editor-in-Chief, Hjem Magazine",
+        "Tony took the chaos in my head and translated it into a brand that actually makes sense to other humans. From early sketches to the site for capeshells.com, he kept everything aligned—product, visuals, messaging—so it feels like one clear, recognizable voice instead of a patchwork of half-finished ideas.",
+      name: "Chamyang Unkow",
+      role: "Founder, Cape Atlantis shells",
     },
   ],
 };
@@ -124,14 +118,14 @@ export const testimonials = {
 // ─── (08) Contact CTA (dark block) ─────────────────────────────────────────
 export const contactCta = {
   sectionTag: { num: "08", label: "Contact" },
-  title: { line1: "Let's make something", accent: "worth", line3: "remembering." },
+  title: { line1: "Let's ride", accent: "together!", line3: "" },
   ctas: {
-    primary: { href: "/contact", label: "Start a project" },
-    secondary: { href: "mailto:hello@studionord.dk", label: "hello@studionord.dk" },
+    primary: { href: "/contact", label: "Send It!" },
+    secondary: { href: "mailto:hello@tonyvoorhees.com", label: "hello@tonyvoorhees.com" },
   },
   stats: [
     { label: "Response time", value: "~24 hours", italicSuffix: "weekdays" },
-    { label: "Availability", value: "Q3 2026", dot: true },
+    { label: "Availability", value: "Q4 2026", dot: true },
     { label: "Slots remaining", value: "02", suffix: "of 04" },
   ],
 };

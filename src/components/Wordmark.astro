@@ -1,8 +1,5 @@
 ---
 /**
- * Studio Nord wordmark — "Studio Nord" with the first word in italic and
- * an accent pulse dot. Used in the Header (small) and Footer (giant).
- *
  * Size is a number (px) controlling the font-size; the dot scales loosely
  * with it but stays small to keep the editorial register.
  */
@@ -20,8 +17,8 @@ const Tag = inline ? "span" : "div";
 <Tag
   class="inline-flex items-baseline gap-2 font-serif font-medium leading-none opsz-display"
   style={`font-size: ${size}px; letter-spacing: -0.01em;`}
->
-  <span class="italic">Tony Voorhees</span>
+> <span class="italic">Tony Voorhees</span>
+  <span>Studio</span>
   {dot && (
     <span
       class="pulse-dot inline-block self-center rounded-full bg-accent size-1.5 ml-0.5"
