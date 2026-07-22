@@ -9,29 +9,29 @@
 export const meta = {
   title: "Contact — Tony Voorhees Studio",
   description:
-    "Start a brief with Tony. We read every message ourselves and respond promptly. Currently booking Q4 2026.",
+    "Start a brief with Tony. I read every message and respond promptly. Currently available for new projects.",
 };
 
 export const hero = {
   sectionTag: { num: "01", label: "Hello" },
   title: { lead: "Let's", accent: "Ride" },
   body:
-    "Drop us a note. We read every message ourselves and respond promplty. Currently booking Q4 2026 — two slots remaining.",
+    "The honest way to understand a project is to ride along — see where it's heading, who's coming with us, and why. From there, we figure out how we get there.",
 };
 
 export const form = {
   sectionTag: { num: "02", label: "Note" },
-  projectTypes: ["Brand Identity", "Product Design", "Web Build", "Print", "Other"] as const,
-  budgets: ["$6–12k", "$12–20k", "$20–40k", "$40–80k", "$80k+"] as const,
+  projectTypes: ["Brand", "Product", "Web", "Print", "Other"] as const,
+  budgets: ["$1–10k", "$10–20k", "$20–30k", "$40–50k", "$50k+"] as const,
   /** Default selections — the design starts the form with these picked. */
   defaultProjectType: "Brand Identity",
-  defaultBudget: "€20–40k",
-  consent: "By sending, you agree to a short discovery call within ~24h",
-  submitLabel: "Send brief",
+  defaultBudget: "$20–30k",
+  consent: "By sending, you agree to a short discovery call within ~72h",
+  submitLabel: "Send Note",
   thanks: {
     eyebrow: "Received — thank you",
     body:
-      "Sofie or Magnus will follow up from hello@studionord.dk. If it's urgent, you can call the studio on +45 32 11 22 33 between 09:00 – 17:00 CET.",
+      "Tony Voorhees will follow up from hello@tonyvoorhees.com.",
   },
 };
 
@@ -43,11 +43,11 @@ export const studio = {
     /**
      * { k: "Telephone", v: "" },
     { k: "Hours", v: "" },
-    { k: "Press & speaking", v: "press@studionord.dk", link: true },
+    { k: "Press & speaking", v: "hello@tonyvoorhees.com", link: true },
      **/
   ],
   availabilityLabel: "Availability",
-  availabilityValue: "Booking Q4 2026 · 2 slots",
+  availabilityValue: "Currently Available",
   /**
    * Studio map — disabled by default. The contact Aside no longer renders it
    * (see the commented-out map block in

@@ -19,7 +19,7 @@ export const hero = {
     line3: "the whole mountain.",
   },
   cta: { href: "/contact", label: "Let's Ride" },
-  status: "Read Designed Default",
+  status: "Read Designed Default ↗",
   portrait: {
     label: "black-and-white landscape, soft natural light, mountain terrain, early morning mist",
     caption: "Mount Tamalpais, CA",
