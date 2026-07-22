@@ -10,9 +10,9 @@ img: "evgo fast-charging network product design"
 order: 1
 status: "published"
 span: 2
-coverImage: "../../assets/work/index/evgo_homepg.png"
-heroImage: "../../assets/work/detail/evgo/evgo_homepg.png"
-homeImage: "../../assets/home/work/evgo_homepg.png"
+coverImage: "../../assets/work/index/evgo.png"
+heroImage: "../../assets/work/detail/evgo/evgo.png"
+homeImage: "../../assets/home/work/evgo.png"
 credits:
   - { k: "Design & Management", v: "Tony Voorhees" }
   - { k: "Development", v: "Mark Crisostomo" }
@@ -94,5 +94,29 @@ import img06 from "../../assets/work/detail/evgo/06.png";
     </ls>
     <p></p>
     <p>The company needed someone who could bridge the gap between marketing ambitions and product reality.</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-12 md:pb-16">
+  <div class="mx-auto max-w-(--container-narrow)">
+    <div class="font-mono uppercase text-label text-text-muted inline-flex items-baseline gap-2.5 mb-7 tracking-mono-x">
+      <span aria-hidden="true">↳</span><span>The Challenge</span>
+    </div>
+    <h2 class="font-serif font-350 m-0 mb-16 text-[clamp(2.25rem,4.4vw,4rem)] leading-[1.05] tracking-display-lg">
+      EVgo's website was <span class="italic text-text-muted">broken.</span>
+    </h2>
+    <dl class="m-0 p-0 border-t border-hairline">
+      {[
+        { k: "Fragmented", v: "Marketing and product teams working in silos created inconsistent navigation, duplicate links, and conflicting styles." },
+        { k: "Failures", v: "Missing alt tags, poor color contrast, broken tabbing—basic ADA compliance was lacking." },
+        { k: "Blocked Marketing", v: "Every form, every landing page required engineering time. Hard-coded components meant weeks of delay for simple updates." },
+        { k: "Performance", v: "3+ second load times and a 72% bounce rate." },
+      ].map((row) => (
+        <div class="grid grid-cols-[6.5rem_1fr] md:grid-cols-[1fr_2fr] gap-4 md:gap-8 py-5 md:py-6 border-b border-hairline items-baseline">
+          <dt class="font-mono uppercase text-label text-text-muted m-0 tracking-mono-x">{row.k}</dt>
+          <dd class="font-mono text-sm text-text m-0 leading-[1.7] tracking-body">{row.v}</dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>

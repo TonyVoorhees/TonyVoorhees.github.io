@@ -20,7 +20,7 @@ export const hero = {
 export const blocks = [
   {
     n: "01",
-    name: "Art Direction",
+    name: "Product Design",
     desc: "We set the visual register for a brand, campaign, or product — and stay close enough to defend it through production.",
     deliverables: [
       "Visual research deck",
@@ -30,27 +30,27 @@ export const blocks = [
     ],
     idealFor:
       "Founders launching a new venture; brands repositioning after a Series A; editors planning an issue.",
-    price: "From €18,000",
-    example: "Hjem Magazine — Issue 04",
+    price: "From $10,000",
+    example: "Seek AI — Issue 04",
   },
   {
     n: "02",
     name: "Brand Identity",
     desc: "Systems that hold up across every surface: print, screen, motion. A wordmark is the easy part — the grid is the work.",
     deliverables: [
-      "Logotype + marque",
-      "Type + colour system",
-      "Brand guidelines (Notion + PDF)",
+      "Adaptable logo: icon + typelogo + hero",
+      "Typogrphy + colour system",
+      "Brand guidelines (PDF + Figma)",
       "Templates + production files",
     ],
     idealFor:
       "Studios, foundries, roasteries, and product companies that want to grow without losing their grain.",
-    price: "From €34,000",
-    example: "Kjeld & Co. — full identity",
+    price: "From $5,000",
+    example: "Cape Atlantis Shells — full identity",
   },
   {
     n: "03",
-    name: "Motion Direction",
+    name: "Build & Launch",
     desc: "Short-form motion for launch films, social, and interface. Hand-eased, never templated.",
     deliverables: [
       "Storyboard + animatic",
@@ -60,12 +60,12 @@ export const blocks = [
     ],
     idealFor:
       "Launches, campaigns, and product moments that deserve more than a Premiere preset.",
-    price: "From €12,000",
-    example: "Meridian Type — release film",
+    price: "From $2,500",
+    example: "Wes Moore BMX — release film",
   },
   {
     n: "04",
-    name: "Editorial websites",
+    name: "Print Production",
     desc: "Hand-built websites with editorial typography, considered transitions, and a CMS the team will actually use.",
     deliverables: [
       "Sitemap + wireframes",
@@ -75,8 +75,8 @@ export const blocks = [
     ],
     idealFor:
       "Studios, journals, B2B SaaS, and founders who care that the site reads as well as it scrolls.",
-    price: "From €24,000",
-    example: "Feltland.com — full build",
+    price: "From $1,000",
+    example: "Peggy the Panda — full build",
   },
 ];
 
@@ -97,40 +97,40 @@ export const process = {
 export const tiers = {
   sectionTag: { num: "03", label: "Engagement" },
   title: { lead: "Three ways", accent: "in" },
-  note: "All prices ex. VAT · DKK / EUR / USD",
+  note: "All prices in USD",
   items: [
     {
-      name: "Sprint",
+      name: "Starter 0-1",
       duration: "2 weeks",
-      price: "€6,000",
+      price: "$1,000",
       desc: "One designer, one week of direction, one week of execution. Best for a focused deliverable.",
       features: [
-        "One scope (e.g. landing page)",
-        "Daily working sessions",
-        "Source + built files at handoff",
-        "No revisions after week 2",
+        "One scope (e.g. logo, landing page)",
+        "Weekly working sessions, half or full days",
+        "Source files + handoff deliverables",
+        "Additional cost for revisions after week 2",
       ],
       recommended: false,
       ctaLabel: "Enquire →",
     },
     {
-      name: "Project",
-      duration: "8–14 weeks",
-      price: "€34,000+",
-      desc: "The full studio, end-to-end. Our standard engagement and where most of our work lives.",
+      name: "Build & Launch",
+      duration: "4-6 weeks",
+      price: "$2,500+",
+      desc: "The full studio, end-to-end. Where most of our work lives. Brand strategy, design, and development all in one.",
       features: [
         "Full strategy + design + build",
-        "Three feedback rounds",
-        "Brand guidelines included",
+        "Brand package - logo, viuals, & voice.",
+        "Website build",
         "Six-month aftercare",
       ],
       recommended: true,
       ctaLabel: "Start a project →",
     },
     {
-      name: "Partnership",
+      name: "Contract",
       duration: "Quarterly",
-      price: "€18,000 /mo",
+      price: "$8,000 /mo",
       desc: "A retained relationship for studios with an ongoing design cadence. Two slots per year.",
       features: [
         "Dedicated team time, four days / wk",

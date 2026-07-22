@@ -75,7 +75,7 @@
 
   /* Accent + dark-only surfaces used by the home ContactCta block, which
      stays dark-on-dark even in light mode (editorial inversion). */
-  --color-accent: #FF5A1F;
+  --color-accent: #FCB20D;
   /* Text/icon colour that sits ON the accent. Intentionally fixed dark in both
      themes — white-on-accent fails WCAG contrast (3.1:1), dark passes (5.3:1). */
   --color-on-accent: #1F1F1D;

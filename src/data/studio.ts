@@ -5,51 +5,51 @@
 export const meta = {
   title: "Studio — Tony Voorhees",
   description:
-    "Tony Voorhees is a solo practice in Northern California. I work with founders, editors, and product leads on a handful of projects each year.",
+  "Product design and brand strategy don't have to live in separate departments. At Tony Voorhees Studio, they never do. I work with founders and product teams to build identities and digital products that speak the same language — and bring in the right specialists to make it happen.",  
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
-  sectionTag: { num: "01", label: "On craft" },
-  title: { line1: "On craft,", accent: "clarity", line3: "and quiet ambition." },
+  sectionTag: { num: "01", label: "On Craft" },
+  title: { line1: "On range,", accent: "craft", line3: "and making it happen." },
   body:
-    "Tony Voorhees is a solo practice in Northern California. I work with founders, editors, and product leads on a handful of projects each year. I keep my calendar small on purpose.",
+  "Built at the intersection of product design and brand identity. Twenty-plus years across agencies, startups, and enterprise teams — now channeled into work that actually holds together.",
 };
 
 // ─── Studio image ──────────────────────────────────────────────────────────
 export const studioImage = {
   label: "View from the my office window",
-  caption: "mount tamalpais - Marin County, CA",
+  caption: "Mount Tamalpais - Marin County, CA",
 };
 
 // ─── (02) Philosophy ───────────────────────────────────────────────────────
 export const philosophy = {
   sectionTag: { num: "02", label: "Philosophy" },
   intro:
-    "We started Studio Nord because we wanted to work on fewer things, more carefully. A small practice means a small surface for ego — and a large surface for craft. The brief passes through every set of hands in the studio. Nothing is delegated to a department of one.",
+    "Tony Voorhees Studio runs lean and connects deep. I lead every project as senior creative director and bring in trusted specialists when the brief calls for it. You get one point of contact, one creative vision, and exactly the team your project needs.",
   // The intro's first letter is enlarged as a drop cap by the
   // `.dropcap::first-letter` rule in global.css — no manual markup needed,
   // the full sentence lives here as plain text.
   marginalia: [
     {
-      text: "On scale",
+      text: "On Range",
       body:
-        "We have stayed three on purpose. Three is small enough that every project keeps its grain — every kerning pair, every easing curve, every margin. Five would mean a meeting about the meeting. Ten would mean a process about the process. We have nothing against growth; we have a great deal against blur.",
+        "Twenty-plus years across agencies, startups, and enterprise teams have taught me one thing: the best work happens when product and brand speak the same language. I've shipped design systems for EV charging networks, built brand identities for indie founders, and designed everything in between. The scale changes. The standard doesn't.",
     },
     {
-      text: "On the work",
+      text: "On Craft",
       body:
-        "We work in branding, motion direction, and editorial website builds. The trio shares a vocabulary — editorial typography, restrained palettes, an intolerance for visual noise. We treat a stylesheet with the same care as a master grid in InDesign: it is the document that quietly governs all the other documents.",
+      "Detail-oriented doesn't mean slow. It means knowing which details matter and moving decisively on the ones that don't. Whether it's a kerning pair or a CMS architecture decision, the level of care stays constant. What you describe is what gets built — no loose ends, no departments that don't apply to your problem.",
     },
     {
-      text: "On clients",
+      text: "On Collaboration",
       body:
-        "The studio runs on long relationships. Most of our work each year is a continuation of last year's, with the same founders and editors who hired us when they had less to spend and more to prove. We're proud of that. New work comes by referral — from previous clients, from designers we admire, from one or two writers who keep an eye on the studio.",
+        "The best work we've done happened when designer, developer, and client were all in the same conversation from the start. We build that in by default. A flexible network means you're never paying for specialists you don't need — and never going without the ones you do.",
     },
     {
-      text: "On the city",
+      text: "On Clients",
       body:
-        "Copenhagen is a quiet city. The studio is a quiet studio. We think that has helped the work more than any tool or process ever has.",
+        "We work with founders building something real, product teams who need a brand brain in the room, and small businesses that deserve the same craft as the big ones. Cape Atlantis Shells, EVgo, Seek AI, Wes Moore BMX, Super Evil Megacorp — the budgets vary. The commitment doesn't.",
     },
   ],
 };
@@ -68,8 +68,8 @@ export const team = {
     },
     {
       name: "Hudson Voorhees",
-      role: "Apprentice & Creative  Consultant",
-      bio: "Creative in training, learning the ropes of design and development.",
+      role: "Junior Designer & Creative Consultant",
+      bio: "Designer in training, learning the ropes of design and development.",
       img: "",
       links: ["@hudsonvoorhees"],
     },
@@ -101,6 +101,6 @@ export const press = {
 // ─── Availability strip ────────────────────────────────────────────────────
 export const availability = {
   label: "Currently booking",
-  title: { lead: "Available Now —", accent: "Reach out anytime." },
+  title: { lead: "Available Now —", accent: "Ready when you are" },
   cta: { href: "/contact", label: "Let's Talk →" },
 };

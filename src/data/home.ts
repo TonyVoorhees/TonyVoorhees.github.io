@@ -10,7 +10,7 @@
 // ─── (Hero) ────────────────────────────────────────────────────────────────
 export const hero = {
   eyebrows: ["Product Design", "Brand Identity", "Creative Direction"],
-  sectionTag: { num: "00", label: "base" },
+  sectionTag: { num: "00", label: "index" },
   // Three-line title with an italicised second line.
   title: {
     line1: "Most designers",
@@ -19,7 +19,7 @@ export const hero = {
     line3: "the whole mountain.",
   },
   cta: { href: "/contact", label: "Let's Ride" },
-  status: "Designed Default",
+  status: "Read Designed Default",
   portrait: {
     label: "black-and-white landscape, soft natural light, mountain terrain, early morning mist",
     caption: "Mount Tamalpais, CA",
@@ -40,11 +40,11 @@ export const featuredWork = {
 export const studioStatement = {
   sectionTag: { num: "02", label: "Studio" },
   body:
-  "I move fluidly across product, brand, and visual systems—which means I can design your app, build the brand around it, and keep everything speaking the same language. No handoff chaos. No, that's not my department.",
+  "Most studios hand off between brand and product and hope for the best. We skip that part. One vision, end to end — because your app and your brand should feel like they came from the same place. They will.",
   values: [
-    { n: "01", name: "Clarity", desc: "Effective communication is key." },
-    { n: "02", name: "Craft", desc: "Detail-oriented execution." },
-    { n: "03", name: "Pace", desc: "Sure and steady." },
+    { n: "01", name: "Clarity", desc: "If it needs explaining, it needs redesigning." },
+    { n: "02", name: "Craft", desc: "The details nobody notices are the ones everybody feels." },
+    { n: "03", name: "Pace", desc: "Fast when it matters. Slow when it counts." },
   ],
 };
 
@@ -53,7 +53,7 @@ export const servicesPreview = {
   sectionTag: { num: "03", label: "Capabilities" },
   allServicesLabel: "All services →",
   items: [
-    { n: "01", name: "Product Design", desc: "0-1 jumpstart, redesign, or fine-tuning." },
+    { n: "01", name: "Product Design", desc: "0-1 jumpstart, redesign, or fine-tune." },
     { n: "02", name: "Brand Identity", desc: "Systems that hold up across every touchpoint." },
     { n: "03", name: "Build & Launch", desc: "Simple brand and website packages available." },
     { n: "04", name: "Print Production", desc: "Hand-crafted books, merch, and art." },
@@ -98,7 +98,7 @@ export const featuredJournal = {
 
 // ─── (07) Testimonials ─────────────────────────────────────────────────────
 export const testimonials = {
-  sectionTag: { num: "07", label: "Testimonials" },
+  sectionTag: { num: "05", label: "Testimonials" },
   items: [
     {
       quote:
@@ -117,7 +117,7 @@ export const testimonials = {
 
 // ─── (08) Contact CTA (dark block) ─────────────────────────────────────────
 export const contactCta = {
-  sectionTag: { num: "08", label: "Contact" },
+  sectionTag: { num: "06", label: "Contact" },
   title: { line1: "Let's ride", accent: "together!", line3: "" },
   ctas: {
     primary: { href: "/contact", label: "Send It!" },
