@@ -4,7 +4,7 @@
  */
 
 export const site = {
-  name: "Tony Voorhees",
+  name: "Tony Voorhees Studio",
   legalName: "Tony Voorhees Studio",
   title: "Tony Voorhees — Senior Product Designer & Brand Specialist",
   description:

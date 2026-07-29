@@ -28,20 +28,21 @@ import img06 from "../../assets/work/detail/evgo/06.png";
 
 <section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-24 pt-8 md:pt-10">
   <div class="mx-auto max-w-(--container-article)">
-    <p class="font-serif font-350 text-[clamp(1.25rem,2.4vw,2.2rem)] leading-[1.35] m-0 dropcap tracking-snug text-pretty">Unifying product and marketing to rebuild one of America's largest EV charging network websites</p>
+    <p class="font-serif font-350 text-[clamp(1.25rem,2.4vw,2.2rem)] leading-[1.35] m-0 dropcap tracking-snug text-pretty">Redesigning EVgo.com. Unifying product and marketing to rebuild one of America's largest EV charging network websites. 12 months.</p>
   </div>
 </section>
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
     <h2>Impact at a glance.</h2>
-    <ls>
-      <li>30% bounce rate reduction</li>
-      <li>250K+ monthly visitors (up from 100-200K)</li>
-      <li>2x average engagement time (1-2 min → 2-4 min)</li>
-      <li>50+ pages redesigned in 12 months</li>
-      <li>WCAG 2.1 AA-compliant accessibility achieved</li>
-    </ls>
+    <ul class="list-none p-0 m-0 mt-3 md:mt-4 flex flex-col gap-2">
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Bounce rate: 72% → under 50%</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Monthly visitors: 100–200K → 350K+</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Average time on page: 1–2 min → 4–6 min</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Web sessions: exceeded a 650K goal, reaching 688.4K</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>50+ pages redesigned, WCAG 2.1 AA compliance achieved</li>
+       <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Coordinated a 3-company product launch (EVgo, Subaru, Qmerit) in 3 months</li>
+    </ul>
   </div>
 </section>
 
@@ -84,33 +85,35 @@ import img06 from "../../assets/work/detail/evgo/06.png";
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>EVgo's website was broken.</h2>
-    <p>As one of America's largest public EV charging networks, they had a digital presence that didn't match their market position:</p>
-    <ls>
-      <li><b>Fragmented experience:</b> Marketing and product teams working in silos created inconsistent navigation, duplicate links, and conflicting styles.</li>
-      <li><b>Accessibility failures:</b> Missing alt tags, poor color contrast, broken tabbing—basic ADA compliance was lacking.</li>
-      <li><b>Blocked marketing velocity:</b> Every form, every landing page required engineering time. Hard-coded components meant weeks of delay for simple updates.</li>
-      <li><b>Poor performance:</b> 3+ second load times and a 72% bounce rate.</li>
-    </ls>
-    <p></p>
-    <p>The company needed someone who could bridge the gap between marketing ambitions and product reality.</p>
+    <h2>The Problem</h2>
+    <p>EVgo's website didn't match its market position. Marketing and product had been building in silos for years — duplicate navigations, conflicting styles, and every form or landing page requiring engineering time just to ship. Load times ran past 3 seconds. Bounce rate sat at 72%. Basic accessibility — alt tags, color contrast, keyboard tabbing — was failing.</p>
+    <p>None of that was a design problem in isolation. It was a coordination problem wearing a design problem's clothes: two teams optimizing for different goals, with no shared system to work from.</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>The Role</h2>
+    <p>Principal Product Designer, Tony Voorhees Studio (engaged via AE Studio) — 12 months, design lead & manager</p>
+    <p>I led design and managed development for EVgo.com and its customer-facing portals, working directly with the Director of Digital Marketing and a senior engineer on a 3-person core team. The mandate: unify the experience, fix the infrastructure underneath it, and get marketing out from under engineering's queue.</p>
   </div>
 </section>
 
 <section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-12 md:pb-16">
   <div class="mx-auto max-w-(--container-narrow)">
     <div class="font-mono uppercase text-label text-text-muted inline-flex items-baseline gap-2.5 mb-7 tracking-mono-x">
-      <span aria-hidden="true">↳</span><span>The Challenge</span>
+      <span aria-hidden="true">↳</span><span>Redesign</span>
     </div>
     <h2 class="font-serif font-350 m-0 mb-16 text-[clamp(2.25rem,4.4vw,4rem)] leading-[1.05] tracking-display-lg">
-      EVgo's website was <span class="italic text-text-muted">broken.</span>
+      What <span class="italic text-text-muted">Changed</span>
     </h2>
     <dl class="m-0 p-0 border-t border-hairline">
       {[
-        { k: "Fragmented", v: "Marketing and product teams working in silos created inconsistent navigation, duplicate links, and conflicting styles." },
-        { k: "Failures", v: "Missing alt tags, poor color contrast, broken tabbing—basic ADA compliance was lacking." },
-        { k: "Blocked Marketing", v: "Every form, every landing page required engineering time. Hard-coded components meant weeks of delay for simple updates." },
-        { k: "Performance", v: "3+ second load times and a 72% bounce rate." },
+        { k: "A real design system, not a style guide", v: "Migrated the stack to Next.js, Tailwind, and Vercel; built a component library with standardized breakpoints and an 8-point grid; used Vercel Preview Deployments so stakeholders could react to real pages instead of static mockups. Result: a consistent experience across 50+ pages and WCAG 2.1 AA compliance, built in rather than retrofitted." },
+        { k: "Navigation that stopped fighting itself", v: "EVgo had two competing header navigations with duplicate links, plus a mobile search users couldn't find. A card-sorting exercise with stakeholders collapsed everything into four clear categories — EV Drivers, Business, Partners, Company — with a flyout menu built for decision-making, not just wayfinding." },
+        { k: "Tools that gave marketing its independence back", v: "Every form and landing page used to mean a developer ticket and a multi-week wait. I built a Storyblok-based form builder, drag-and-drop landing page templates, and a self-service navigation manager — no code required. The marketing team went from waiting weeks for a form to shipping one the same day, and built six intake forms for the Connect the Watts campaign entirely on their own." },
+        { k: "A pricing system people could actually use", v: "EVgo was rolling out five pricing plans with time-of-use rates nationally. I A/B tested table layouts and built a Plan Finder — a three-question quiz (zip code, charging frequency, home charger access) that routes people to the plan that fits, plus pricing widgets partner portals could run automatically with their own discounted rates." },
+        { k: "A three-company launch, coordinated from scratch", v: " Subaru Solterra owners needed a clean path to claim EV charging credits through either EVgo or their home-charging partner, Qmerit. I designed the VIN-verification flow, built the dual-path registration, and aligned EVgo, Subaru, and Qmerit teams on one user flow — shipped in 3 months with a single engineer. It's a small case study in itself: three companies, three sets of incentives, one seamless flow for the person actually charging their car." },
       ].map((row) => (
         <div class="grid grid-cols-[6.5rem_1fr] md:grid-cols-[1fr_2fr] gap-4 md:gap-8 py-5 md:py-6 border-b border-hairline items-baseline">
           <dt class="font-mono uppercase text-label text-text-muted m-0 tracking-mono-x">{row.k}</dt>
@@ -118,5 +121,32 @@ import img06 from "../../assets/work/detail/evgo/06.png";
         </div>
       ))}
     </dl>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>How I Worked</h2>
+    <p>Weekly Scrum sprints, daily standups, Friday demos, design work running parallel to dev cycles. I worked across six-plus departments — Customer Acquisition, Operations, Partnerships, Product, Analytics, QA — and managed 20+ marketing stakeholders across B2C, B2B, and partnership funnels. Brought in Deque for a full accessibility audit and implemented every recommendation. Research ran on heuristic evaluation, GA deep-dives, card sorting, A/B testing, and a customer feedback survey that reached the full 250K+ monthly user base.</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>What I Didn't Touch</h2>
+    <p>The Find a Charger map, controlled by a third-party script outside scope. A full brand overhaul — I contributed to early brand exploration with an outside agency, but the rebrand itself was a separate initiative</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>Key Takeaways</h2>
+    <p>The unlock wasn't the redesign — it was alignment. A shared system and self-service tools changed how the teams actually worked together, not just how the pages looked. Building accessibility into the system from day one eliminated retrofit work later. And giving marketing real autonomy turned what had been a bottleneck into one of the team's biggest strengths.</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Design leadership delivered through Tony Voorhees, in partnership with AE Studio.</p>
   </div>
 </section>

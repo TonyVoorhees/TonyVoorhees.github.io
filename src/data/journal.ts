@@ -4,16 +4,16 @@
  */
 
 export const meta = {
-  title: "Journal — Studio Nord",
+  title: "Journal — Tony Voorhees Studio",
   description:
-    "Slow writing on craft, process, tools, and the curious business of running a small studio. Two or three pieces a month, written by us.",
+    "My work and thoughts on design, branding, and creative processes.",
 };
 
 export const indexCopy = {
   sectionTag: { num: "01", label: "Reading" },
-  title: { lead: "Journal —", accent: "notes", line3: "from the studio." },
+  title: { lead: "Field", accent: "notes." }, 
   body:
-    "Slow writing on craft, process, tools, and the curious business of running a small studio. Two or three pieces a month, written by us.",
+    "Writing and artifacts from past, current, and future projects. ",
 };
 
 export const TAGS = ["All", "Process", "Craft", "Tools", "Industry", "Studio"] as const;

@@ -14,7 +14,7 @@ coverImage: "../../assets/work/index/seek.png"
 heroImage: "../../assets/work/detail/seek/seek.png"
 homeImage: "../../assets/home/work/seek.png"
 credits:
-  - { k: "Senior Designer", v: "Tony Voorhees" }
+  - { k: "Product Designer & Manager", v: "Tony Voorhees" }
   - { k: "Junior Designer", v: "Eric Wu" }
 ---
 
@@ -68,8 +68,8 @@ import img06 from "../../assets/work/detail/seek/01.png";
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>Role</h2>
-    <p>Principal Product Designer, Tony Voorhees Studio (engaged via AE Studio) — 4 months, design lead</p>
+    <h2>The Role</h2>
+    <p>Principal Product Designer, Tony Voorhees Studio (engaged via AE Studio) — 4 months, design lead.</p>
     <p>Brought in to pressure-test the product direction. Two weeks later the Head of Product left, and the CEO handed me the redesign outright: user interviews, UX strategy, every screen, engineering handoff — against an investor deadline that didn't move.</p>
   </div>
 </section>
@@ -83,7 +83,7 @@ import img06 from "../../assets/work/detail/seek/01.png";
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>Insights</h2>
+    <h2>The Insights</h2>
     <p>Every interview surfaced the same workaround: ask ChatGPT to write the SQL, paste it into Seek, hope it runs. Users had already solved the interface problem — with a different product.</p>
     <p>That reframed everything: Seek needed to be conversational, not transactional. A person you ask, not a tool you operate.</p>
   </div>
@@ -92,17 +92,20 @@ import img06 from "../../assets/work/detail/seek/01.png";
 <section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-12 md:pb-16">
   <div class="mx-auto max-w-(--container-narrow)">
     <div class="font-mono uppercase text-label text-text-muted inline-flex items-baseline gap-2.5 mb-7 tracking-mono-x">
-      <span aria-hidden="true">↳</span><span>Results</span>
+      <span aria-hidden="true">↳</span><span>Redesign</span>
     </div>
     <h2 class="font-serif font-350 m-0 mb-16 text-[clamp(2.25rem,4.4vw,4rem)] leading-[1.05] tracking-display-lg">
-      What <span class="italic text-text-muted">Changed.</span>
+      What <span class="italic text-text-muted">Changed</span>
     </h2>
     <dl class="m-0 p-0 border-t border-hairline">
       {[
         { k: "Chat-first interface", v: "One input bar, plain English in, SQL and results out. Writing SQL became optional, not required — so the product could serve technical and non-technical users at once." },
-        { k: "Failures", v: "Missing alt tags, poor color contrast, broken tabbing—basic ADA compliance was lacking." },
-        { k: "Blocked Marketing", v: "Every form, every landing page required engineering time. Hard-coded components meant weeks of delay for simple updates." },
-        { k: "Performance", v: "3+ second load times and a 72% bounce rate." },
+        { k: "Four personas instead of one", v: "Natural language opened Seek to a much wider range of users — engineers, SQL writers, data-literate askers, and people with no SQL at all. That shift let Seek sell into entire data teams, not just executives — a key part of the investor story." },
+        { k: "Permissions built for real organizations", v: "A four-tier system (Org Admin → Data Analyst), modeled on how Slack and Google Workspace handle shared access, so teams could collaborate on proprietary data safely." },
+        { k: "A verification system — the actual trust fix", v: "The real risk wasn't the UI, it was a wrong answer delivered with total confidence. Verified badges, an insights log, and smart resurfacing meant people could share a Seek answer knowing a human had already checked it." },
+        { k: "Lighter onboarding", v: "Try Seek on sample data first, connect a real database once you're convinced." },
+        { k: "A defined agent personality", v: "Documented how Seek should sound and behave, so its tone was a design choice handed to engineering — not a default." },
+        { k: "Multi-user chat, resolved simply", v: "@mentions to route questions between Seek and teammates in shared threads — the simplest solution that shipped on time." },
       ].map((row) => (
         <div class="grid grid-cols-[6.5rem_1fr] md:grid-cols-[1fr_2fr] gap-4 md:gap-8 py-5 md:py-6 border-b border-hairline items-baseline">
           <dt class="font-mono uppercase text-label text-text-muted m-0 tracking-mono-x">{row.k}</dt>
@@ -110,5 +113,50 @@ import img06 from "../../assets/work/detail/seek/01.png";
         </div>
       ))}
     </dl>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>Also Shipped</h2>
+    <p>Data warehouse connections, CSV upload, a retained SQL editor for power users, freemium/paid tiers, and live analyst support.</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-(--container-feature)">
+    <div>
+      <Placeholder image={img04} ratio="4 / 5" label="" alt="" sizes="(min-width: 768px) 50vw, 100vw" w={800} h={1000} />
+      <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 04 — </p>
+    </div>
+    <div class="md:mt-20">
+      <Placeholder image={img05} ratio="4 / 5" label="" alt="" sizes="(min-width: 768px) 50vw, 100vw" w={800} h={1000} />
+      <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 05 — </p>
+    </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto max-w-(--container-bleed)">
+    <Placeholder image={img06} ratio="16 / 9" label="" alt="" w={1440} h={900} />
+    <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 06 — </p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>The Results</h2>
+    <ul class="list-none p-0 m-0 mt-3 md:mt-4 flex flex-col gap-2">
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Positive investor feedback</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Helped secure partnerships, including Snowflake</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Set the design direction the product still runs on</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Led directly to the IBM acquisition in 2025</li>
+    </ul>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Design leadership delivered through Tony Voorhees, in partnership with AE Studio.</p>
   </div>
 </section>

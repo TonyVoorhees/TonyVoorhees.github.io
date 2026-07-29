@@ -5,20 +5,20 @@
 export const meta = {
   title: "Studio — Tony Voorhees",
   description:
-  "Product design and brand strategy don't have to live in separate departments. At Tony Voorhees Studio, they never do. I work with founders and product teams to build identities and digital products that speak the same language — and bring in the right specialists to make it happen.",  
+  "Tony Voorhees Studio is a Bay Area creative practice focused on product design and brand identity. Director-led, collaborative by nature, and honest about what each project needs.",  
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
-  sectionTag: { num: "01", label: "On Craft" },
-  title: { line1: "On range,", accent: "craft", line3: "and making it happen." },
+  sectionTag: { num: "01", label: "How we do it" },
+  title: { line1: "Product design,", accent: "branding", line3: "and system thinking." },
   body:
-  "Built at the intersection of product design and brand identity. Twenty-plus years across agencies, startups, and enterprise teams — now channeled into work that actually holds together.",
+  "Twenty-plus years in, and this is still where the work I care about most happens. I didn't set out to work across all three — that's just the sweet spot.",
 };
 
 // ─── Studio image ──────────────────────────────────────────────────────────
 export const studioImage = {
-  label: "View from the my office window",
+  label: "The usual office view",
   caption: "Mount Tamalpais - Marin County, CA",
 };
 

@@ -32,7 +32,7 @@ export const hero = {
 export const featuredWorkSlugs = ["seek", "peggythepanda", "wmbmx", "evgo"] as const;
 export const featuredWork = {
   sectionTag: { num: "01", label: "Work" },
-  title: { lead: "Recent", accent: "Projects" },
+  title: { lead: "Select", accent: "Projects" },
   allWorkLabel: "All work",
 };
 
@@ -40,11 +40,11 @@ export const featuredWork = {
 export const studioStatement = {
   sectionTag: { num: "02", label: "Studio" },
   body:
-  "Most studios hand off between brand and product and hope for the best. We skip that part. One vision, end to end — because your app and your brand should feel like they came from the same place. They will.",
+  "I help shape ideas into real products and brands, partnering through the build, end to end.",
   values: [
-    { n: "01", name: "Clarity", desc: "If it needs explaining, it needs redesigning." },
-    { n: "02", name: "Craft", desc: "The details nobody notices are the ones everybody feels." },
-    { n: "03", name: "Pace", desc: "Fast when it matters. Slow when it counts." },
+    { n: "01", name: "Collaboration", desc: "Vendors, platforms, teams — I run point so nothing falls through the seams." },
+    { n: "02", name: "Originality", desc: "The idea nobody else pitched is usually the right one." },
+    { n: "03", name: "Velocity", desc: "Fast when it matters. Slow when it counts." },
   ],
 };
 

@@ -14,17 +14,17 @@ export const meta = {
 
 export const hero = {
   sectionTag: { num: "01", label: "Hello" },
-  title: { lead: "Let's", accent: "Ride" },
+  title: { lead: "Let's Ride", accent: "Together" },
   body:
-    "The honest way to understand a project is to ride along — see where it's heading, who's coming with us, and why. From there, we figure out how we get there.",
+    "The honest way to understand a project is to ride along — see where it's heading, who's coming along, and why. From there, we figure out what we need, what we don’t need, and how we get there. Ready? Let's go!",
 };
 
 export const form = {
   sectionTag: { num: "02", label: "Note" },
-  projectTypes: ["Brand", "Product", "Web", "Print", "Other"] as const,
+  projectTypes: ["Brand", "Product", "Print", "Web", "Other"] as const,
   budgets: ["$1–10k", "$10–20k", "$20–30k", "$40–50k", "$50k+"] as const,
   /** Default selections — the design starts the form with these picked. */
-  defaultProjectType: "Brand Identity",
+  defaultProjectType: "Brand",
   defaultBudget: "$20–30k",
   consent: "By sending, you agree to a short discovery call within ~72h",
   submitLabel: "Send Note",
@@ -39,7 +39,7 @@ export const studio = {
   sectionTag: { num: "03", label: "Studio" },
   info: [
     { k: "Email", v: "hello@tonyvoorhees.com", link: true },
-    { k: "Location", v: "Marin County, CA" },
+    { k: "Location", v: "The Bay Area, CA" },
     /**
      * { k: "Telephone", v: "" },
     { k: "Hours", v: "" },

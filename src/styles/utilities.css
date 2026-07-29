@@ -64,6 +64,9 @@
 .hover-line:hover::after,
 .hover-line:focus-visible::after { width: 100%; }
 
+.hero-cta-row .hover-line:hover,
+.hero-cta-row .hover-line:focus-visible { color: white; }
+
 /* Hero CTA — editorial text-link with a muted hairline always present
    and an accent-coloured hairline that grows on hover. Used 6+ times
    across pages as the studio's primary inline CTA. */
@@ -98,7 +101,7 @@
   position: absolute;
   left: 0; bottom: 0;
   width: 0; height: 1px;
-  background: currentColor;
+  background: white;
   transform-origin: left center;
   transition: width 0.65s cubic-bezier(0.65, 0, 0.35, 1);
 }

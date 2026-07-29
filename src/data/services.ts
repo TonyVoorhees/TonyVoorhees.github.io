@@ -3,17 +3,17 @@
  */
 
 export const meta = {
-  title: "Services — Studio Nord",
+  title: "Services — Tony Voorhees Studio",
   description:
-    "Four practices, one studio: art direction, brand identity, motion direction, and editorial websites. How we engage, how we price.",
+    "Solo studio, multiple disciplines. Useful, memorable, built to last.",
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
-  sectionTag: { num: "01", label: "What we do" },
-  title: { lead: "Services —", accent: "how", line3: "we work." },
+  sectionTag: { num: "01", label: "Approach" },
+  title: { lead: "How", accent: "I work" },
   body:
-    "Four practices, one studio. We rarely take on a project that uses only one of them — most of our best work lives in the seams between them.",
+    "Whether I'm shredding down the mountain or climbing up, I'm always looking for that perfect line. I work across product, brand, and visual systems the same way — reading the terrain, then finding the path nobody else noticed.",
 };
 
 // ─── Service blocks ────────────────────────────────────────────────────────
@@ -21,46 +21,46 @@ export const blocks = [
   {
     n: "01",
     name: "Product Design",
-    desc: "We set the visual register for a brand, campaign, or product — and stay close enough to defend it through production.",
+    desc: "As a systems thinker, I love building products that hold together as they scale: researching, prototyping, and testing until it's solid.",
     deliverables: [
-      "Visual research deck",
-      "Direction document",
-      "Production oversight",
-      "Talent + photo direction",
+      "Design system",
+      "Component library",
+      "CMS setup + handoff",
+      "Production + Source files",
     ],
     idealFor:
-      "Founders launching a new venture; brands repositioning after a Series A; editors planning an issue.",
-    price: "From $10,000",
-    example: "Seek AI — Issue 04",
+      "Founders launching a new venture; companies hiring a founding designer; teams that need product support without a full-time hire.",
+    price: "",
+    example: "Seek AI",
   },
   {
     n: "02",
     name: "Brand Identity",
-    desc: "Systems that hold up across every surface: print, screen, motion. A wordmark is the easy part — the grid is the work.",
+    desc: "Every surface and touchpoint — print, screen, motion — gets considered, down to the ones you didn't know mattered.",
     deliverables: [
-      "Adaptable logo: icon + typelogo + hero",
-      "Typogrphy + colour system",
-      "Brand guidelines (PDF + Figma)",
-      "Templates + production files",
+      "Logo package (icon, typeface, hero mark)",
+      "Typography + color palette",
+      "Guidelines + templates",
+      "Rroduction + source files",
     ],
     idealFor:
-      "Studios, foundries, roasteries, and product companies that want to grow without losing their grain.",
-    price: "From $5,000",
+      "Startups finding their voice; SMBs looking to level up.",
+    price: "",
     example: "Cape Atlantis Shells — full identity",
   },
   {
     n: "03",
     name: "Build & Launch",
-    desc: "Short-form motion for launch films, social, and interface. Hand-eased, never templated.",
+    desc: "A starter package (0-1) for people who need something up yesterday.",
     deliverables: [
-      "Storyboard + animatic",
+      "Logo essentials",
       "15s / 30s / 60s edits",
       "Lottie / GIF / MP4 deliverables",
       "Sound design partner",
     ],
     idealFor:
       "Launches, campaigns, and product moments that deserve more than a Premiere preset.",
-    price: "From $2,500",
+    price: "",
     example: "Wes Moore BMX — release film",
   },
   {
@@ -75,7 +75,7 @@ export const blocks = [
     ],
     idealFor:
       "Studios, journals, B2B SaaS, and founders who care that the site reads as well as it scrolls.",
-    price: "From $1,000",
+    price: "",
     example: "Peggy the Panda — full build",
   },
 ];
@@ -102,7 +102,7 @@ export const tiers = {
     {
       name: "Starter 0-1",
       duration: "2 weeks",
-      price: "$1,000",
+      price: "$1,000+",
       desc: "One designer, one week of direction, one week of execution. Best for a focused deliverable.",
       features: [
         "One scope (e.g. logo, landing page)",
@@ -116,7 +116,7 @@ export const tiers = {
     {
       name: "Build & Launch",
       duration: "4-6 weeks",
-      price: "$2,500+",
+      price: "$5,000+",
       desc: "The full studio, end-to-end. Where most of our work lives. Brand strategy, design, and development all in one.",
       features: [
         "Full strategy + design + build",
@@ -130,7 +130,7 @@ export const tiers = {
     {
       name: "Contract",
       duration: "Quarterly",
-      price: "$8,000 /mo",
+      price: "$12,000+ /mo",
       desc: "A retained relationship for studios with an ongoing design cadence. Two slots per year.",
       features: [
         "Dedicated team time, four days / wk",
