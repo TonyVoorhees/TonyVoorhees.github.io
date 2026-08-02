@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 const { entry, index, total, next } = Astro.props;
 const { Content } = await render(entry);
 
-const pageTitle = `${entry.data.name} — Studio Nord`;
+const pageTitle = `${entry.data.name} — Tony Voorhees Studio`;
 const pageDescription = `${entry.data.name} for ${entry.data.client} (${entry.data.year}) — ${entry.data.scope}.`;
 ---
 <Layout active="work" title={pageTitle} description={pageDescription}>

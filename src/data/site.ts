@@ -4,9 +4,9 @@
  */
 
 export const site = {
-  name: "Tony Voorhees Studio",
+  name: "Tony Voorhees",
   legalName: "Tony Voorhees Studio",
-  title: "Tony Voorhees — Senior Product Designer & Brand Specialist",
+  title: "Tony Voorhees — Product Designer & Brand Specialist",
   description:
     "Product and brand designer with 20+ years experience building digital products and identity systems that work together. Founder, Tony Voorhees Studio.",
   url: "https://tonyvoorhees.github.io/",

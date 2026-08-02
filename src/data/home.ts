@@ -53,10 +53,10 @@ export const servicesPreview = {
   sectionTag: { num: "03", label: "Capabilities" },
   allServicesLabel: "All services →",
   items: [
-    { n: "01", name: "Product Design", desc: "0-1 jumpstart, redesign, or fine-tune." },
-    { n: "02", name: "Brand Identity", desc: "Systems that hold up across every touchpoint." },
-    { n: "03", name: "Build & Launch", desc: "Simple brand and website packages available." },
-    { n: "04", name: "Print Production", desc: "Hand-crafted books, merch, and art." },
+    { n: "01", name: "Product Design", desc: "Jumpstart 0-1, app redesign, or support existing products." },
+    { n: "02", name: "Brand Identity", desc: "Systems that hold up across every surface." },
+    { n: "03", name: "Build & Launch", desc: "Basic brand and website for startups." },
+    { n: "04", name: "Print Production", desc: "Book design, merchandise, and artwork." },
   ],
 };
 
@@ -92,7 +92,7 @@ export const featuredJournalSlugs = [
 ] as const;
 export const featuredJournal = {
   sectionTag: { num: "06", label: "Journal" },
-  title: { lead: "Notes from the", accent: "studio" },
+  title: { lead: "Field", accent: "notes" },
   allEntriesLabel: "All entries",
 };
 

@@ -10,7 +10,7 @@
  */
 
 export const meta = {
-  title: "Style Guide — Studio Nord",
+  title: "Style Guide — Tony Voorhees Studio",
   description: "Internal documentation of the template's design tokens, type scale, spacing, and breakpoints.",
 };
 
@@ -32,7 +32,7 @@ export const colorTokens = [
   { name: "text / primary",  hex: "#1F1F1D", oklch: "oklch(23.9% 0.004 106.7)", use: "Body, headings" },
   { name: "text / muted",    hex: "#686864", oklch: "oklch(51.6% 0.006 106.6)", use: "Captions, meta" },
   { name: "hairline",        hex: "#D8D7D3", oklch: "oklch(87.9% 0.006 95.1)",  use: "Rules, borders" },
-  { name: "accent",          hex: "#FF5A1F", oklch: "oklch(68.2% 0.211 37.7)",  use: "CTAs, dot, hover" },
+  { name: "accent",          hex: "#FCB20D", oklch: "oklch(68.2% 0.211 37.7)",  use: "CTAs, dot, hover" },
   { name: "bg / dark",       hex: "#1A1A18", oklch: "oklch(21.7% 0.004 106.7)", use: "Background, dark mode" },
 ];
 

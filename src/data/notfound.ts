@@ -4,7 +4,7 @@
  */
 
 export const display = {
-  eyebrowLeft: { name: "Studio Nord", italic: "Errata" },
+  eyebrowLeft: { name: "Tony Voorhees Studio", italic: "Errata" },
   eyebrowRight: "404",
   error: { kind: "Error 404", message: "Page not found" },
   title: { line1: "Even editorial publications", accent: "have blank pages." },

@@ -9,7 +9,7 @@
 export const meta = {
   title: "Contact — Tony Voorhees Studio",
   description:
-    "Start a brief with Tony. I read every message and respond promptly. Currently available for new projects.",
+    "Start a project with Tony. I read every message and respond promptly. Currently available for new projects.",
 };
 
 export const hero = {
@@ -36,7 +36,7 @@ export const form = {
 };
 
 export const studio = {
-  sectionTag: { num: "03", label: "Studio" },
+  sectionTag: { num: "02", label: "Studio" },
   info: [
     { k: "Email", v: "hello@tonyvoorhees.com", link: true },
     { k: "Location", v: "The Bay Area, CA" },
@@ -57,6 +57,6 @@ export const studio = {
    * can reuse this copy as the iframe's title.
    */
   map: {
-    label: "minimalist B&W map of Copenhagen city center — pin at Sankt Peders Stræde 28",
+    label: "map",
   },
 };
