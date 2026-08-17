@@ -6,15 +6,15 @@
 export const meta = {
   title: "Journal — Tony Voorhees Studio",
   description:
-    "My work and thoughts on design, branding, and creative processes.",
+    "My work and thoughts on design, branding, and the creative process.",
 };
 
 export const indexCopy = {
   sectionTag: { num: "01", label: "Reading" },
-  title: { lead: "Field", accent: "notes." }, 
+  title: { lead: "Notes from", accent: "the studio." }, 
   body:
     "Writing and artifacts from past, current, and future projects. ",
 };
 
-export const TAGS = ["All", "Process", "Craft", "Tools", "Industry", "Studio"] as const;
+export const TAGS = ["All", "Print", "Studio"] as const;
 export type JournalTag = (typeof TAGS)[number];

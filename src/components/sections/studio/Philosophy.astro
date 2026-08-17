@@ -17,6 +17,10 @@ import { philosophy } from "../../../data/studio";
         {philosophy.intro}
       </p>
 
+      <p class="text-base md:text-prose leading-[1.65] mt-6 m-0 text-text">
+        {philosophy.studioModel}
+      </p>
+
       {philosophy.marginalia.map((m, i) => (
         <Marginalia text={m.text} mt={i === 0 ? 56 : 48}>
           <p class="text-base md:text-prose leading-[1.65] m-0 text-text">{m.body}</p>

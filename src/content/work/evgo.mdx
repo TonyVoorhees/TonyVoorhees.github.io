@@ -3,16 +3,16 @@ name: "EVgo.com Redesign"
 client: "EVgo"
 year: "2022"
 type: "Web"
-chips: ["Product Design", "Design Systems", "Web"]
-scope: "Design Systems · Web"
-recognition: "Lean Team"
+chips: ["Product", "Brand", "UX/UI", "Design Systems"]
+scope: "Product Design · UX/UI · Visual Design · Design Systems"
+recognition: ""
 img: "evgo fast-charging network product design"
 order: 4
 status: "published"
 span: 2
-coverImage: "../../assets/work/index/evgo.png"
+coverImage: "../../assets/work/detail/evgo/evgo.png"
 heroImage: "../../assets/work/detail/evgo/evgo.png"
-homeImage: "../../assets/home/work/evgo.png"
+homeImage: "../../assets/work/detail/evgo/evgo.png"
 credits:
   - { k: "Design & Management", v: "Tony Voorhees" }
   - { k: "Development", v: "Mark Crisostomo" }
@@ -28,20 +28,18 @@ import img06 from "../../assets/work/detail/evgo/06.png";
 
 <section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-24 pt-8 md:pt-10">
   <div class="mx-auto max-w-(--container-article)">
-    <p class="font-serif font-350 text-[clamp(1.25rem,2.4vw,2.2rem)] leading-[1.35] m-0 dropcap tracking-snug text-pretty">Redesigning EVgo.com. Unifying product and marketing to rebuild one of America's largest EV charging network websites. 12 months.</p>
+    <p class="font-serif font-350 text-[clamp(1.25rem,2.4vw,2.2rem)] leading-[1.35] m-0 dropcap tracking-snug text-pretty">From charging network to connected digital experience. A product, brand, and design-system overhaul for one of the country's largest public EV charging networks.</p>
   </div>
 </section>
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>Impact at a glance.</h2>
+    <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Impact at a Glance</p>
     <ul class="list-none p-0 m-0 mt-3 md:mt-4 flex flex-col gap-2">
-      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Bounce rate: 72% → under 50%</li>
-      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Monthly visitors: 100–200K → 350K+</li>
-      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Average time on page: 1–2 min → 4–6 min</li>
-      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Web sessions: exceeded a 650K goal, reaching 688.4K</li>
-      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>50+ pages redesigned, WCAG 2.1 AA compliance achieved</li>
-       <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span>Coordinated a 3-company product launch (EVgo, Subaru, Qmerit) in 3 months</li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>70+ pages:</b> Redesigned within one unified system.</p></li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>100+ components:</b> Built once, designed to scale.</p></li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>35% more new users:</b> Opened it up from one executive to entire data teams.</p></li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>30% higher conversion:</b> Following launch.</p></li>
     </ul>
   </div>
 </section>
@@ -59,12 +57,11 @@ import img06 from "../../assets/work/detail/evgo/06.png";
   </div>
 </section>
 
-<section class="px-5 sm:px-6 md:px-8 py-20 md:py-32">
-  <div class="mx-auto text-center max-w-(--container-narrow)">
-    <blockquote class="font-serif italic font-light text-[clamp(1.5rem,4.2vw,4rem)] leading-[1.2] m-0 tracking-display text-balance">
-      "The company needed someone who could bridge the gap between marketing ambitions and product reality."
-    </blockquote>
-    <p class="font-mono uppercase text-label text-text-muted mt-8 md:mt-10 tracking-mono-loose"></p>
+<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+  <div class="mx-auto prose max-w-(--container-prose)">
+    <h2>The Challenge</h2>
+    <p class="font-serif italic font-light text-2xl"><span class="font-mono text-accent"> → </span>EV charging is complicated enough. The experience shouldn't be.</p>
+    <p>As EVgo grew, its digital experience expanded with it — adding new products, features, and touchpoints along the way. The challenge was to bring it all back into one coherent experience: a clearer, more connected path through the moments that mattered — from discovering a charger to starting a session, managing an account, and understanding what comes next.</p>
   </div>
 </section>
 
@@ -85,17 +82,19 @@ import img06 from "../../assets/work/detail/evgo/06.png";
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>The Problem</h2>
-    <p>EVgo's website didn't match its market position. Marketing and product had been building in silos for years — duplicate navigations, conflicting styles, and every form or landing page requiring engineering time just to ship. Load times ran past 3 seconds. Bounce rate sat at 72%. Basic accessibility — alt tags, color contrast, keyboard tabbing — was failing.</p>
-    <p>None of that was a design problem in isolation. It was a coordination problem wearing a design problem's clothes: two teams optimizing for different goals, with no shared system to work from.</p>
+    <h2>The Role</h2>
+    <p>I led work across product, UX/UI, and visual design, bringing the experience together across multiple surfaces.</p>
+    <p>That meant moving between strategy and execution: understanding the customer journey, defining patterns, designing interfaces, and building the system that could support them.</p>
+    <p class="font-serif italic font-light text-2xl"><span class="font-mono text-accent"> → </span>Product strategy<span class="font-mono text-accent"> → </span>UX<span class="font-mono text-accent"> → </span>UI<span class="font-mono text-accent"> → </span>Design system<span class="font-mono text-accent"> → </span>Production</p>
   </div>
 </section>
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>The Role</h2>
-    <p>Principal Product Designer, Tony Voorhees Studio (engaged via AE Studio) — 12 months, design lead & manager</p>
-    <p>I led design and managed development for EVgo.com and its customer-facing portals, working directly with the Director of Digital Marketing and a senior engineer on a 3-person core team. The mandate: unify the experience, fix the infrastructure underneath it, and get marketing out from under engineering's queue.</p>
+    <h2>The Insight</h2>
+    <p>The experience needed to behave like one product.</p>
+    <p>A driver doesn't think in terms of "website," "app," "charging network," or "account management." They think: Where can I charge? Can I get there? How much will it cost? Can I start charging? What happens next?</p>
+    <p>That meant the design system couldn't just make individual screens consistent. It needed to make the experience itself feel connected.</p>
   </div>
 </section>
 
@@ -109,11 +108,10 @@ import img06 from "../../assets/work/detail/evgo/06.png";
     </h2>
     <dl class="m-0 p-0 border-t border-hairline">
       {[
-        { k: "A real design system, not a style guide", v: "Migrated the stack to Next.js, Tailwind, and Vercel; built a component library with standardized breakpoints and an 8-point grid; used Vercel Preview Deployments so stakeholders could react to real pages instead of static mockups. Result: a consistent experience across 50+ pages and WCAG 2.1 AA compliance, built in rather than retrofitted." },
-        { k: "Navigation that stopped fighting itself", v: "EVgo had two competing header navigations with duplicate links, plus a mobile search users couldn't find. A card-sorting exercise with stakeholders collapsed everything into four clear categories — EV Drivers, Business, Partners, Company — with a flyout menu built for decision-making, not just wayfinding." },
-        { k: "Tools that gave marketing its independence back", v: "Every form and landing page used to mean a developer ticket and a multi-week wait. I built a Storyblok-based form builder, drag-and-drop landing page templates, and a self-service navigation manager — no code required. The marketing team went from waiting weeks for a form to shipping one the same day, and built six intake forms for the Connect the Watts campaign entirely on their own." },
-        { k: "A pricing system people could actually use", v: "EVgo was rolling out five pricing plans with time-of-use rates nationally. I A/B tested table layouts and built a Plan Finder — a three-question quiz (zip code, charging frequency, home charger access) that routes people to the plan that fits, plus pricing widgets partner portals could run automatically with their own discounted rates." },
-        { k: "A three-company launch, coordinated from scratch", v: " Subaru Solterra owners needed a clean path to claim EV charging credits through either EVgo or their home-charging partner, Qmerit. I designed the VIN-verification flow, built the dual-path registration, and aligned EVgo, Subaru, and Qmerit teams on one user flow — shipped in 3 months with a single engineer. It's a small case study in itself: three companies, three sets of incentives, one seamless flow for the person actually charging their car." },
+        { k: "A clearer path to charging", v: (<> <p>The website became less about presenting information and more about helping drivers make a decision.</p><br /><p>I prioritized the core journey: discover a station, understand availability and pricing, and get moving. Information architecture, navigation, search, station details, and calls to action were redesigned around that path.</p><br /><p>Less browsing. More getting somewhere.</p> </>) },
+        { k: "Product and brand started speaking the same language", v: (<><p>EVgo's visual identity had to work across marketing pages and functional product experiences.</p><br /><p>I carried the same principles across both: typography, color, hierarchy, components, imagery, and interaction patterns. The result was a system that could move from a campaign page to a charging flow without feeling like two different products.</p><br /><p>The brand became part of the product — not decoration around it.</p></>) },
+        { k: "The system became the product", v: (<><p>The redesign expanded the product beyond a single executive persona to support entire data teams.</p><br /><p>I introduced a four-tier permission model, shared conversations, and @mentions so questions could move between Seek and teammates.</p><br /><p>The product became a place to work through questions, not just retrieve answers.</p></>) },
+        { k: "Designed for the real world", v: (<><p>EV charging doesn't happen at a desk.</p><br /><p>Drivers interact with the experience while navigating, standing at a station, checking a charger, managing a session, or planning their next stop.</p><br /><p>That changed how information needed to be prioritized. The interface had to be clear at a glance, resilient across screen sizes, and focused on the decision immediately in front of the driver.</p></>) },
       ].map((row) => (
         <div class="grid grid-cols-[6.5rem_1fr] md:grid-cols-[1fr_2fr] gap-4 md:gap-8 py-5 md:py-6 border-b border-hairline items-baseline">
           <dt class="font-mono uppercase text-label text-text-muted m-0 tracking-mono-x">{row.k}</dt>
@@ -126,27 +124,20 @@ import img06 from "../../assets/work/detail/evgo/06.png";
 
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>How I Worked</h2>
-    <p>Weekly Scrum sprints, daily standups, Friday demos, design work running parallel to dev cycles. I worked across six-plus departments — Customer Acquisition, Operations, Partnerships, Product, Analytics, QA — and managed 20+ marketing stakeholders across B2C, B2B, and partnership funnels. Brought in Deque for a full accessibility audit and implemented every recommendation. Research ran on heuristic evaluation, GA deep-dives, card sorting, A/B testing, and a customer feedback survey that reached the full 250K+ monthly user base.</p>
+    <h2>The Result</h2>
+    <p>A clearer experience. Measurable growth.</p>
+    <ul class="list-none p-0 m-6 mt-3 md:mt-4 flex flex-col gap-2">
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p>35% more new users</p></li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p>30% increase in conversion</p></li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p>20% increase in organic traffic</p></li>
+    </ul>
+    <p>The redesign brought 70+ pages and 100+ components into a shared product and brand system—giving EVgo a foundation that could scale with the business.</p>
+    <p class="font-serif italic font-light text-2xl"><span class="font-mono text-accent"> → </span>Product, brand, and system – working as one.</p>
   </div>
 </section>
 
-<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
+<section class="px-5 sm:px-6 md:px-8">
   <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>What I Didn't Touch</h2>
-    <p>The Find a Charger map, controlled by a third-party script outside scope. A full brand overhaul — I contributed to early brand exploration with an outside agency, but the rebrand itself was a separate initiative</p>
+   <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Design leadership delivered through Tony Voorhees Studio, in partnership with AE Studio.</p>
   </div>
 </section>
-
-<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
-  <div class="mx-auto prose max-w-(--container-prose)">
-    <h2>Key Takeaways</h2>
-    <p>The unlock wasn't the redesign — it was alignment. A shared system and self-service tools changed how the teams actually worked together, not just how the pages looked. Building accessibility into the system from day one eliminated retrofit work later. And giving marketing real autonomy turned what had been a bottleneck into one of the team's biggest strengths.</p>
-  </div>
-</section>
-
-<section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
-  <div class="mx-auto prose max-w-(--container-prose)">
-    <p class="font-mono uppercase text-micro text-text-muted m-0 tracking-mono-loose">Design leadership delivered through Tony Voorhees, in partnership with AE Studio.</p>
-  </div>
-</section>  

@@ -1,0 +1,43 @@
+---
+import SectionTag from "../../SectionTag.astro";
+import { Image } from "astro:assets";
+import { founder } from "../../../data/studio";
+import tony from "../../../assets/studio/team/tony.jpg";
+---
+<section class="px-5 sm:px-6 md:px-8 pt-20 md:pt-32 pb-16 md:pb-20">
+  <div class="mx-auto max-w-(--container)">
+    <div class="mb-10 md:mb-16">
+      <SectionTag num="03" label="Founder" />
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)] items-center">
+      <div class="order-2 md:order-1 max-w-(--container-prose)">
+        <h3 class="font-serif font-normal text-3xl md:text-5xl leading-none tracking-snug m-0">{founder.name}</h3>
+        <p class="font-mono uppercase text-label text-text-muted mt-3 mb-5 tracking-mono">{founder.role}</p>
+        <p class="text-body leading-body text-text-muted m-0 max-w-3xl">{founder.bio}</p>
+        <a
+          href={founder.link}
+          target="_blank"
+          rel="noreferrer noopener"
+          class="hover-line font-mono uppercase text-micro tracking-mono mt-6 inline-block"
+        >
+          {founder.handle} ↗
+        </a>
+      </div>
+
+      <div class="order-1 md:order-2 w-full max-w-[560px] justify-self-end">
+        <Image
+          src={tony}
+          alt={founder.name}
+          widths={[480, 720, 960]}
+          sizes="(min-width: 768px) 42vw, 100vw"
+          loading="eager"
+          class="w-full h-auto object-cover"
+        />
+        <p class="font-mono uppercase text-micro text-text-muted tracking-mono mt-3 mb-0">
+          {founder.location}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

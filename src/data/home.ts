@@ -19,7 +19,7 @@ export const hero = {
     line3: "the whole mountain.",
   },
   cta: { href: "/contact", label: "Let's Ride" },
-  status: "Read Designed Default ↗",
+  status: "Looking for riding buddies",
   portrait: {
     label: "black-and-white landscape, soft natural light, mountain terrain, early morning mist",
     caption: "Mount Tamalpais, CA",
@@ -40,11 +40,11 @@ export const featuredWork = {
 export const studioStatement = {
   sectionTag: { num: "02", label: "Studio" },
   body:
-  "I help shape ideas into real products and brands, partnering through the build, end to end.",
+  "Design partner for founders and growing teams, shaping product, brand, and marketing into one connected effort. I translate between teams so nothing gets lost between the pitch and what ships.",
   values: [
-    { n: "01", name: "Collaboration", desc: "Vendors, platforms, teams — I run point so nothing falls through the seams." },
+    { n: "01", name: "Collaboration", desc: "Vendors, platforms, teams — I run point so nothing falls through the cracks." },
     { n: "02", name: "Originality", desc: "The idea nobody else pitched is usually the right one." },
-    { n: "03", name: "Velocity", desc: "Fast when it matters. Slow when it counts." },
+    { n: "03", name: "Perspective", desc: "Product, brand, and marketing teams — I find the one thing they can all agree on." },
   ],
 };
 
@@ -53,10 +53,10 @@ export const servicesPreview = {
   sectionTag: { num: "03", label: "Capabilities" },
   allServicesLabel: "All services →",
   items: [
-    { n: "01", name: "Product Design", desc: "Jumpstart 0-1, app redesign, or support existing products." },
+    { n: "01", name: "Product Design", desc: "From 0 to 1, or picking up where someone else left off." },
     { n: "02", name: "Brand Identity", desc: "Systems that hold up across every surface." },
-    { n: "03", name: "Build & Launch", desc: "Basic brand and website for startups." },
-    { n: "04", name: "Print Production", desc: "Book design, merchandise, and artwork." },
+    { n: "03", name: "Build & Launch", desc: "Product Design + Branding, moving together." },
+   // { n: "04", name: "Print Production", desc: "Book design, merchandise, and artwork." },
   ],
 };
 
@@ -64,8 +64,8 @@ export const servicesPreview = {
 export const clientsBand = {
   sectionTag: { num: "04", label: "Brands" },
   names: [
-    "CHASE", "DRAFTKINGS", "SEEK AI", "CAPE ATLANTIS SHELLS", "EVgo", "SUPER EVIL MEGACORP", "CHAMPION", "AOL",
-    "DEWARS", "ACTIVE NATIVE", "WES MOORE BMX", "DAHLIA CAKE SHOP", "PEGGY THE PANDA", "TIDY OWL CO.", "WOJO PHOTO",
+    "Chase", "DraftKings", "Seek AI", "Cape Atlantis Shells", "EVgo", "Super Evil Megacorp", "Champion", "AOL",
+    "Dewars", "Wes Moore BMX", "Dahlia Cake Shop", "Peggy The Panda", "Tidy Owl", "Wojo Photo",
   ],
 };
 
@@ -86,19 +86,19 @@ export const awards = {
 // ─── (06) Featured journal ─────────────────────────────────────────────────
 /** Slugs of journal entries shown on the home page, featured first. */
 export const featuredJournalSlugs = [
-  "long-form-short-form",
-  "specifying-type-editorial",
-  "wireframes-by-hand",
+  "beach-day-with-peggy",
+  "tony-voorhees-studio",
+  "in-production",
 ] as const;
 export const featuredJournal = {
-  sectionTag: { num: "06", label: "Journal" },
-  title: { lead: "Field", accent: "notes" },
+  sectionTag: { num: "05", label: "Journal" },
+  title: { lead: "Notes from", accent: "the studio" },
   allEntriesLabel: "All entries",
 };
 
 // ─── (07) Testimonials ─────────────────────────────────────────────────────
 export const testimonials = {
-  sectionTag: { num: "05", label: "Testimonials" },
+  sectionTag: { num: "06", label: "Testimonials" },
   items: [
     {
       quote:
@@ -117,7 +117,7 @@ export const testimonials = {
 
 // ─── (08) Contact CTA (dark block) ─────────────────────────────────────────
 export const contactCta = {
-  sectionTag: { num: "06", label: "Contact" },
+  sectionTag: { num: "07", label: "Contact" },
   title: { line1: "Let's ride", accent: "together!", line3: "" },
   ctas: {
     primary: { href: "/contact", label: "Send It!" },

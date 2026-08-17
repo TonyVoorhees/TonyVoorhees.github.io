@@ -18,7 +18,7 @@ export const hero = {
   caption: "Internal · v 1.0.0",
   title: { lead: "Style guide —", accent: "tokens", line3: "and components." },
   body:
-    "The document the template builds from. Colour tokens, type scale, spacing, and the small set of components used across every page.",
+    "The document the template builds from. Color tokens, type scale, spacing, and the small set of components used across the site.",
 };
 
 // Each token lists both notations the design references: hex (familiar,
@@ -37,7 +37,7 @@ export const colorTokens = [
 ];
 
 export const typeSamples = [
-  { name: "Display / Hero",   font: "Fraunces",   sizeCss: "clamp(3.5rem, 8vw, 9rem)", weight: 350, sample: "We design brands." },
+  { name: "Display / Hero",   font: "Fraunces",   sizeCss: "clamp(3.5rem, 8vw, 9rem)", weight: 350, sample: "I design brands." },
   { name: "Display / Italic", font: "Fraunces",   sizeCss: "5rem",    weight: 350, italic: true, sample: "Quietly, carefully." },
   { name: "H1 / Section",     font: "Fraunces",   sizeCss: "4.5rem",  weight: 400, sample: "Selected work." },
   { name: "H2",               font: "Fraunces",   sizeCss: "2.6rem",  weight: 400, sample: "Three of us, on purpose." },

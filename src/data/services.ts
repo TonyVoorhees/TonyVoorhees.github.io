@@ -13,7 +13,7 @@ export const hero = {
   sectionTag: { num: "01", label: "Approach" },
   title: { lead: "How", accent: "I work" },
   body:
-    "Whether I'm shredding down the mountain or climbing up, I'm always looking for that perfect line. I work across product, brand, and visual systems the same way — reading the terrain, then finding the path nobody else noticed.",
+    "Whether I’m cruising down the mountain or climbing up, I’m always looking for the best line. I approach product, brand, and design systems the same way: read the terrain, understand the conditions, and find the line that connects strategy, experience, and identity from idea to launch.",
 };
 
 // ─── Service blocks ────────────────────────────────────────────────────────
@@ -31,7 +31,7 @@ export const blocks = [
     idealFor:
       "Series A–C startups scaling past their founder-designed phase, companies repositioning or with a complex product needing simplification.",
     price: "Full Studio · 4–6 Week Trial → Ongoing",
-    example: "Seek AI – redesign",
+    example: "Seek AI",
   },
   {
     n: "02",
@@ -46,7 +46,7 @@ export const blocks = [
     idealFor:
       "Startups finding their voice; SMBs looking to level up.",
     price: "Starter to Full Studio · 2–4 Weeks",
-    example: "Wes Moore BMX — full identity",
+    example: "Cape Atlantis Shells",
   },
   {
     n: "03",
@@ -61,9 +61,9 @@ export const blocks = [
     idealFor:
       "Founders launching a new product or brand from the ground up; teams that need strategy, design, and a live site in one engagement.",
     price: "Full Studio · 4-6 Weeks",
-    example: "Cape Atlantis Shells — identity & site",
+    example: "Wes Moore BMX",
   },
-  {
+  /*{
     n: "04",
     name: "Print Production",
     desc: "From books to apparel, I work with reliable vendors and partners to turn ideas into tangible goods.",
@@ -77,7 +77,7 @@ export const blocks = [
       "Authors, creators, influencers, startups, and SMBs looking to engage IRL.",
     price: "Starter · Timeline Varies",
     example: "Peggy the Panda — book",
-  },
+  },*/
 ];
 
 // ─── (02) Process ──────────────────────────────────────────────────────────
@@ -100,7 +100,7 @@ export const tiers = {
   note: "All prices in USD",
   items: [
     {
-      name: "Starter 0-1",
+      name: "Basecamp",
       duration: "2 weeks",
       price: "$3,000+",
       desc: "One designer, one week of direction, one week of execution. Best for a focused deliverable.",
@@ -114,13 +114,13 @@ export const tiers = {
       ctaLabel: "Let's Ride →",
     },
     {
-      name: "Build & Launch",
+      name: "Summit",
       duration: "4-6 weeks",
       price: "$14,000+",
       desc: "The full studio, end-to-end. Where most of my work lives. Brand strategy, design, and development all in one.",
       features: [
         "Full strategy + design + build",
-        "Brand package - vioce, viuals, & guides.",
+        "Brand package - voice, visuals, & guides.",
         "Website build – index and one subpage template",
         "Six-month aftercare",
       ],
@@ -128,7 +128,7 @@ export const tiers = {
       ctaLabel: "Start a project →",
     },
     {
-      name: "Contract",
+      name: "Expedition",
       duration: "20-40 Week",
       price: "$20,000+ /mo",
       desc: "A retained relationship for companies with an ongoing design cadence.",
