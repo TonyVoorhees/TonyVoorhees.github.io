@@ -4,11 +4,11 @@
  */
 
 export const site = {
-  name: "Tony Voorhees",
+  name: "Tony Voorhees Studio",
   legalName: "Tony Voorhees Studio",
-  title: "Tony Voorhees — Product Designer & Brand Specialist",
+  title: "Tony Voorhees Studio — Product Designer & Brand Specialist",
   description:
-    "Product and brand designer with 20+ years experience building digital products and identity systems that work together. Founder, Tony Voorhees Studio.",
+    "Product and brand designer with 25+ years of experience building digital products and identity systems that work together. Founder, Tony Voorhees Studio.",
   url: "https://tonyvoorhees.github.io/",
   locale: "en",
   copyright: "© Tony Voorhees Studio",
@@ -82,6 +82,6 @@ export const utilityLinks: { href: string; label: string }[] = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
   { href: "/accessibility", label: "Accessibility" },
-  { href: "/colophon", label: "Colophon" },
+  //{ href: "/colophon", label: "Colophon" },
   { href: "/styleguide", label: "Style Guide" },
 ];

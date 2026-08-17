@@ -47,7 +47,7 @@ export const studio = {
      **/
   ],
   availabilityLabel: "Availability",
-  availabilityValue: "Currently Available",
+  availabilityValue: "Available for select projects.",
   /**
    * Studio map — disabled by default. The contact Aside no longer renders it
    * (see the commented-out map block in

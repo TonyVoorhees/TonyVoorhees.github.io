@@ -18,7 +18,7 @@ const work = defineCollection({
       name: z.string(),
       client: z.string(),
       year: z.string(),
-      type: z.enum(["Branding", "Motion", "Web", "Print"]),
+      type: z.enum(["Product", "Branding", "Motion", "Web", "Print"]),
       /** Filter chips shown on the detail page header. */
       chips: z.array(z.string()),
       /** One-line scope summary shown in the sticky info bar. */
@@ -61,7 +61,7 @@ const journal = defineCollection({
       /** Human-friendly date string in the editorial format (e.g. "12 · APR · 2026"). */
       dateLabel: z.string(),
       read: z.string(),
-      tag: z.enum(["Process", "Craft", "Tools", "Industry", "Studio"]),
+      tag: z.enum(["Print", "Studio"]),
       author: z.string(),
       authorBio: z.string().optional(),
       /** Caption for the placeholder when no image is supplied. */

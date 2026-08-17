@@ -5,56 +5,74 @@
 export const meta = {
   title: "Studio — Tony Voorhees",
   description:
-  "Tony Voorhees Studio is a Bay Area creative practice focused on product design and brand identity. Director-led, collaborative by nature, and honest about what each project needs.",  
+  "Tony Voorhees Studio is a Bay Area creative practice helping founders and growing companies shape products, brands, and launch-ready experiences. Director-led, collaborative by nature, and built around what each project actually needs.",  
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
-  sectionTag: { num: "01", label: "How we do it" },
-  title: { line1: "Product design,", accent: "branding", line3: "and system thinking." },
+  sectionTag: { num: "01", label: "How I do it" },
+  title: { line1: "Product design,", accent: "brand identity", line3: "and what connects them." },
   body:
-  "Twenty-plus years in, and this is still where the work I care about most happens. I didn't set out to work across all three — that's just the sweet spot.",
+  "Twenty-five-plus years in, and this is still where the work I care about most happens. I've learned the best ideas don't stop at the edge of a discipline. They carry through product, brand, and every decision that follows. That's the throughline this studio is built around.",
 };
 
 // ─── Studio image ──────────────────────────────────────────────────────────
 export const studioImage = {
-  label: "The usual office view",
-  caption: "Mount Tamalpais - Marin County, CA",
+  label: "Studio view",
+  caption: "View from the Studio",
 };
 
 // ─── (02) Philosophy ───────────────────────────────────────────────────────
 export const philosophy = {
   sectionTag: { num: "02", label: "Philosophy" },
   intro:
-    "Tony Voorhees Studio runs lean and connects deep. I lead every project as senior creative director and bring in trusted specialists when the brief calls for it. You get one point of contact, one creative vision, and exactly the team your project needs.",
+    "Tony Voorhees Studio runs lean and connects deep. I lead every project personally, bringing in trusted specialists only when the work calls for it. One point of contact. One creative vision. Exactly the team your project needs.",
+  studioModel:
+    "It's a model that works especially well for founders, lean teams, and companies navigating growth — where decisions move quickly and every one of them shapes the results.",
   // The intro's first letter is enlarged as a drop cap by the
   // `.dropcap::first-letter` rule in global.css — no manual markup needed,
   // the full sentence lives here as plain text.
   marginalia: [
     {
-      text: "On Range",
+      text: "On Scale",
       body:
-        "Twenty-plus years across agencies, startups, and enterprise teams have taught me one thing: the best work happens when product and brand speak the same language. I've shipped design systems for EV charging networks, built brand identities for indie founders, and designed everything in between. The scale changes. The standard doesn't.",
+        "Agencies, startups, and enterprise teams have taught me one thing: the best work happens when product and brand speak the same language. I've shipped design systems for EV charging networks and built brands from the ground up.  The scale changes. The standard doesn't.",
     },
     {
       text: "On Craft",
       body:
-      "Detail-oriented doesn't mean slow. It means knowing which details matter and moving decisively on the ones that don't. Whether it's a kerning pair or a CMS architecture decision, the level of care stays constant. What you describe is what gets built — no loose ends, no departments that don't apply to your problem.",
+      "Detail-oriented doesn't mean slow. It means knowing where precision matters most and where speed creates momentum. Whether it's a brand mark or a CMS architecture decision, the care stays the same. What you describe is what gets built.",
     },
     {
       text: "On Collaboration",
       body:
-        "The best work we've done happened when designer, developer, and client were all in the same conversation from the start. We build that in by default. A flexible network means you're never paying for specialists you don't need — and never going without the ones you do.",
+        "I bring the right people into the conversation from the start: designer, developer, and client working together before decisions are made, not after. A flexible network means you're never paying for specialists you don't need — and never going without the ones you do.",
     },
     {
-      text: "On Clients",
+      text: "On AI",
       body:
-        "We work with founders building something real, product teams who need a brand brain in the room, and small businesses that deserve the same craft as the big ones. Cape Atlantis Shells, EVgo, Seek AI, Wes Moore BMX, Super Evil Megacorp — the budgets vary. The commitment doesn't.",
+        "AI is a tool, not a replacement for judgment. I use it where it earns its place — accelerating exploration, stress-testing directions, speeding up production — and I'm just as clear about where it doesn't belong. If your team is figuring out where AI belongs, I can help define the boundaries: what to automate, what stays human, and how to keep the work feeling intentional.",
+    },
+    {
+      text: "On Guidance",
+      body:
+        "Some clients need a finished product. Others need confidence in a decision they're already making. I work a few different ways — as an embedded design partner, as an outside perspective brought in to pressure-test a critical decision, or alongside your team, sharing not just the work, but the thinking behind it.",
     },
   ],
 };
 
-// ─── (03) Team ─────────────────────────────────────────────────────────────
+// ─── (03)Founder ─────────────────────────────────────────────────────────────
+export const founder = {
+  name: "Tony Voorhees",
+  role: "Founder & Designer",
+  bio:
+    "I work across product, brand, and marketing — and the overlap between them is where I do my best work. I've spent my career helping teams make sense of messy problems, keep product and message pointed in the same direction, and turn good ideas into things people can actually use. My bias is toward sharp thinking, clear systems, and decisions that hold up under pressure.",
+  handle: "LinkedIn",
+  link: "https://www.linkedin.com/in/tonyvoorhees/",
+  location: "Tony Voorhees 2026",
+};
+
+// ─── (04) Team ─────────────────────────────────────────────────────────────
 export const team = {
   sectionTag: { num: "03", label: "Team" },
   est: "EST. 2023",
@@ -83,7 +101,7 @@ export const team = {
   ],
 };
 
-// ─── (04) Press ────────────────────────────────────────────────────────────
+// ─── (05) Press ────────────────────────────────────────────────────────────
 export const press = {
   sectionTag: { num: "04", label: "Awards & Press" },
   items: [
@@ -100,7 +118,7 @@ export const press = {
 
 // ─── Availability strip ────────────────────────────────────────────────────
 export const availability = {
-  label: "Currently booking",
-  title: { lead: "Available Now —", accent: "Ready when you are" },
+  label: "Available for select projects",
+  title: { lead: "Ready when", accent: "you are" },
   cta: { href: "/contact", label: "Let's Talk →" },
 };
