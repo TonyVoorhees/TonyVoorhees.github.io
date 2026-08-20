@@ -64,6 +64,7 @@ export const footerGroups: FooterGroup[] = [
   {
     title: "Elsewhere",
     links: [
+      { href: "https://designeddefault.substack.com/", label: "Substack", external: true },
       { href: "https://www.instagram.com/tonyvoorhees/", label: "Instagram", external: true },
       { href: "https://bsky.app/profile/tonyvoorhees.bsky.social", label: "BlueSky", external: true },
       { href: "https://dribbble.com/tonyvoorhees", label: "Dribbble", external: true },
