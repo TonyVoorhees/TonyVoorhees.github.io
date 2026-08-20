@@ -29,7 +29,7 @@ export const hero = {
 
 // ─── (01) SelecPted work ────────────────────────────────────────────────────
 /** Slugs of work entries shown on the home asymmetric spread, in order. */
-export const featuredWorkSlugs = ["seek", "peggythepanda", "wmbmx", "evgo"] as const;
+export const featuredWorkSlugs = ["peggythepanda", "seek", "wmbmx", "evgo"] as const;
 export const featuredWork = {
   sectionTag: { num: "01", label: "Work" },
   title: { lead: "Select", accent: "Projects" },
