@@ -150,11 +150,11 @@ export const faq = {
   items: [
     {
       q: "How do you scope a project?",
-      a: "A first call (free, 30 min) to understand the brief. We follow up with a one-page proposal — scope, timeline, fee — within 24 hours. If it fits, we send a contract and a deposit invoice—no agency dance.",
+      a: "A first call (free, 30 min) to understand the brief. I follow up with a one-page proposal — scope, timeline, fee — within 24 hours. If it fits, I send a contract and a deposit invoice—no agency dance.",
     },
     {
       q: "What type of companies do you work with?",
-      a: "All types — Startups, SMBs, and sometimes agencies and fortune 500 companies.",
+      a: "All types — Startups, SMBs, and sometimes agencies.",
     },
     {
       q: "What if my project doesn't fit your tiers?",
@@ -166,7 +166,7 @@ export const faq = {
     },
     {
       q: "When can you start?",
-      a: "Currently available now, but it can change quickly. I try to be flexible, but it depends on the gig.",
+      a: "Currently available, but it can changes quickly. I try to be flexible, but it depends on the gig.",
     },
     {
       q: "Do you work remotely or on-site?",
