@@ -13,13 +13,13 @@ export const hero = {
   sectionTag: { num: "00", label: "index" },
   // Three-line title with an italicised second line.
   title: {
-    line1: "Most designers",
-    accent: "pick a trail.",
-    connector: "I ride",
-    line3: "the whole mountain.",
+    line1: "Design partner",
+    accent: " for founders",
+    connector: "and growing teams.",
+    line3: "",
   },
-  cta: { href: "/contact", label: "Let's Ride" },
-  status: "Looking for riding buddies",
+  cta: { href: "/contact", label: "Let's Talk" },
+  status: "No pitch. Just a conversation.",
   portrait: {
     label: "black-and-white landscape, soft natural light, mountain terrain, early morning mist",
     caption: "Mount Tamalpais, CA",
@@ -118,14 +118,14 @@ export const testimonials = {
 // ─── (08) Contact CTA (dark block) ─────────────────────────────────────────
 export const contactCta = {
   sectionTag: { num: "07", label: "Contact" },
-  title: { line1: "Let's ride", accent: "together!", line3: "" },
+  title: { line1: "Get in", accent: "Touch!", line3: "" },
   ctas: {
-    primary: { href: "/contact", label: "Send It!" },
+    primary: { href: "/contact", label: "Let's Talk" },
     secondary: { href: "mailto:hello@tonyvoorhees.com", label: "hello@tonyvoorhees.com" },
   },
   stats: [
     { label: "Response time", value: "~24 hours", italicSuffix: "weekdays" },
-    { label: "Availability", value: "Available Now", dot: true },
+    { label: "Availability", value: "Available for select projects.", dot: true },
     //{ label: "Slots remaining", value: "02", suffix: "of 04" },
   ],
 };

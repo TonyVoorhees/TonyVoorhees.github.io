@@ -5,7 +5,7 @@
 export const meta = {
   title: "Services — Tony Voorhees Studio",
   description:
-    "Solo studio, multiple disciplines. Useful, memorable, built to last.",
+    "Three ways to work together — from a single project to an ongoing design partnership. Product design, brand identity, and everything that connects them.",
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
@@ -13,7 +13,7 @@ export const hero = {
   sectionTag: { num: "01", label: "Approach" },
   title: { lead: "How", accent: "I work" },
   body:
-    "Whether I’m cruising down the mountain or climbing up, I’m always looking for the best line. I approach product, brand, and design systems the same way: read the terrain, understand the conditions, and find the line that connects strategy, experience, and identity from idea to launch.",
+    "I approach every project the same way — read the terrain, find the line, follow it through from idea to launch.",
 };
 
 // ─── Service blocks ────────────────────────────────────────────────────────
@@ -111,7 +111,7 @@ export const tiers = {
         "Additional cost for revisions after week 2",
       ],
       recommended: false,
-      ctaLabel: "Let's Ride →",
+      ctaLabel: "Let's Talk →",
     },
     {
       name: "Summit",
@@ -158,7 +158,7 @@ export const faq = {
     },
     {
       q: "What if my project doesn't fit your tiers?",
-      a: "The tiers are a guide, not a menu. Tell me what you're working on, and I willl write a custom proposal.",
+      a: "The tiers are a guide, not a menu. Tell me what you're working on, and I will write a custom proposal.",
     },
     {
       q: "Do you offer equity-for-design arrangements?",
@@ -166,7 +166,7 @@ export const faq = {
     },
     {
       q: "When can you start?",
-      a: "Currently available, but it can changes quickly. I try to be flexible, but it depends on the gig.",
+      a: "Currently available, but it can change quickly. I try to be flexible, but it depends on the gig.",
     },
     {
       q: "Do you work remotely or on-site?",

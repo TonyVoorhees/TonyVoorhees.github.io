@@ -5,13 +5,13 @@
 export const meta = {
   title: "Studio — Tony Voorhees",
   description:
-  "Tony Voorhees Studio is a Bay Area creative practice helping founders and growing companies shape products, brands, and launch-ready experiences. Director-led, collaborative by nature, and built around what each project actually needs.",  
+  "Tony Voorhees Studio is a Bay Area design practice helping founders and growing companies shape products, brands, and launch-ready experiences. I lead every project personally, bringing in specialists only when the work calls for it.",  
 };
 
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
   sectionTag: { num: "01", label: "How I do it" },
-  title: { line1: "Product design,", accent: "brand identity", line3: "and what connects them." },
+  title: { line1: "Product and", accent: "brand design.", line3: "The overlap is the work." },
   body:
   "Twenty-five-plus years in, and this is still where the work I care about most happens. I've learned the best ideas don't stop at the edge of a discipline. They carry through product, brand, and every decision that follows. That's the throughline this studio is built around.",
 };
@@ -19,14 +19,14 @@ export const hero = {
 // ─── Studio image ──────────────────────────────────────────────────────────
 export const studioImage = {
   label: "Studio view",
-  caption: "View from the Studio",
+  caption: "Studio view",
 };
 
 // ─── (02) Philosophy ───────────────────────────────────────────────────────
 export const philosophy = {
   sectionTag: { num: "02", label: "Philosophy" },
   intro:
-    "Tony Voorhees Studio runs lean and connects deep. I lead every project personally, bringing in trusted specialists only when the work calls for it. One point of contact. One creative vision. Exactly the team your project needs.",
+    "Tony Voorhees Studio runs lean and connects deep. I lead every project personally, bringing in trusted specialists only when the work calls for it. Exactly the team your project needs.",
   studioModel:
     "It's a model that works especially well for founders, lean teams, and companies navigating growth — where decisions move quickly and every one of them shapes the results.",
   // The intro's first letter is enlarged as a drop cap by the
@@ -66,8 +66,8 @@ export const founder = {
   name: "Tony Voorhees",
   role: "Founder & Designer",
   bio:
-    "I work across product, brand, and marketing — and the overlap between them is where I do my best work. I've spent my career helping teams make sense of messy problems, keep product and message pointed in the same direction, and turn good ideas into things people can actually use. My bias is toward sharp thinking, clear systems, and decisions that hold up under pressure.",
-  handle: "LinkedIn",
+    "I help teams make sense of messy problems, keep product and message pointed in the same direction, and turn good ideas into things people can actually use. My bias is toward sharp thinking, clear systems, and decisions that hold up under pressure.",
+  handle: "Full background on LinkedIn",
   link: "https://www.linkedin.com/in/tonyvoorhees/",
   location: "Tony Voorhees 2026",
 };
