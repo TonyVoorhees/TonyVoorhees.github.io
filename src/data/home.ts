@@ -64,8 +64,8 @@ export const servicesPreview = {
 export const clientsBand = {
   sectionTag: { num: "04", label: "Brands" },
   names: [
-    "Chase", "DraftKings", "Seek AI", "Cape Atlantis Shells", "EVgo", "Super Evil Megacorp", "Champion", "AOL",
-    "Dewars", "Wes Moore BMX", "Dahlia Cake Shop", "Peggy The Panda", "Tidy Owl", "Wojo Photo",
+    "DraftKings", "Seek AI", "Cape Atlantis Shells", "EVgo", "Super Evil Megacorp", "Champion", "AOL",
+     "Wes Moore BMX", "Dahlia Cake Shop", "Peggy The Panda", "Tidy Owl", "Wojo Photo",
   ],
 };
 
@@ -74,12 +74,12 @@ export const awards = {
   sectionTag: { num: "05", label: "Recognition" },
   title: { lead: "Selected", accent: "honors" },
   intro:
-    "We don't enter many awards. The ones we keep are the ones whose juries we'd want to share a coffee with.",
+    "",
   items: [
-    { name: "Awwwards SOTD", count: 9, year: "2021–2026" },
-    { name: "CSS Design Awards", count: 7, year: "2020–2026" },
-    { name: "FWA of the Day", count: 5, year: "2022–2026" },
-    { name: "Type Directors Club", count: 2, year: "2024–2025" },
+    { name: "", count: 9, year: "" },
+    { name: "", count: 7, year: "" },
+    { name: "", count: 5, year: "" },
+    { name: "", count: 2, year: "" },
   ],
 };
 
@@ -88,7 +88,7 @@ export const awards = {
 export const featuredJournalSlugs = [
   "beach-day-with-peggy",
   "tony-voorhees-studio",
-  "in-production",
+  "onward",
 ] as const;
 export const featuredJournal = {
   sectionTag: { num: "05", label: "Journal" },
