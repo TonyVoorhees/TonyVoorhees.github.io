@@ -14,9 +14,9 @@ export const meta = {
 
 export const hero = {
   sectionTag: { num: "01", label: "Hello" },
-  title: { lead: "Let's Ride", accent: "Together" },
+  title: { lead: "Let's", accent: "Talk" },
   body:
-    "The honest way to understand a project is to ride along — see where it's heading, who's coming along, and why. From there, we figure out what we need, what we don’t need, and how we get there. Ready? Let's go!",
+    "I read every message myself, and I respond fast. Tell me what you're working on — we'll figure out what it needs together.",
 };
 
 export const form = {
@@ -47,7 +47,7 @@ export const studio = {
      **/
   ],
   availabilityLabel: "Availability",
-  availabilityValue: "Available for select projects.",
+  availabilityValue: "Currently taking on new work.",
   /**
    * Studio map — disabled by default. The contact Aside no longer renders it
    * (see the commented-out map block in

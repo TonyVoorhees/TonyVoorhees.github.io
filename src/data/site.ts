@@ -6,16 +6,16 @@
 export const site = {
   name: "Tony Voorhees Studio",
   legalName: "Tony Voorhees Studio",
-  title: "Tony Voorhees Studio — Product Designer & Brand Specialist",
+  title: "Tony Voorhees — Design Partner for Founders & Growing Teams",
   description:
-    "Product and brand designer with 25+ years of experience building digital products and identity systems that work together. Founder, Tony Voorhees Studio.",
+    "Design partner for founders and growing teams — product design and brand identity, twenty-five years in. Founder, Tony Voorhees Studio.",
   url: "https://tonyvoorhees.github.io/",
   locale: "en",
   copyright: "© Tony Voorhees Studio",
   address: "Bay Area, CA",
   availability: "Available Now",
   tagline:
-    "Most designers pick a trail. I ride the whole mountain.",
+    "Design partner for founders and growing teams — from pitch to what ships.",
   /** Used in the dark theme-color meta tag and as a fallback background. */
   themeColor: "#F8F8F6",
   themeColorDark: "#1A1A18",

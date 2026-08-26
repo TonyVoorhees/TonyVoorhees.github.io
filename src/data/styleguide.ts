@@ -26,7 +26,7 @@ export const hero = {
 // palette is reasoned about in). OKLCH values are derived from the hex —
 // keep them in sync if a hex changes.
 export const colorTokens = [
-  { name: "bg / light",      hex: "#F8F8F6", oklch: "oklch(97.9% 0.003 106.4)", use: "Background, light mode" },
+  { name: "bg / light",      hex: "#F5F5F5", oklch: "oklch(96.9% 0.0013 106.42)", use: "Background, light mode" },
   { name: "surface / light", hex: "#F1F0EE", oklch: "oklch(95.5% 0.003 84.6)",  use: "Cards, sections" },
   { name: "surface-2",       hex: "#EAE9E6", oklch: "oklch(93.4% 0.004 91.4)",  use: "Insets, stat panels" },
   { name: "text / primary",  hex: "#1F1F1D", oklch: "oklch(23.9% 0.004 106.7)", use: "Body, headings" },
@@ -37,14 +37,14 @@ export const colorTokens = [
 ];
 
 export const typeSamples = [
-  { name: "Display / Hero",   font: "Fraunces",   sizeCss: "clamp(3.5rem, 8vw, 9rem)", weight: 350, sample: "I design brands." },
-  { name: "Display / Italic", font: "Fraunces",   sizeCss: "5rem",    weight: 350, italic: true, sample: "Quietly, carefully." },
-  { name: "H1 / Section",     font: "Fraunces",   sizeCss: "4.5rem",  weight: 400, sample: "Selected work." },
-  { name: "H2",               font: "Fraunces",   sizeCss: "2.6rem",  weight: 400, sample: "Three of us, on purpose." },
-  { name: "H3",               font: "Fraunces",   sizeCss: "1.75rem", weight: 400, sample: "On the kerning." },
-  { name: "Body",             font: "Geist",      sizeCss: "17px",    weight: 400, sample: "A brand system is a piece of music. There is a tempo, a chorus, and a long bridge where very little happens at all." },
-  { name: "Mono / Label",     font: "Geist Mono", sizeCss: "11px",    weight: 500, sample: "AVAILABLE Q3 2026 · COPENHAGEN", mono: true },
-  { name: "Mono / Caption",   font: "Geist Mono", sizeCss: "10px",    weight: 400, sample: "FIG. 01 — STUDIO PRINCIPAL, MARCH 2026", mono: true, muted: true },
+  { name: "Display / Hero",   font: "Fraunces",   sizeCss: "clamp(3.5rem, 8vw, 9rem)", weight: 350, sample: "I design products" },
+  { name: "Display / Italic", font: "Fraunces",   sizeCss: "5rem",    weight: 350, italic: true, sample: "develop brands and provide" },
+  { name: "H1 / Section",     font: "Fraunces",   sizeCss: "4.5rem",  weight: 400, sample: "creative direction." },
+  { name: "H2",               font: "Fraunces",   sizeCss: "2.6rem",  weight: 400, sample: "Design with intent." },
+  { name: "H3",               font: "Fraunces",   sizeCss: "1.75rem", weight: 400, sample: "Collaboration • Originiality • Perspective" },
+  { name: "Body",             font: "Geist",      sizeCss: "17px",    weight: 400, sample: "A brand is the holistic sum of customers’ experiences, composed of visual, tonal, and behavioral brand components, many of which are shaped by interaction design." },
+  { name: "Mono / Label",     font: "Geist Mono", sizeCss: "11px",    weight: 500, sample: "AVAILABLE Q3 2026 · Bay Area, CA", mono: true },
+  { name: "Mono / Caption",   font: "Geist Mono", sizeCss: "10px",    weight: 400, sample: "FIG. 01 — TONY VOORHEES STUDIO, AUGUST 2026", mono: true, muted: true },
 ];
 
 export const trackingScale = [

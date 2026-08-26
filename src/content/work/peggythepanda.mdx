@@ -1,18 +1,18 @@
 ---
-name: "Peggy the Panda Book"
+name: "A Beach Day with Peggy: Understanding Lupus"
 client: "Henry Hudson Publishing Co."
 year: "2026"
 type: "Print"
 chips: ["Print Design", "Graphic Design", "Web Design"]
-scope: "Print Design · Web"
+scope: "Layout Design · Graphic Design · Website"
 recognition: "Author's First Book"
 img: "A Beach Day with Peggy: understanding Lupus written by Candy Cheng"
 order: 1
 status: "published"
 span: 2
-coverImage: "../../assets/work/detail/peggy/beach-day-peggy.png"
+coverImage: "../../assets/work/detail/peggy/beach-day-peggy-b.png"
 heroImage: "../../assets/work/detail/peggy/beach-day-polaroids.png"
-homeImage: "../../assets/work/detail/peggy/beach-day-peggy.png"
+homeImage: "../../assets/work/detail/peggy/beach-day-peggy-b.png"
 credits:
   - { k: "Author", v: "Candy Cheng" }
   - { k: "Illustrator", v: "Mateo Cardo" }
@@ -20,12 +20,15 @@ credits:
 ---
 
 import Placeholder from "../../components/Placeholder.astro";
-import img01 from "../../assets/work/detail/peggy/author-profile.jpg";
+import img01 from "../../assets/work/detail/peggy/candy.jpg";
 import img02 from "../../assets/work/detail/peggy/peggy-sketch-2024.png";
 import img03 from "../../assets/work/detail/peggy/beach-day-peggy.png";
-import img04 from "../../assets/work/detail/peggy/02.jpg";
-import img05 from "../../assets/work/detail/peggy/02.jpg";
-import img06 from "../../assets/work/detail/peggy/02.jpg";
+import img04 from "../../assets/work/detail/peggy/hh-copyright.png";
+import img05 from "../../assets/work/detail/peggy/hh-logo.png";
+import img06 from "../../assets/work/detail/peggy/butterfly-heading.png";
+import img07 from "../../assets/work/detail/peggy/peggy-character-designs.png";
+import img08 from "../../assets/work/detail/peggy/peggy-sticker.png";
+import img09 from "../../assets/work/detail/peggy/peggy-website.png";
 
 <section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-24 pt-8 md:pt-10">
   <div class="mx-auto max-w-(--container-article)">
@@ -54,18 +57,18 @@ import img06 from "../../assets/work/detail/peggy/02.jpg";
 </section>
 
 <section class="px-5 sm:px-6 md:px-8 py-20 md:py-32">
-  <div class="mx-auto text-center max-w-(--container-narrow)">
+  <div class="mx-auto text-center max-w-narrow">
     <blockquote class="font-serif italic font-light text-[clamp(1.5rem,4.2vw,4rem)] leading-[1.2] m-0 tracking-display text-balance">
-      "It’s about the kind of friendship that finds a way to include you, even when the world doesn’t quite know how."
+      "A diagnosis can shape your life, but it does not define the limits of what your life can become."
     </blockquote>
-    <p class="font-mono uppercase text-label text-text-muted mt-8 md:mt-10 tracking-mono-loose"></p>
+    <p class="font-mono uppercase text-label text-text-muted mt-8 md:mt-10 tracking-mono-loose">Candy Cheng, Author</p>
   </div>
 </section>
 
 <section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
   <div class="mx-auto max-w-(--container-bleed)">
     <Placeholder image={img03} ratio="3 / 2" label="" alt="" w={1586} h={992} />
-    <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 04 — </p>
+    <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 04 — Hardcover design</p>
   </div>
 </section>
 
@@ -86,12 +89,31 @@ import img06 from "../../assets/work/detail/peggy/02.jpg";
   </div>
 </section>
 
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto max-w-(--container-bleed)">
+    <Placeholder image={img07} ratio="3 / 2" label="" alt="" w={1586} h={992} />
+    <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 05 — Initial Character Designs</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-6 md:px-8 pb-16 md:pb-20">
+  <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-(--container-feature)">
+    <div>
+      <Placeholder image={img08} ratio="4 / 5" label="" alt="" sizes="(min-width: 768px) 50vw, 100vw" w={800} h={1000} />
+      <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 06 — Sticker</p>
+    </div>
+    <div class="md:mt-20">
+      <Placeholder image={img09} ratio="4 / 5" label="" alt="" sizes="(min-width: 768px) 50vw, 100vw" w={800} h={1000} />
+      <p class="font-mono uppercase text-micro text-text-muted mt-3 tracking-mono">FIG. 07 — Website</p>
+    </div>
+  </div>
+</section>
+
 <section class="px-5 sm:px-6 md:px-8 py-16 md:py-20">
   <div class="mx-auto prose max-w-(--container-prose)">
     <h2>In the End</h2>
     <p>None of this was clean or linear. Most meaningful things aren’t. But the book is real, the site is live, and Candy’s story — the one she’s been carrying since she was eight — is finally out in the world.</p>
     <p>If you know a kid living with a chronic illness, or one who wants to understand what their friend is going through, this book is for them. It’s for the Spikes of the world, too.</p>
     <p>Go take a look: <a href="http://www.peggythepanda.com" target="blank" class="border-b border-current hover:border-accent transition-colors duration-300 pb-px">peggythepanda.com</a></p>
-    
   </div>
 </section>
