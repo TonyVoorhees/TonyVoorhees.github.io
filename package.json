@@ -1,10 +1,10 @@
 {
-  "name": "lambda-minimal",
+  "name": "Tony Voorhees Studio",
   "version": "1.0.0",
-  "description": "A minimal, editorial Astro 6 template for design studios and portfolios. Light + dark theme, View Transitions, token-driven typography on Fraunces + Geist.",
-  "author": "Lambda Studio (https://lambdastudio.io)",
+  "description": "Design partner for founders and growing teams — product design and brand identity, twenty-five years in. Founder, Tony Voorhees Studio.",
+  "author": "Tony Voorhees (https://tonyvoorhees.com)",
   "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://lambda-minimal.netlify.app",
+  "homepage": "https://tonyvoorhees.com",
   "type": "module",
   "private": true,
   "engines": {

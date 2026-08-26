@@ -105,14 +105,14 @@ export const team = {
 export const press = {
   sectionTag: { num: "04", label: "Awards & Press" },
   items: [
-    { year: "2026", title: "It's Nice That — Studio Visit", kind: "Feature" },
-    { year: "2026", title: "Type Directors Club Annual", kind: "Award" },
-    { year: "2025", title: "Eye Magazine, Issue 109", kind: "Print interview" },
-    { year: "2025", title: "Awwwards SOTY Nominee", kind: "Nomination" },
-    { year: "2025", title: "Klassekampen — Design column", kind: "Quote" },
-    { year: "2024", title: "AIGA Eye on Design", kind: "Feature" },
-    { year: "2024", title: "Brand New — Noted", kind: "Review" },
-    { year: "2023", title: "Codrops Collective", kind: "Inclusion" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
+    { year: "", title: "", kind: "" },
   ],
 };
 
