@@ -11,7 +11,7 @@ export const meta = {
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
   sectionTag: { num: "01", label: "What I do" },
-  title: { lead: "Design", accent: "Connected." }, 
+  title: { lead: "Design,", accent: "connected." }, 
   body:
     "I help founders and growing teams turn ideas into products and brands — and bring them into the world.",
 };
@@ -35,7 +35,7 @@ export const blocks = [
   {
     n: "02",
     name: "Brand",
-    desc: "Identity built to do more than look good. I build the systems — logo, voice, visuals — that stay consistent across your site, product, and every place your audience meets you",
+    desc: "Identity built to do more than look good. I build the systems — logo, voice, visuals — that stay consistent across your site, product, and every place your audience meets you.",
     deliverables: [
       "Brand strategy & positioning",
       "Identity systems (logo, color, type, voice)",
@@ -49,7 +49,7 @@ export const blocks = [
   {
     n: "03",
     name: "Launch",
-    desc: "A great product still needs a way into the world. I connect product, brand, web, and go-to-market so the launch feels like one thing.",
+    desc: "A great product still needs a way into the world. Once the product and brand are clear, I help bring them into the world.",
     deliverables: [
       "Web design & development",
       "Content direction & messaging",
@@ -93,7 +93,7 @@ export const tiers = {
       features: [
         "UX and product audits",
         "Design and brand direction",
-        "Focused, UX/UI • prototypes",
+        "Focused UX/UI • prototypes",
         "Workshops and design sprints",
       ],
       recommended: false,
@@ -101,7 +101,7 @@ export const tiers = {
     },
     {
       name: "Project",
-      duration: "Typically 4-6 weeks",
+      duration: "Typically 4–6 weeks",
       price: "$14,000+",
       desc: "Take something from idea to launch. Product, brand, web, and launch support can all be part of the engagement. The outcome determines scope.",
       features: [
@@ -121,7 +121,7 @@ export const tiers = {
       features: [
         "Growing products",
         "Complex initiatives",
-        "Product amd brand systems",
+        "Product and brand systems",
         "Ongoing product and brand work",
       ],
       recommended: false,
@@ -133,7 +133,7 @@ export const tiers = {
 // ─── (03) Process ──────────────────────────────────────────────────────────
 export const process = {
   sectionTag: { num: "03", label: "Process" },
-  title: { lead: "How it", accent: "works." },
+  title: { lead: "How it", accent: "works" },
   stages: [
     { n: "I", name: "Talk", desc: "Tell me what you're building, what's changing, or where you're stuck." },
     { n: "II", name: "Shape", desc: "We'll figure out the right scope, team, timeline, and engagement for the work." },

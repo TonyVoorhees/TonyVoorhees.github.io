@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lambda-minimal.netlify.app/sitemap-index.xml
+Sitemap: https://tonyvoorhees.com/sitemap-index.xml
