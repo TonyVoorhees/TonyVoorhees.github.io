@@ -39,7 +39,7 @@ import img07 from "../../assets/work/detail/evgo/evgo-components.png";
     <ul class="list-none p-0 m-0 mt-3 md:mt-4 flex flex-col gap-2">
       <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>70+ pages:</b> Redesigned within one unified system.</p></li>
       <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>100+ components:</b> Built once, designed to scale.</p></li>
-      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>35% more new users:</b> Opened it up from one executive to entire data teams.</p></li>
+      <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>35% more new users:</b> Following the redesign.</p></li>
       <li class="text-body md:text-base flex gap-3 items-baseline"> <span class="font-mono text-micro text-accent">+</span> <p><b>30% higher conversion:</b> Following launch.</p></li>
     </ul>
   </div>
@@ -107,10 +107,25 @@ import img07 from "../../assets/work/detail/evgo/evgo-components.png";
     </h2>
     <dl class="m-0 p-0 border-t border-hairline">
       {[
-        { k: "A clearer path to charging", v: (<> <p>The website became less about presenting information and more about helping drivers make a decision.</p><br /><p>I prioritized the core journey: discover a station, understand availability and pricing, and get moving. Information architecture, navigation, search, station details, and calls to action were redesigned around that path.</p><br /><p>Less browsing. More getting somewhere.</p> </>) },
-        { k: "Product and brand started speaking the same language", v: (<><p>EVgo's visual identity had to work across marketing pages and functional product experiences.</p><br /><p>I carried the same principles across both: typography, color, hierarchy, components, imagery, and interaction patterns. The result was a system that could move from a campaign page to a charging flow without feeling like two different products.</p><br /><p>The brand became part of the product — not decoration around it.</p></>) },
-        { k: "The system became the product", v: (<><p>The redesign expanded the product beyond a single executive persona to support entire data teams.</p><br /><p>I introduced a four-tier permission model, shared conversations, and @mentions so questions could move between Seek and teammates.</p><br /><p>The product became a place to work through questions, not just retrieve answers.</p></>) },
-        { k: "Designed for the real world", v: (<><p>EV charging doesn't happen at a desk.</p><br /><p>Drivers interact with the experience while navigating, standing at a station, checking a charger, managing a session, or planning their next stop.</p><br /><p>That changed how information needed to be prioritized. The interface had to be clear at a glance, resilient across screen sizes, and focused on the decision immediately in front of the driver.</p></>) },
+        { k: "A clearer path to charging", v: (<>
+          <p>The website became less about presenting information and more about helping drivers make a decision.</p><br />
+          <p>I prioritized the core journey: discover a station, understand availability and pricing, and get moving. Information architecture, navigation, search, station details, and calls to action were redesigned around that path.</p><br />
+          <p>Less browsing. More getting somewhere.</p>
+          </>) },
+        { k: "Product and brand started speaking the same language", v: (<>
+          <p>EVgo's visual identity had to work across marketing pages and functional product experiences.</p><br />
+          <p>I carried the same principles across both: typography, color, hierarchy, components, imagery, and interaction patterns. The result was a system that could move from a campaign page to a charging flow without feeling like two different products.</p><br />
+          <p>The brand became part of the product — not decoration around it.</p>
+          </>) },
+        { k: "The system became the product", v: (<>
+          <p>The redesign touched many screens and states, so consistency couldn't rely on individual designers repeatedly making the same decisions.</p><br />
+          <p>I developed reusable patterns across navigation, cards, forms, tables, pricing, account experiences, and responsive layouts. The goal wasn't simply a component library, but a shared visual and interaction language that could scale with the product.</p>     
+          </>) },
+        { k: "Designed for the real world", v: (<>
+          <p>EV charging doesn't happen at a desk.</p><br />
+          <p>Drivers interact with the experience while navigating, standing at a station, checking a charger, managing a session, or planning their next stop.</p><br />
+          <p>That changed how we prioritized information. The interface had to be clear at a glance, resilient across screen sizes, and focused on the decision immediately in front of the driver.</p>
+          </>) },
       ].map((row) => (
         <div class="grid grid-cols-[6.5rem_1fr] md:grid-cols-[1fr_2fr] gap-4 md:gap-8 py-5 md:py-6 border-b border-hairline items-baseline">
           <dt class="font-mono uppercase text-label text-text-muted m-0 tracking-mono-x">{row.k}</dt>
