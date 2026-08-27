@@ -12,7 +12,7 @@ export const meta = {
 
 export const indexCopy = {
   sectionTag: { num: "01", label: "Archive" },
-  title: { lead: "Selected work", accent: "2016→2026" },
+  title: { lead: "Selected work.", accent: "2016→2026" },
 };
 
 /** Filter tab vocabulary. "All" is implicit and always first. */

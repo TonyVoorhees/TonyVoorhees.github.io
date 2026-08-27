@@ -11,7 +11,7 @@ export const meta = {
 // ─── (01) Hero ─────────────────────────────────────────────────────────────
 export const hero = {
   sectionTag: { num: "01", label: "How I do it" },
-  title: { line1: "Product and", accent: "brand design.", line3: "The overlap is the work." },
+  title: { line1: "Product and", accent: "brand design,", line3: "the overlap is the work." },
   body:
   "Twenty-five-plus years in, and this is still where the work I care about most happens. I've learned the best ideas don't stop at the edge of a discipline. They carry through product, brand, and every decision that follows. That's the throughline this studio is built around.",
 };
