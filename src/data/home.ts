@@ -55,7 +55,7 @@ export const servicesPreview = {
   items: [
     { n: "01", name: "Product Design", desc: "From 0 to 1, or picking up where someone else left off." },
     { n: "02", name: "Brand Identity", desc: "Systems that hold up across every surface." },
-    { n: "03", name: "Build & Launch", desc: "Product Design + Branding, moving together." },
+    { n: "03", name: "Launch", desc: "Product Design + Branding, moving together." },
    // { n: "04", name: "Print Production", desc: "Book design, merchandise, and artwork." },
   ],
 };
