@@ -9,7 +9,7 @@ export const site = {
   title: "Tony Voorhees — Design Partner for Founders & Growing Teams",
   description:
     "Design partner for founders and growing teams — product design and brand identity, twenty-five years in. Founder, Tony Voorhees Studio.",
-  url: "https://tonyvoorhees.github.io/",
+  url: "https://tonyvoorhees.com/",
   locale: "en",
   copyright: "© Tony Voorhees Studio",
   address: "Bay Area, CA",
@@ -64,7 +64,7 @@ export const footerGroups: FooterGroup[] = [
   {
     title: "Elsewhere",
     links: [
-      { href: "https://designeddefault.substack.com/", label: "Substack", external: true },
+      { href: "https://designeddefault.com/", label: "Designed Default", external: true },
       { href: "https://www.instagram.com/tonyvoorhees/", label: "Instagram", external: true },
       { href: "https://bsky.app/profile/tonyvoorhees.bsky.social", label: "BlueSky", external: true },
       { href: "https://dribbble.com/tonyvoorhees", label: "Dribbble", external: true },
@@ -83,6 +83,5 @@ export const utilityLinks: { href: string; label: string }[] = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
   { href: "/accessibility", label: "Accessibility" },
-  //{ href: "/colophon", label: "Colophon" },
-  { href: "/styleguide", label: "Style Guide" },
+  //{ href: "/styleguide", label: "Style Guide" },
 ];
