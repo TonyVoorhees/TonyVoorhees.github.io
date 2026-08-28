@@ -69,7 +69,7 @@ export const founder = {
     "I help teams make sense of messy problems, keep product and message pointed in the same direction, and turn good ideas into things people can actually use. My bias is toward sharp thinking, clear systems, and decisions that hold up under pressure.",
   handle: "Full background on LinkedIn",
   link: "https://www.linkedin.com/in/tonyvoorhees/",
-  location: "Tony Voorhees 2026",
+  caption: "Tony Voorhees 2026",
 };
 
 // ─── (04) Team ─────────────────────────────────────────────────────────────
