@@ -110,7 +110,7 @@ export const testimonials = {
       quote:
         "Tony took the chaos in my head and translated it into a brand that actually makes sense to other humans. From early sketches to the site for capeshells.com, he kept everything aligned—product, visuals, messaging—so it feels like one clear, recognizable voice instead of a patchwork of half-finished ideas.",
       name: "Chamyang Unkow",
-      role: "Founder, Cape Atlantis shells",
+      role: "Founder, Cape Atlantis Shells",
     },
   ],
 };
