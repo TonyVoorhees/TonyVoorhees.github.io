@@ -23,8 +23,8 @@ const work = defineCollection({
       chips: z.array(z.string()),
       /** One-line scope summary shown in the sticky info bar. */
       scope: z.string(),
-      /** Recognition / awards line shown in the sticky info bar. "—" if none. */
-      recognition: z.string(),
+      /** Milestone / outcome line shown in the sticky info bar. "—" if none. */
+      milestone: z.string(),
       /** Caption for the placeholder when no image is supplied. */
       img: z.string(),
       /** Order in the /work archive — lower numbers come first. */
