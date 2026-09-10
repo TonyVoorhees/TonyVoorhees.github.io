@@ -31,7 +31,6 @@
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "vite": "^7",
     "js-yaml": "^4.3.0",
     "nanoid": "^3.3.18"
   }
