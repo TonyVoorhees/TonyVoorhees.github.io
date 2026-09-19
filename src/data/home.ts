@@ -86,8 +86,8 @@ export const awards = {
 // ─── (06) Featured journal ─────────────────────────────────────────────────
 /** Slugs of journal entries shown on the home page, featured first. */
 export const featuredJournalSlugs = [
+  "oo-hats",
   "capeshells-online-shop",
-  "onward",
   "beach-day-with-peggy",
 ] as const;
 export const featuredJournal = {
