@@ -14,12 +14,12 @@ import tony from "../../../assets/studio/team/tony.jpg";
       <div class="order-2 md:order-1 max-w-(--container-prose)">
         <h3 class="font-serif font-normal text-3xl md:text-5xl leading-none tracking-snug m-0">{founder.name}</h3>
         <p class="font-mono uppercase text-label text-text-muted mt-3 mb-5 tracking-mono">{founder.role}</p>
-        <p class="text-body leading-body text-text-muted m-0 max-w-3xl">{founder.bio}</p>
+        <p class="m-0 max-w-3xl">{founder.bio}</p>
         <a
           href={founder.link}
           target="_blank"
           rel="noreferrer noopener"
-          class="hover-line font-mono uppercase text-micro tracking-mono mt-6 inline-block"
+          class="border-b border-current hover:border-accent transition-colors duration-300 pb-px mt-6 inline-block"
         >
           {founder.handle} ↗
         </a>
