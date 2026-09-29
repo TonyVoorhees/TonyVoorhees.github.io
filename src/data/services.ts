@@ -49,14 +49,14 @@ export const blocks = [
   {
     n: "03",
     name: "Launch",
-    desc: "A great product still needs a way into the world. Once the product and brand are clear, I help bring them into the world.",
+    desc: "A great product still needs a way into the world—sometimes after the product and brand are already set, sometimes while they're still taking shape. I help bring the work into the world either way.",
     deliverables: [
       "Web design & development",
       "Content direction & messaging",
       "Go-to-market strategy & launch planning",
     ],
     idealFor:
-      "Founders launching a new product or brand from the ground up · Teams that need strategy, design, and a live site in one engagement.",
+      "Founders launching a product or brand, built or still in motion · Teams that need strategy, design, and a live site in one engagement.",
     price: "",
     example: "Wes Moore BMX",
   },
