@@ -1,61 +1,46 @@
 /**
  * Contact page content. Form field config + studio sidebar info.
  *
- * The form has no backend wired up — it lives entirely in Alpine state.
- * Buyers replace the submit handler with their own endpoint (Formspree,
- * a serverless function, Mailchannels, etc.).
+ * The form submissions post to Web3Forms.
  */
 
 export const meta = {
   title: "Contact — Tony Voorhees Studio",
   description:
-    "Start a project with Tony. I read every message and respond promptly. Currently available for new projects.",
+    "Tell me what you're working on. I reply within three business days.",
 };
 
 export const hero = {
   sectionTag: { num: "01", label: "Hello" },
   title: { lead: "Let's", accent: "Talk" },
   body:
-    "I read every message myself, and I respond fast. Tell me what you're working on — we'll figure out what it needs together.",
+    "Tell me what you're working on. I'll tell you what I think it needs.",
 };
 
 export const form = {
+  web3formsKey: "1221707e-761b-4cfa-8cc4-eeab6452ffbb",
   sectionTag: { num: "02", label: "Note" },
-  projectTypes: ["Brand", "Product", "Print", "Web", "Other"] as const,
-  budgets: ["$1–10k", "$10–20k", "$20–30k", "$40–50k", "$50k+"] as const,
-  /** Default selections — the design starts the form with these picked. */
-  defaultProjectType: "Brand",
-  defaultBudget: "$20–30k",
-  consent: "By sending, you agree to a short discovery call within ~72h",
+  projectTypes: ["Product", "Brand", "Product + Brand", "Print", "Web", "Other"] as const,
+  budgets: ["$1–10k", "$10–20k", "$20–30k", "$30–40k", "$40k+"] as const,
+  defaultProjectType: "",
+  defaultBudget: "",
+  consent: "I use your details only to reply.",
   submitLabel: "Send Note",
   thanks: {
-    eyebrow: "Received — thank you",
+    eyebrow: "Received",
     body:
-      "Tony Voorhees will follow up from hello@tonyvoorhees.com.",
+      "I'll write from hello@tonyvoorhees.com. If it's not in your inbox by then, check spam.",
   },
 };
 
 export const studio = {
-  sectionTag: { num: "02", label: "Studio" },
+  sectionTag: { num: "03", label: "Studio" },
   info: [
     { k: "Email", v: "hello@tonyvoorhees.com", link: true },
     { k: "Location", v: "The Bay Area, CA" },
-    /**
-     * { k: "Telephone", v: "" },
-    { k: "Hours", v: "" },
-    { k: "Press & speaking", v: "hello@tonyvoorhees.com", link: true },
-     **/
   ],
   availabilityLabel: "Availability",
   availabilityValue: "Available for select projects.",
-  /**
-   * Studio map — disabled by default. The contact Aside no longer renders it
-   * (see the commented-out map block in
-   * components/sections/contact/Aside.astro). `label` is the alt/caption for
-   * the placeholder map; kept here so re-enabling the block just works. If you
-   * want a real map, drop a Google Maps embed (<iframe>) into that block — you
-   * can reuse this copy as the iframe's title.
-   */
   map: {
     label: "map",
   },
