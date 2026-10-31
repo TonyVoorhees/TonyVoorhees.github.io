@@ -86,9 +86,9 @@ export const awards = {
 // ─── (06) Featured journal ─────────────────────────────────────────────────
 /** Slugs of journal entries shown on the home page, featured first. */
 export const featuredJournalSlugs = [
+  "tidy-owl-intro",
   "two-sides-one-loop",
   "capeshells-online-shop",
-  "beach-day-with-peggy",
 ] as const;
 export const featuredJournal = {
   sectionTag: { num: "05", label: "Journal" },
